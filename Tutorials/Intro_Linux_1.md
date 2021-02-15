@@ -8,6 +8,7 @@
 
 - EDIT
   - update the README and "Home" page to give more info on tutorials
+  - MS Form for feedback
   - include link to TLCL book
   - image at the end
   - include HOW to look up commands
@@ -24,6 +25,7 @@
 - It will be about 1 hour of instruction with an additional 0.5 hours set aside for exercises
 - This can be worked through at a self-directed pace outside of workshop sessions
 - The material is meant for those with little or no experience with Linux
+- This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
 
 ### 1.1 Prerequisite(s)
 
@@ -414,8 +416,8 @@ rm -ivr testdir2
   - What if we want to delete multiple files at once?
 
 <details>
-    <summary><b>Solution</summary>
-        <ul>
+    <summary><b>Solution</b></summary>
+        <ul><b>
             <li> For dissimilar files you can list each one separated by a space </li>
             <li> For common bioinformatics situations where filenames are very similar - we need to use string matching </li>
             <li> A string is generally a collection of characters </li>
