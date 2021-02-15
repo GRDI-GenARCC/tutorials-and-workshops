@@ -1,20 +1,25 @@
-# WIP Template
+WIP Template
 
 WIP Notes
-- Rough template ideas <br></br>
 
-
+- Rough template ideas
+- Questions at the end of each numerical section
+- 
 
 # Title
+
 - Subtitle
+
+[[_TOC_]] <!--This should auto-generate a Table of Contents in gitlab based on headings-->
 
 </br> <!--breaks are nice at the end of each major section-->
 
 <!--For each major section I have a line above, for H1 one is automatically below-->
 ---
-# 1. Overview
+## 1. Overview
 
-1.1 Prerequisite(s):
+### 1.1 Prerequisite(s)
+
 - Required setup or knowledge needed to participate in the tutorial
 
 1.2 Objectives:
@@ -39,19 +44,24 @@ WIP Notes
 - It can be beneficial to have mini-exercises within a subsection, before building into an exercise at the end of the section
 
 ## 3.1 Subsection
-- teach a concept
-- ideally have a mini-exercise about the concept
+- Teach a concept
+- Ideally have a mini-exercise about the concept
+- When an exercise is not necessary but there are commands I use a code block with a designation to "Try it yourself"
+- markdown supports highlighting for most languages, specify after the triple-backtick
+```bash
+mkdir this_tutorial_is_fun
+```
 
-### 3.11 Mini-Exercise
-- have it be self-directed, but with help or hints available
+### 3.11 Exercise
+- Have it be self-directed, but with help or hints available
 
 ## 3.2 Subsection
-- more content
+- More content
 
-### 3.21 Mini-Exercise
-- another mini-exercise
+### 3.21 Exercise
+- Another mini-exercise
 
-## 3.3 Exercise
+## 3.3 Challenge
 - This should be self-directed and fairly short
 - Include instructions but allow for users to explore themselves if applicable
 
