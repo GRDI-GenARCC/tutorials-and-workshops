@@ -1,3 +1,7 @@
+# Introduction to Linux Tutorial Part 2
+
+[[_TOC_]]
+
 ## Mapping out the content
 
 - other simple commands? cal, date
@@ -35,9 +39,7 @@
 
 ---
 
-# Introduction to Linux Tutorial Part 2
 
-[[_TOC_]]
 
 ## WIP Notes
 

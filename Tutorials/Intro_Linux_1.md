@@ -1,4 +1,4 @@
-# Introduction to Linux Tutorial
+# Introduction to Linux Tutorial Part 1
 
 [[_TOC_]]
 
@@ -26,6 +26,7 @@
 - This can be worked through at a self-directed pace outside of workshop sessions
 - The material is meant for those with little or no experience with Linux
 - This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
+  - This is an excellent resource for further study!
 
 ### 1.1 Prerequisite(s)
 
@@ -57,7 +58,7 @@ man <command_name>
 
 ### 1.4 Questions?
 
-</br>
+<br>
 
 ---
 
@@ -68,11 +69,11 @@ man <command_name>
 <details>
     <summary><b>Click to expand</b></summary>
         <p>Linux comes from an early operating system called Unix. Users would connect to multi-user mainframe computers by display and keyboard only. Text is very light-weight compared to graphic user interfaces (GUI). Interacting with an operating system above the computer components was a "shell".</p>
-        <img src="https://cdn-media-1.freecodecamp.org/images/8dQXHBemVAUp4xgVzFqgEHGyNjCsQT0usHBw" alt = "Shell Diagram" style="width:160px;height:100px;"/>
+        <img src="https://cdn-media-1.freecodecamp.org/images/8dQXHBemVAUp4xgVzFqgEHGyNjCsQT0usHBw" alt = "Shell Diagram" width="200"/>
         <p>Users interacted with the system by sending input and receiving output. They used programs or commands in a programming language - initially sh, now bash. Thus the command line has been the basis of Linux systems ever since. It can be confusing to learn but offers the best performance, can be automated with scripts, and many important scientific tools use cli for development.</p>  
-        <br />
+        <br>
 </details>
-</br>
+<br>
 
 ### 2.2 Definitions
 
@@ -108,7 +109,7 @@ NOTE: some organizations use terms more specifically, these are the general defi
 
 ### 2.3 Questions?
 
-<br />
+<br>
 
 ---
 
@@ -128,7 +129,7 @@ NOTE: some organizations use terms more specifically, these are the general defi
   - Typically paste is right-click
   - Sometimes ctrl+shift+c and ctrl+shift+v used for copy and paste respectively
 
-- ### Exercise 3.11
+- #### Exercise 3.11
 
   - Copy some text from outside your shell and paste it into the command line
   - This does not need to execute properly in Linux, in fact it's safer if it doesn't
@@ -159,7 +160,8 @@ PWD
         <li>This also applies to filenames</li></b>
       </ul>
 </details>
-</br>
+
+<br>
 
 ### 3.3 `ls`
 
@@ -197,7 +199,7 @@ ls -a
         <li>-1 to view in one column, </li></b>
       </ul>
 </details>
-</br>
+<br>
 
 ### 3.4 Command Line Arguments
 
@@ -233,14 +235,14 @@ pwd -h
         <li>man cd</li></b>
       </ul>
 </details>
-</br>
+<br>
 
 - `/` by istelf is a critical directory in Linux systems, it is the root directory
   - all other storage branches from this location, even other drives (in /mnt)
 
-<br />
+<br>
 
-### Exercise 3.51
+#### Exercise 3.51
 
 - Try the command(s)
 - Use pwd to see where you are at any point, or look at the prompt
@@ -292,15 +294,15 @@ cd etc
 
 - **Optional** (DO NOT USE in WSL!) - use `clear` to clear your terminal
 
-<br />
+<br>
 
 ### 3.8 - Take a 5 minute break
 
-<br />
+<br>
 
 ---
 
-## 4.0 Instruction part 2
+## 4.0 Instruction Section 2
 
 - Any questions?
 - We will now cover `mkdir`, `touch`, `rm`, and `exit`
@@ -359,7 +361,7 @@ touch file1 file2.txt
     <summary><b>Solution</summary>
         - touch testdir1/filewhatever testdir1/testdir2/filewhatever1</b>
 </details>
-</br>
+<br>
 
 ### 4.3 `rm`
 
@@ -376,7 +378,7 @@ touch file1 file2.txt
     <summary><b>Solution</summary>
         - let's start by using -iv for interactive, verbose</b>
 </details>
-</br>
+<br>
 
 Try the command(s)
 
@@ -402,7 +404,7 @@ rm -iv testdir2
             <li><a>https://en.wikipedia.org/wiki/Recursion_(computer_science)</a></li></b>
         </ul>
 </details>
-</br>
+<br>
 
 Try the command(s)
 
@@ -424,7 +426,7 @@ rm -ivr testdir2
             <li> The asterisk symbol will match zero or more characters </li>
         </p></b>
 </details>
-</br>
+<br>
 
 Try the command(s)
 
@@ -458,7 +460,7 @@ ls
 - When you are finished using the shell, use `exit`
 - This simply ends the shell session
 
-</br>
+<br>
 
 ---
 
@@ -467,8 +469,10 @@ ls
 - There should be about 30 minutes after the workshop to work on these questions and exercises with an instructor available for help if needed
 - These can also be completed at your own pace using the provided materials outside of workshop sessions
 
-
-
 ### Tidbit - The mascot for Linux is Tux
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TuxFlat.svg/800px-TuxFlat.svg.png" alt = "Tux" style="width:71.2px;height:86px;"/>
+- Test if this works in gitlab
+
+![Tux](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TuxFlat.svg/800px-TuxFlat.svg.png "Tux" {width=71px height=86px})
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TuxFlat.svg/800px-TuxFlat.svg.png" alt = "Tux" width="150"/>
