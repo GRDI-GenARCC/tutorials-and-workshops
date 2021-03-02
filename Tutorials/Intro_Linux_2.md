@@ -173,7 +173,8 @@ type type
 
 - In bioinformatics files can be extremely large, a way to be more efficient is to use symlinks so a file is not duplicated needlessly
 - The `ln` command can create links, as always let's look at the options using `--help`
-  - For this command we only really need `-s`, it is preferable to use symbolic (aka soft) links
+  - For this command we only really need `-s`, it is generally preferable to use symbolic (aka soft) links
+- 
 
 
 

@@ -29,6 +29,8 @@
 ### 1.1 Prerequisite(s)
 
 - Shell environment (WSL, Biocluster, cocalc, MobaXTerm-local)
+- **Discuss** 
+  - Linux environments
 
 ### 1.2 Objectives
 
@@ -130,6 +132,7 @@ NOTE: some organizations use terms more specifically, these are the general defi
 - **copy/paste** - this can depend on which terminal you are using, and the configurations
   - Typically paste is right-click
   - Sometimes ctrl+shift+c and ctrl+shift+v used for copy and paste respectively
+- **ctrl+c** - interrupt/kill the current process in the terminal
 
 - #### Exercise 3.11
 
@@ -408,8 +411,8 @@ rm -iv filewhatever #substitute whichever filename you used
 rm -iv testdir2
 ```
 
-- \# is used to comment out code in bash, any text in the same line will not be executed
-- It is used in python and other languages as well
+- \# is used to comment out code in bash, any text after the \# in the same line will not execute
+- It is used as a line comment in python and some other languages
 
 - **Discussion**
   - why didn't the last command work?
@@ -494,7 +497,7 @@ ls
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
 
-- When could you pwd be different from the actual directory you are in?
+- When could your pwd be different from the actual directory you are in?
 - When using `ls -l` what do the symbols 
 
 <br>
