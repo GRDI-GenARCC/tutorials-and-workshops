@@ -1,4 +1,4 @@
-# Introduction to Linux Tutorial
+# Introduction to Linux Tutorial Part 1
 
 [[_TOC_]]
 
@@ -9,11 +9,8 @@
 - EDIT
   - update the README and "Home" page to give more info on tutorials
   - MS Form for feedback
-  - include link to TLCL book
-  - image at the end
   - include HOW to look up commands
   - short guide about how to get CLI (biocluster, WSL)
-  - expand the overview to be more specific
   - 'shadowbox' questions and answers
   - Intro_Linux_0 - show roadmap of each tutorial/session
 
@@ -24,12 +21,16 @@
 - This tutorial is designed to be delivered in a virtual group setting as part one of three sessions
 - It will be about 1 hour of instruction with an additional 0.5 hours set aside for exercises
 - This can be worked through at a self-directed pace outside of workshop sessions
+- These are not perfect tutorials, please leave an issue on GitLab to highlight areas that need improvement
 - The material is meant for those with little or no experience with Linux
 - This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
+  - This is an excellent resource for further study!
 
 ### 1.1 Prerequisite(s)
 
 - Shell environment (WSL, Biocluster, cocalc, MobaXTerm-local)
+- **Discuss** 
+  - Linux environments
 
 ### 1.2 Objectives
 
@@ -55,9 +56,9 @@ man <command_name>
 
 - more documentation at [manual-pages](https://www.kernel.org/doc/man-pages/)
 
-### 1.4 Questions?
+### 1.4 Questions
 
-</br>
+<br>
 
 ---
 
@@ -68,11 +69,12 @@ man <command_name>
 <details>
     <summary><b>Click to expand</b></summary>
         <p>Linux comes from an early operating system called Unix. Users would connect to multi-user mainframe computers by display and keyboard only. Text is very light-weight compared to graphic user interfaces (GUI). Interacting with an operating system above the computer components was a "shell".</p>
-        <img src="https://cdn-media-1.freecodecamp.org/images/8dQXHBemVAUp4xgVzFqgEHGyNjCsQT0usHBw" alt = "Shell Diagram" style="width:160px;height:100px;"/>
-        <p>Users interacted with the system by sending input and receiving output. They used programs or commands in a programming language - initially sh, now bash. Thus the command line has been the basis of Linux systems ever since. It can be confusing to learn but offers the best performance, can be automated with scripts, and many important scientific tools use cli for development.</p>  
-        <br />
+        <img src="https://cdn-media-1.freecodecamp.org/images/8dQXHBemVAUp4xgVzFqgEHGyNjCsQT0usHBw" alt = "Shell Diagram" width="200"/>
+        <p>Users interacted with the system by sending input and receiving output. They used programs or commands in a programming language - initially sh, now bash. Thus the command line has been the basis of Linux systems ever since. It can be confusing to learn but offers the best performance, can be automated with scripts, and many important scientific tools use the CLI for development.</p>  
+        <br>
 </details>
-</br>
+
+<br>
 
 ### 2.2 Definitions
 
@@ -82,7 +84,7 @@ NOTE: some organizations use terms more specifically, these are the general defi
   - text session where the user enters commands with optional arguments. Output is displayed from the operating system (OS).
 - shell
   - a text-mode application containing a CLI to the OS
-  - note that in casual usage, shell, prompt, terminal, and console all refer to the same thing
+  - note that in casual usage - shell, prompt, terminal, and console all typically refer to the same thing
 - console application
   - a command line program that functions without a required graphical interface
 - bash
@@ -106,16 +108,19 @@ NOTE: some organizations use terms more specifically, these are the general defi
 - GUI (pronounced gooey)
   - graphical user interface
 
-### 2.3 Questions?
+### 2.3 Questions
 
-<br />
+<br>
 
 ---
 
-## 3.0 Instruction part 1
+## 3.0 Instruction
 
 - In a Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
 - If you are in Ubuntu in WSL or connected to the Biocluster, you're already using CLI
+- Another option for simple access to a terminal is using [MobaXTerm](https://mobaxterm.mobatek.net/) in "local" mode
+
+<br>
 
 ### 3.1 Basic Navigation
 
@@ -127,14 +132,17 @@ NOTE: some organizations use terms more specifically, these are the general defi
 - **copy/paste** - this can depend on which terminal you are using, and the configurations
   - Typically paste is right-click
   - Sometimes ctrl+shift+c and ctrl+shift+v used for copy and paste respectively
+- **ctrl+c** - interrupt/kill the current process in the terminal
 
-- ### Exercise 3.11
+- #### Exercise 3.11
 
   - Copy some text from outside your shell and paste it into the command line
   - This does not need to execute properly in Linux, in fact it's safer if it doesn't
   - Feel free to use text from this tutorial  
 
 - We will learn to use these other navigation shortcuts throughout the tutorial
+
+<br>
 
 ### 3.2 `pwd`
 
@@ -159,16 +167,18 @@ PWD
         <li>This also applies to filenames</li></b>
       </ul>
 </details>
-</br>
+
+<br>
 
 ### 3.3 `ls`
 
 - **`ls` - list directory contents**
   - Shows the files and directories of a given location (defaults to pwd unless specified)
   - This is a shortcut for `ll -s` (we will explore `ll` later)
-  - The `-s` is a **command line argument**
-  - These arguments give flexibility and options to commands
+  - The `-s` is a **command option**
+  - These options give flexibility to commands
   - Not restricted to your current directory, can specify a location to use `ls` without changing your `cwd`
+  - The directory that is specified at the end of the command is a **command argument**
 
 Try the command(s)
 
@@ -177,10 +187,12 @@ ls
 ll -s
 ls /usr/bin
 ls -a
+ls -a /bin
 ```
 
 - `ls -a` uses the option to see all contents, including hidden files and folders that start with a `.`
   - `.bash_history` in your home directory (your 'user' folder)
+- `ls -a /bin` combines an option `-a` with an argument `/bin`
 
 - **Discussion**
   - What are some other arguments we can use with `ls`?
@@ -197,7 +209,8 @@ ls -a
         <li>-1 to view in one column, </li></b>
       </ul>
 </details>
-</br>
+
+<br>
 
 ### 3.4 Command Line Arguments
 
@@ -213,6 +226,8 @@ pwd -h
 - These arguments can enhance the usage of a command - giving options to make them visible, or ask for inputs, etc.
 - Usually not required, but for some commands they are necessary
 - These arguments can be used together, for instance `ls -1hast` will display all contents in one column sorted by last modification time with the "human readable" size listed as well
+
+<br>
 
 ### 3.5 `cd`
 
@@ -233,14 +248,15 @@ pwd -h
         <li>man cd</li></b>
       </ul>
 </details>
-</br>
+
+<br>
 
 - `/` by istelf is a critical directory in Linux systems, it is the root directory
   - all other storage branches from this location, even other drives (in /mnt)
 
-<br />
+<br>
 
-### Exercise 3.51
+#### Exercise 3.51
 
 - Try the command(s)
 - Use pwd to see where you are at any point, or look at the prompt
@@ -292,18 +308,22 @@ cd etc
 
 - **Optional** (DO NOT USE in WSL!) - use `clear` to clear your terminal
 
-<br />
+<br>
 
-### 3.8 - Take a 5 minute break
+### 3.8 Break
 
-<br />
+- Take a 5 minute break
+
+<br>
 
 ---
 
-## 4.0 Instruction part 2
+## 4.0 Instruction
 
 - Any questions?
 - We will now cover `mkdir`, `touch`, `rm`, and `exit`
+
+<br>
 
 ### 4.1 `mkdir`
 
@@ -333,6 +353,8 @@ mkdir -v testingdir0 testingdir1
 - **Discussion**
   - What is the resulting difference in these two commands?
 
+<br>
+
 ### 4.2 `touch`
 
 - Change file timestamps
@@ -350,7 +372,7 @@ touch file1 file2.txt
 - We will look at other operators in part 2 and 3
 - File types must be assigned manually (`.txt` `.fastq` `.md` etc.)
 
-### Exercise 4.21
+#### Exercise 4.21
 
 - Create a file in testdir1 and testdir2 at the same time
 - Name these files whatever you would like
@@ -359,7 +381,8 @@ touch file1 file2.txt
     <summary><b>Solution</summary>
         - touch testdir1/filewhatever testdir1/testdir2/filewhatever1</b>
 </details>
-</br>
+
+<br>
 
 ### 4.3 `rm`
 
@@ -376,7 +399,8 @@ touch file1 file2.txt
     <summary><b>Solution</summary>
         - let's start by using -iv for interactive, verbose</b>
 </details>
-</br>
+
+<br>
 
 Try the command(s)
 
@@ -387,8 +411,8 @@ rm -iv filewhatever #substitute whichever filename you used
 rm -iv testdir2
 ```
 
-- \# is used to comment out code in bash, any text in the same line will not be executed
-- It is used in python and other languages as well
+- \# is used to comment out code in bash, any text after the \# in the same line will not execute
+- It is used as a line comment in python and some other languages
 
 - **Discussion**
   - why didn't the last command work?
@@ -402,7 +426,8 @@ rm -iv testdir2
             <li><a>https://en.wikipedia.org/wiki/Recursion_(computer_science)</a></li></b>
         </ul>
 </details>
-</br>
+
+<br>
 
 Try the command(s)
 
@@ -419,12 +444,13 @@ rm -ivr testdir2
     <summary><b>Solution</b></summary>
         <ul><b>
             <li> For dissimilar files you can list each one separated by a space </li>
-            <li> For common bioinformatics situations where filenames are very similar - we need to use string matching </li>
+            <li> For common bioinformatics situations where filenames are very similar - we need to use wildcard matching </li>
             <li> A string is generally a collection of characters </li>
             <li> The asterisk symbol will match zero or more characters </li>
         </p></b>
 </details>
-</br>
+
+<br>
 
 Try the command(s)
 
@@ -453,22 +479,31 @@ ls
 - This is a very basic form of regular expressions (RegEx), which are very difficult but useful tools to filter through files or anything related to strings or expressions
 - We will not cover regex in any of the tutorials, but you are welcome to look it up for yourself
 
+<br>
+
 ### 4.4 `exit`
 
 - When you are finished using the shell, use `exit`
 - This simply ends the shell session
 
-</br>
+<br>
 
 ---
 
 ## 5.0 Challenge Exercises
 
-- There should be about 30 minutes after the workshop to work on these questions and exercises with an instructor available for help if needed
-- These can also be completed at your own pace using the provided materials outside of workshop sessions
+- There should be about 30 minutes after each workshop to work on these questions and exercises with an instructor available for help if needed
+- These can also be completed at your own pace outside of workshop sessions
+- Answers can be obtained from the tutorial material or by using the bash commands
+  - Some questions will invite you to research on the internet to give greater context or understanding
 
+- When could your pwd be different from the actual directory you are in?
+- When using `ls -l` what do the symbols 
 
+<br>
 
-### Tidbit - The mascot for Linux is Tux
+## Fun Fact
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TuxFlat.svg/800px-TuxFlat.svg.png" alt = "Tux" style="width:71.2px;height:86px;"/>
+- The mascot for Linux is Tux
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TuxFlat.svg/800px-TuxFlat.svg.png" alt = "Tux" width="150"/>

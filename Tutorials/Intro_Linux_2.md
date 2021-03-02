@@ -1,3 +1,7 @@
+# Introduction to Linux Tutorial Part 2
+
+[[_TOC_]]
+
 ## Mapping out the content
 
 - other simple commands? cal, date
@@ -34,10 +38,6 @@
 - variables
 
 ---
-
-# Introduction to Linux Tutorial Part 2
-
-[[_TOC_]]
 
 ## WIP Notes
 
@@ -134,6 +134,81 @@ Try the command(s)
 pwd
 mv -iv file0 file00
 mv -iv file00 insidedir/
+```
+
+<br>
+
+### 3.2 `ll`, `type`, and `alias`
+
+- The long listing format of `ls`, exactly the same as `ls -l`
+- `ll --help` lists the info for `ls`
+- `type` will determine if a command is an `alias` that has been set
+- `alias` can be used to shortcut commands to simpler or alternate commands
+  - We will not cover how to alias commands, use caution and look this up yourself if you wish to know more
+
+Try the command(s)
+
+```bash
+type ll
+type ls
+type type
+```
+
+- **Discussion**
+  - What are the built-in options for `ll`?
+  - What do they do?
+
+- `ll` is important for understanding more about files in our systems
+- In the output there is a 10-character section comprising of certain letters or dashes (-) indicating file permissions
+  - The first digit is usually `l`, `d`, or `-` meaning link, directory, or file
+  - `rwx` stand for read, write, execute respectively
+    - The 3 instances of them mean `owner`, `group`, and `other`
+  - The digit is the number of hard links
+  - Username of the files owner
+  - Group that owns the file
+  - Size in bytes
+  - Date and time of last modification
+
+### 3.2 Symbolic Links (symlinks)
+
+- In bioinformatics files can be extremely large, a way to be more efficient is to use symlinks so a file is not duplicated needlessly
+- The `ln` command can create links, as always let's look at the options using `--help`
+  - For this command we only really need `-s`, it is generally preferable to use symbolic (aka soft) links
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+- A common bioinformatics usage would be to determine which python interpreter you are using
+
+Try the command(s)
+```bash
+which ll
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 - There are shortcuts to help navigate the CLI. These shortcuts range from simple to complex, but all make for a much greater shell experience.
