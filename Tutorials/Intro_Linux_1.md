@@ -2,34 +2,28 @@
 
 [[_TOC_]]
 
-## WIP Notes
-
-- search EDIT inside the doc to highlight questions or comments. File issues with gitlab to discuss them.
-
-- EDIT
-  - update the README and "Home" page to give more info on tutorials
-  - include HOW to look up commands
-  - 'shadowbox' questions and answers
-  - Intro_Linux_0 - show roadmap of each tutorial/session
-
 ---
 
 ## 1. Overview
 
-- Introduction
-- This tutorial is designed to be delivered in a virtual group setting as part one of three sessions
-- It will be about 1 hour of instruction with an additional 0.5 hours set aside for exercises
-- This can be worked through at a self-directed pace outside of workshop sessions
-- These are not perfect tutorials, please leave an issue on GitLab to highlight areas that need improvement
-- The material is meant for those with little or no experience with Linux
+- Introduction and BRSN
+- Review of "Home" page or README
+
+<br>
+
+- The material is meant for those with little or no experience with Linux, but can be helpful for intermediate users as well
+  - These session are introductory, it takes time and practice to become proficient with Linux (as with any new technology skill)
+  - Patience for both instructors and learners will help everyone achieve their best results
+  - Many users have great expertise in other areas of science, this is the beginning of process to gain yet another area of expertise
 - This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
   - This is an excellent resource for further study!
 
 ### 1.1 Prerequisite(s)
 
 - Shell environment (WSL, Biocluster, cocalc, MobaXTerm-local)
-- **Discuss** 
-  - Linux environments
+- **Discuss**
+  - Which Linux environments are you using? Poll in the chat
+  - Warning for MobaXterm local sessions
 
 ### 1.2 Objectives
 
@@ -41,13 +35,18 @@
 ### 1.3 Commands covered in this session
 
 - `pwd`, `cd`, `ls`, `mkdir`, `touch`, `rm`, and `exit`
-- information about these commands can be accessed within a terminal by using
+- **As this is the very first session we may not cover all the planned material**
+  - This will be adjusted over the next 2 sessions if necessary
+- It is arguably more important to learn how to use commands than to learn the commands themself
+  - Learning how to learn
+- Information about commands can usually be accessed within a terminal by using:
 
 ```bash
 man <command_name>
 ```
 
-- a shorter summary can often be found by using
+- Not all systems have manual entries for all commands
+- A shorter summary can often be found by using
 
 ```bash
 <command_name> --help
@@ -69,7 +68,7 @@ man <command_name>
     <summary><b>Click to expand</b></summary>
         <p>Linux comes from an early operating system called Unix. Users would connect to multi-user mainframe computers by display and keyboard only. Text is very light-weight compared to graphic user interfaces (GUI). Interacting with an operating system above the computer components was a "shell".</p>
         <img src="https://cdn-media-1.freecodecamp.org/images/8dQXHBemVAUp4xgVzFqgEHGyNjCsQT0usHBw" alt = "Shell Diagram" width="200"/>
-        <p>Users interacted with the system by sending input and receiving output. They used programs or commands in a programming language - initially sh, now bash. Thus the command line has been the basis of Linux systems ever since. It can be confusing to learn but offers the best performance, can be automated with scripts, and many important scientific tools use the CLI for development.</p>  
+        <p>Users interacted with the system by sending input and receiving output. Multiple users could use the system simultaneously. They used programs or commands in a programming language - initially sh (shell, or Bourne shell), now bash ("Bourne again shell"). Thus the command line has been the basis of Linux systems ever since. It can be confusing to learn but offers the best performance, can be automated with scripts, and many important scientific tools use the CLI for development.</p>  
         <br>
 </details>
 
@@ -77,35 +76,35 @@ man <command_name>
 
 ### 2.2 Definitions
 
-NOTE: some organizations use terms more specifically, these are the general definitions
+NOTE: Some organizations use terms more specifically, these are the general definitions.
 
-- command line interface
-  - text session where the user enters commands with optional arguments. Output is displayed from the operating system (OS).
-- shell
-  - a text-mode application containing a CLI to the OS
-  - note that in casual usage - shell, prompt, terminal, and console all typically refer to the same thing
-- console application
-  - a command line program that functions without a required graphical interface
-- bash
-  - commonly distributed shell, or command language interpreter for Linux
-  - an enhanced version of the original, called sh
+- Command line interface
+  - Text session where the user enters commands with options and arguments. Output is displayed from the operating system (OS).
+- Shell
+  - A text-mode application containing a CLI to the OS
+  - Note that in casual usage - shell, prompt, terminal, and console all typically refer to the same thing
+- Console application
+  - A command line program that functions without a required graphical interface
+- Bash
+  - Commonly distributed shell, or command language interpreter for Linux
+  - An enhanced version of the original sh (Bourne shell)
 - Ubuntu
-  - a popular Linux distribution (distro) based on Debian (another distro)
-  - widely used and considered to be very user friendly
-- terminal
-  - often used synonymously with shell
-  - more accurately - the terminal gives access to the shell
-  - can refer to the software that hosts the shell/CLI
-  - can also refer to the physical hardware used to interface with the OS
-- prompt
-  - short for command prompt, refers to the small section preceeding a command
-  - in bash this has:
-    - user
-    - name of the computer
-    - current directory (folder)
-    - usually ends with $
+  - A popular Linux distribution (distro) based on Debian (another distro)
+  - Widely used and considered to be very user friendly
+- Terminal
+  - Often used synonymously with shell
+  - More accurately - the terminal gives access to the shell
+  - Can refer to the software that hosts the shell/CLI
+  - Can also refer to the physical hardware used to interface with the OS
+- Prompt
+  - Short for command prompt, refers to the small section preceeding a command
+  - In bash this has:
+    - User
+    - Name of the computer
+    - Current directory (folder)
+    - Usually ends with $
 - GUI (pronounced gooey)
-  - graphical user interface
+  - Graphical user interface
 
 ### 2.3 Questions
 
@@ -117,7 +116,6 @@ NOTE: some organizations use terms more specifically, these are the general defi
 
 - In a Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
 - If you are in Ubuntu in WSL or connected to the Biocluster, you're already using CLI
-- Another option for simple access to a terminal is using [MobaXTerm](https://mobaxterm.mobatek.net/) in "local" mode
 
 <br>
 
@@ -163,7 +161,7 @@ PWD
     <summary><b>Solution</summary>
       <ul>
         <li>Linux is case sensitive, only the exact command will work</li>
-        <li>This also applies to filenames</li></b>
+        <li>This also applies to filenames and directories</li></b>
       </ul>
 </details>
 
@@ -176,7 +174,7 @@ PWD
   - This is a shortcut for `ll -s` (we will explore `ll` later)
   - The `-s` is a **command option**
   - These options give flexibility to commands
-  - Not restricted to your current directory, can specify a location to use `ls` without changing your `cwd`
+  - Not restricted to your current directory, can specify a location to use `ls` without changing your `pwd`
   - The directory that is specified at the end of the command is a **command argument**
 
 Try the command(s)
@@ -190,11 +188,11 @@ ls -a /bin
 ```
 
 - `ls -a` uses the option to see all contents, including hidden files and folders that start with a `.`
-  - `.bash_history` in your home directory (your 'user' folder)
-- `ls -a /bin` combines an option `-a` with an argument `/bin`
+  - eg. `.bash_history` in your home directory (your 'user' folder)
+- `ls -a /bin` combines an option, `-a`, with an argument, `/bin`
 
 - **Discussion**
-  - What are some other arguments we can use with `ls`?
+  - What are some other options we can use with `ls`?
   - How do they help?
 
 <details>
@@ -211,7 +209,7 @@ ls -a /bin
 
 <br>
 
-### 3.4 Command Line Arguments
+### 3.4 Command Line Options and Arguments
 
 - these are important for basic linux and especially in scientific tools
 - a good way to learn them is to use the `--help` argument before attempting to use a command
@@ -221,10 +219,10 @@ pwd --help
 pwd -h
 ```
 
-- `-h` is often a shortcut for `--help` but can also have a meaning as an argument, use caution and know the arguments before using a command
-- These arguments can enhance the usage of a command - giving options to make them visible, or ask for inputs, etc.
+- `-h` is often a shortcut for `--help` but can also have a meaning as an argument, use caution and check the options before using a command
+- These options can enhance the usage of a command - displaying the changes, or asking for inputs, etc.
 - Usually not required, but for some commands they are necessary
-- These arguments can be used together, for instance `ls -1hast` will display all contents in one column sorted by last modification time with the "human readable" size listed as well
+- These options can be used together, for instance `ls -1hast` will display all contents in one column sorted by last modification time with the "human readable" size listed as well
 
 <br>
 
@@ -235,16 +233,15 @@ pwd -h
   - The directory location `/` is **root**, there are no separate 'drives' like in Windows
 - `.` is your current dir (a single dot character)
 - `..` will go to parent (two dots)
-- Also helpful, `cd -` will go to the previous directory
+- Also helpful, `cd -` (cd 'dash') will go to the previous directory
 
 - **Discussion**
-  - How do you view the command line arguments for `cd`
+  - How do you view the command line options for `cd`
 
 <details>
     <summary><b>Solution</summary>
       <ul>
-        <li>cd --help</li>
-        <li>man cd</li></b>
+        <li>cd --help</li></b>
       </ul>
 </details>
 
@@ -285,7 +282,7 @@ cd etc
 ### Challenge 3.6
 
 - Find a system folder called "apt" using the commands from this session
-- Exploration only. DO NOT modify anything, just navigate directories and check for contents
+- Exploration only. DO NOT try to modify anything - just navigate directories and check for contents
 
 <details>
   <summary><b>Solution</b></summary>
@@ -303,7 +300,7 @@ cd etc
 - '~' refers to /home/USERNAME/
 - To find username use `whoami`
 
-- **Optional** (DO NOT USE in WSL!) - use `clear` to clear your terminal
+- **Optional** (Do not use in WSL terminal!) - use `clear` to clear your terminal
 
 <br>
 
@@ -325,7 +322,7 @@ cd etc
 ### 4.1 `mkdir`
 
 - This command is short for 'make directories'
-- View the documentation using `man mkdir`
+- View the information using `mkdir --help`
 - It is best to only use arguments if you understand the consequences
 
 Try the command(s)
@@ -337,7 +334,7 @@ mkdir -v testdir
 
 - **Discussion**
   - What does `-v` add to this command?
-  - (This a very useful argument for many commands)
+    - (This a very useful argument for many commands)
   - What should we use to create multiple nested directories?
 
 Additional commands
@@ -387,7 +384,7 @@ touch file1 file2.txt
 - Linux gives users great freedom - one of the great aspects of this OS
   - However this comes with the drawback that mistakes are not prevented, you can delete important files and the system may not stop you
 - `rm` is used to 'remove files or directories'
-- Let's view documentation with `man rm`
+- Let's view some information with `rm --help`
 
 - **Question**
   - which arguments should we use to be cautious when deleting files?
@@ -409,7 +406,7 @@ rm -iv testdir2
 ```
 
 - \# is used to comment out code in bash, any text after the \# in the same line will not execute
-- It is used as a line comment in python and some other languages
+- It is also used as a line comment in python and some other languages
 
 - **Discussion**
   - why didn't the last command work?
@@ -461,9 +458,9 @@ ls
 ```
 
 - The curly braces `{}` can be used to generate sequences
-  - There are many creative ways to do this, search for guides on the internet
+  - There are many creative ways to do this, we will cover some of them in future sessions
 - This dir is getting a bit cluttered, let's remove all the files we just created
-- Be **VERY** careful when using `*` in an `rm` command
+- Be **careful** when using `*` in an `rm` command
 
 Try the command(s)
 
@@ -494,8 +491,24 @@ ls
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
 
-- When could your pwd be different from the actual directory you are in?
-- When using `ls -l` what do the symbols 
+<br>
+
+### 5.1 Questions
+
+1. When could your pwd be different from the actual directory you are in?
+2. How do you view hidden files? What are some of the hidden files in your home directory?
+3. 
+
+<details>
+    <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
+        <ul><b>
+            <li> 1. This can occur during a script, the working directory can vary depending on the files that are being altered </li>
+            <li> 2. Using the command `ls -a`. Files relating your bash shell such as .bash_history, .bashrc, and .bash_logout are common </li>
+            <li> A string is generally a collection of characters </li>
+            <li> The asterisk symbol will match zero or more characters </li>
+        </p></b>
+</details>
+
 
 <br>
 

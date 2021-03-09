@@ -4,6 +4,9 @@
 
 ## Mapping out the content
 
+- List of other resources?
+- Intro_Linux_0 - show roadmap of each tutorial/session
+- HOW to look up commands
 - other simple commands? cal, date
 
 ## Part 3
@@ -16,6 +19,7 @@
 - df
 - nano (incl. cursor tricks)
 - environment
+- conda??
 
 ---
 
@@ -331,3 +335,8 @@ echo \\
 - chmod (review rm with -f - challenge question)
 - wildcard
 - cursor mvmt (ch 8)
+
+
+## Fun Fact
+
+- Astronauts use Linux - they can't open Windows in space!
