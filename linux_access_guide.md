@@ -2,7 +2,9 @@
 
 March 8, 2021
 
-This workshop requires a bash terminal, which can be obtained in several ways. Each method will have a guide below
+This workshop requires a bash terminal, which can be obtained in several ways. Each method will have a guide below.
+
+**Only one of these options is required**. We will discuss this guide during the first workshop session.
 
 1. Biocluster account
 2. Online terminal

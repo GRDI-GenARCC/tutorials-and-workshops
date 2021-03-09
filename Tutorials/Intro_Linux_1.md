@@ -8,9 +8,7 @@
 
 - EDIT
   - update the README and "Home" page to give more info on tutorials
-  - MS Form for feedback
   - include HOW to look up commands
-  - short guide about how to get CLI (biocluster, WSL)
   - 'shadowbox' questions and answers
   - Intro_Linux_0 - show roadmap of each tutorial/session
 
@@ -18,6 +16,7 @@
 
 ## 1. Overview
 
+- Introduction
 - This tutorial is designed to be delivered in a virtual group setting as part one of three sessions
 - It will be about 1 hour of instruction with an additional 0.5 hours set aside for exercises
 - This can be worked through at a self-directed pace outside of workshop sessions
@@ -297,8 +296,6 @@ cd etc
       <li>apt will be discussed in part 3</li></b>
 </details>
 <br/>
-
----
 
 ### 3.7 Discussion
 
