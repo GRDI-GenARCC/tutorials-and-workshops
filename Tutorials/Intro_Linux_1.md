@@ -497,14 +497,17 @@ ls
 
 1. When could your pwd be different from the actual directory you are in?
 2. How do you view hidden files? What are some of the hidden files in your home directory?
-3. 
+3. How would create directories 'dirA' through 'dirZ' with one command?
+4. How would you remove these directories with one command?
+5. 
 
 <details>
     <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
         <ul><b>
             <li> 1. This can occur during a script, the working directory can vary depending on the files that are being altered </li>
             <li> 2. Using the command `ls -a`. Files relating your bash shell such as .bash_history, .bashrc, and .bash_logout are common </li>
-            <li> A string is generally a collection of characters </li>
+            <li> 3. `mkdir dir{A..Z}` </li>
+            <li> 4. `rm -rIv` --> the I is for an interactive prompt, but now it only asks once for all the dirs together </li>
             <li> The asterisk symbol will match zero or more characters </li>
         </p></b>
 </details>
@@ -517,3 +520,6 @@ ls
 - The mascot for Linux is Tux
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TuxFlat.svg/800px-TuxFlat.svg.png" alt = "Tux" width="150"/>
+
+- The document you are reading is made with a language called "Markdown", if you view the source in the main repo you will see what the unformatted version looks like
+  - The expansion sections are written using raw html
