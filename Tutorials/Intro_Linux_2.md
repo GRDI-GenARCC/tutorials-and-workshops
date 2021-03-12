@@ -2,71 +2,48 @@
 
 [[_TOC_]]
 
-## Mapping out the content
-
-- List of other resources?
-- Intro_Linux_0 - show roadmap of each tutorial/session
-- HOW to look up commands
-- other simple commands? cal, date
-
-## Part 3
-
-- review
-- head/tail
-- apt
-- grep
-- piping
-- df
-- nano (incl. cursor tricks)
-- environment
-- conda??
-
----
-
-## WIP Notes
-
-- search EDIT inside the doc to highlight questions or comments. File issues with gitlab to discuss them.
-
-- EDIT
-  - These are for EDITs to part 2
-
 ---
 
 ## 1. Overview
 
-- This tutorial is designed to be delivered in a virtual group setting as part two of three sessions
-- It will be about 1 hour of instruction with an additional 0.5 hours set aside for exercises
-- This can be worked through at a self-directed pace outside of workshop sessions
-- The material is meant for those with little or no experience with Linux
+- This is **part two** of three sessions designed to be delivered in a virtual group setting
+- It will be about 1 hour of instruction with an additional 0.5 hours set aside for extra material and questions
+- This can also be worked through at a self-directed pace outside of workshop sessions
+- The material is meant for those with little or no experience with Linux, but can be helpful for intermediate users as well
 
 ### 1.1 Prerequisite(s)
 
-- Shell environment (WSL, Biocluster, cocalc, MobaXTerm-local)
 - Completion of Intro to Linux part 1 (or at least familiarity of the material)
+- Shell environment (WSL, Biocluster, online terminal, MobaXTerm-local)
 
 ### 1.2 Objectives
 
 - Overall objective --> build a foundation of skills to be confident in using bioinformatics tools in Linux
-- This session will focus on file navigation and simple commands
-- EDIT - more?
+- This session will focus on manipulating files and directories
+  - Other snippits will be included such as operators and line comments
 
 ### 1.3 Commands and topics covered in this session
 
 - **Commands**
-  - `mv`, `less`, `cat`, `more`, `file`, `chmod`, `ll`, `echo`
+  - `whatis`, `mkdir`, `touch`, `rm`, `rmdir`
 - **Topics**
   - symbolic links (symlinks), operators, wildcards
 
-- information about commands can be accessed within a terminal by using
+- Reminder: information about commands can be accessed within a terminal by using
 
 ```bash
 man <command_name>
+<command_name> --help
 ```
 
-- a shorter summary can often be found by using
+- An extremely simple help command that can be useful is `whatis`
+- Outputs a single line summary of what a command does
 
 ```bash
-<command_name> --help
+whatis <command_name>
+whatis ls
+whatis whatis
+whatis mkdir
 ```
 
 - more documentation at [manual-pages](https://www.kernel.org/doc/man-pages/)
@@ -80,263 +57,290 @@ man <command_name>
 ## 2. Review
 
 - Review of part 1
-- `pwd`, `cd`, `ls`, `mkdir`, `touch`, `rm`, and `exit`
-
-<br />
-
----
-
-## 3.0 Instruction part 1
-
-- In a Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
-- If you are in Ubuntu in WSL or connected to the Biocluster, you're already using CLI
-
-### 3.1 `mv`
-
-- **`mv` - move and rename files**
-  - This command can either move or rename a file, it all depends on how it is used
-  - View the help text for the command with `mv --help`
-  - Moving a file within the same directory will rename the file
-  - Moving file(s) to another dir will move the file(s)
-  - We need a test directory to manipulate files safely, let's do this first
-
-Try the command(s)
-
-```bash
-cd && ls
-mkdir -pv testdir/insidedir && cd testdir
-touch file0 insidedir/file1
-```
-
-- Now we're ready to use `mv`
-- What are the arguments we should include?
-- Start in testdir
-
-Try the command(s)
-
-```bash
-pwd
-mv -iv file0 file00
-mv -iv file00 insidedir/
-```
+  - History of Linux and definitions
+  - Command line options and arguments
+  - `--help`, `man`, `pwd`, `cd`, `ls`, `clear`, and `exit`
 
 <br>
 
-### 3.2 `ll`, `type`, and `alias`
-
-- The long listing format of `ls`, exactly the same as `ls -l`
-- `ll --help` lists the info for `ls`
-- `type` will determine if a command is an `alias` that has been set
-- `alias` can be used to shortcut commands to simpler or alternate commands
-  - We will not cover how to alias commands, use **caution** and look this up yourself if you wish to know more
-
-Try the command(s)
-
-```bash
-type ll
-type ls
-type type
-```
-
-- **Discussion**
-  - What are the options for `ll`?
-  - What do they do?
-
-- `ll` is important for understanding more about files in our systems
-- In the output there is a 10-character section comprising of certain letters or dashes (-) indicating file permissions
-  - The first digit is usually `l`, `d`, or `-` meaning link, directory, or file
-  - `rwx` stand for read, write, execute respectively
-    - The 3 instances of them mean `owner`, `group`, and `world`
-  - The digit is the number of hard links
-  - Username of the files owner
-  - Group that owns the file
-  - Size in bytes
-  - Date and time of last modification
-
-<br>
-
-### 3.2 `ln` and `file`
-
-- In bioinformatics files can be extremely large, a way to be more efficient is to use symbolic links (aka symlinks) so a file is not duplicated needlessly
-- The `ln` command can create links, as always let's look at the options using `--help`
-  - For this command we only really need `-s`, it is generally preferable to use symbolic (aka soft) links
-- We should have a testdir in place for this, if you do not have one from before please create one
-
-Try the command(s)
-
-```bash
-touch scriptfile_macOS scriptfile_linux
-ln -s scriptfile_linux scriptfile
-ll
-```
-
-- **Discussion**
-  - When could this be useful?
-  - Do you see the link in a different colour?
-
-EDIT - add expansion html for answer each time? For self-directed I suppose it is necessary
-
-- Another useful command that can help inform us about a file is `file`
-- Simply outputs information about the file and it's format
-  - Also tells basic info for a symlink
-
-Try the command(s)
-
-```bash
-touch textfile.txt
-file textfile.txt
-echo "Some text for the file" >> textfile.txt
-file textfile.txt
-file scriptfile_linux
-file scriptfile
-```
-
-- **Discussion**
-  - What does `echo` do?
-  - What about the `>>` operator?
-
-- intro the command whatis
-ENTER THE PROPER ANSWER
-<details>
-    <summary><b>Solution</summary>
-      <ul>
-        <li>The information is being displayed by the `less` command</li>
-        <li>Usually help text is displayed using `cat`</li></b>
-      </ul>
-</details>
-
-<br>
-
-### 3.3 `chmod`
-
-- This subject can be very complicated so we are only covering the basics. Use caution with this command!
-- Only the file's owner or the superuser can change the permissions (more on superuser later)
-- From the `ll` command we can see permissions for a file - read, write and execute for user, group, and world
-- In bioinformatics it is sometimes necessary to make a script executable (able to act as a program)
-  - So if permissions are rw-, we need to change this to rwx...
-  - This can be done using octal numbers representing binary for rwx, but the easier version is to use `u+x`
-    - This gives the user permission to execute the file(s)
-  
-Try the command(s)
-
-```bash
-chmod --help
-ll
-chmod -c scriptfile_linux
-ll
-./scriptfile_linux
-```
-
-- **Discussion**
-  - What did the script do?
-  - What does the `./` mean?
-
-<br>
-
-### 3.4 `less`, `more`, and `cat`
-
-- These are all commands to view text in a file
-  - `cat` displays the contents to the output
-    - 'concatenate file(s) to the standard output'
-  - `more` views a file one page/screen at a time
-  - `less` is a play-on-words of "less is more", and is very similar to `more` but with improvments
-  - As always, let's look at `less --help`
-
-- **Question**
-  - This looks different than with usual help text, why is this?
-
-<details>
-    <summary><b>Solution</summary>
-      <ul>
-        <li>The information is being displayed by the `less` command</li>
-        <li>Usually help text is displayed using `cat`</li></b>
-      </ul>
-</details>
-
-</br>
-
-Try the command(s)
-
-```bash
-less /usr/share/common-licenses/GPL-3
-h
-# note the commands to move by lines, pages, and search
-q
-e
-y
-f
-b
-/
-?
-q
-less -N /usr/share/common-licenses/GPL-3
-```
-
-- It is not necessary to memorize the commands for `less`, but it is important to know where they are
-
-<br>
-
-### 3.5 Break
-
-- Take a 5 minute break
+- Corrections/Clarifications
+  - `ls` is not a version of `ll`, it's the opposite (`ll` is short for `ls -alF`)
+  - Also discovered that `la` is a shortcut for `ls -A` (`-A` is almost-all, omits `.` and `..`)
+    - We'll discuss these shortcuts more in part 3
+  - Clarify bash vs. shell
+    - `bash` is a command language, acts as your shell (inside a terminal)
+    - `fish` or `zsh` are other shells (`zsh` is now the standard on macOS devices)
+  - Challenge exercise in part 1 now looks for a file called `fstab`, not for dir called `apt`
 
 <br>
 
 ---
 
-## 4.0 Instruction part 2
+## 3.0 Instruction
 
-- Any questions?
-- We will now cover `echo`, `redirection`, variables, and expansion
+### 3.1 `mkdir`
 
-<br>
-
-### 4.1 `echo`
-
-- `echo` is used to display a line of text
-- This can be very simple, but in combination with other options and commands it is very versatile
-- As per usual, start with `echo --help`
-- Now instead use `man echo`
-  - There is really not much in terms of options, but we'll see some other ways to use it
+- **`mkdir` - make directory**
+- View the help text using `mkdir --help`
+- It is best to only use arguments if you understand the consequences
 
 Try the commands
 
 ```bash
 cd
-echo *
-echo t*
-echo .*
-echo $((5*5))
-echo Five times five is $((5*5))
-echo {Z..A}
-echo $(ls -l)
-echo \ # you will need to type something and press enter/return
-echo \\
+mkdir -v testdir
 ```
 
 - **Discussion**
-  - There are many other examples but we'll stop there and discuss these ones
-  - What is the difference in parentheses for some expressions?
-  - What does the backslash (\\) do?
+  - What does `-v` add to this command?
+    - (This a very useful argument for many commands)
+  - Which option should we use to create multiple nested directories?
 
-### 4.2 Redirection
+<details>
+    <summary><b>Solution</summary>
+        <ul>
+            <li>The option -v is for verbose (prints out what the command is doing)</li>  
+            <li>To create nested directories we need the option -p or --parents</li>
+            <li>This will make parent directories as needed </li>
+            <li>Sometimes using the full name of the command options gives clarity to what the option is doing</li></b>
+        </ul>
+</details>
 
-- 
+<br>
 
+Additional commands
 
+```bash
+mkdir --parents --verbose testdir/testdir1/testdir2
+mkdir -v testingdir0 testingdir1
+```
 
+- **Discussion**
+  - What is the resulting difference in these two commands?
 
+<details>
+    <summary><b>Solution</summary>
+        <ul>
+            <li>Nested directories vs. separate directories</li>
+            <li>In the man page/help text you can determine if a command has multiple 'targets' by looking for the elipsis ("...")</li>
+            <li>If you have access to the command `tree` you can see this in the directory structure</li></b>
+        </ul>
+</details>
 
+<br>
 
-## Part 2
+### 3.2 `touch`
 
-- start with review!
+- **`touch` - change file timestamps**
+- The common usage is to create an empty file
+- The options are for very specific use-cases, generally just use `touch FILENAME`
 
-- chmod (review rm with -f - challenge question)
-- wildcard
-- cursor mvmt (ch 8)
+Try the commands
 
+```bash
+cd && ls
+cd testdir
+touch file1 file2.txt
+```
 
-## Fun Fact
+- Commands can be chained together in bash with `&&`
+  - Note that other shells have different operators (eg. `;` in fish)
+- We will look at other operators in part 3
+- File types must be assigned manually (`.txt` `.fastq` `.md` etc.)
 
-- Astronauts use Linux - they can't open Windows in space!
+#### Exercise 3.21
+
+- Create a file in testdir1 and testdir2 in a single command
+- Name these files whatever you would like
+
+<details>
+    <summary><b>Solution</summary>
+        - touch testdir1/filewhatever testdir1/testdir2/filewhatever1</b>
+</details>
+
+<br>
+
+### 3.3 `rm`
+
+- **`rm` - remove files or directories**
+- Use great caution when learning this command!
+- Linux gives users great freedom - one of the great aspects of this OS
+  - However this comes with the drawback that mistakes are not prevented, you can delete important files and the system may not stop you
+
+- Let's view some information with `rm --help`
+
+- **Question**
+  - which arguments should we use to be cautious when deleting files?
+
+<details>
+    <summary><b>Solution</summary>
+        - let's start by using -iv for interactive, verbose</b>
+</details>
+
+<br>
+
+Try the commands
+
+```bash
+cd && ls
+cd testdir/testdir1 && ls
+rm -iv filewhatever # substitute whichever filename you used
+rm -iv testdir2
+```
+
+- \# is used to comment out code in bash, any text after the \# in the same line will not execute
+- It is also used as a line comment in python and some other languages
+  - There are line comments and block comments
+  - Line comments will be ignored by interpreter after the \#
+  - Block comments will cause a whole section of code/commands to be ignored
+  - This is extremely important in scripting/programming
+
+- **Discussion**
+  - Why didn't the last command work?
+
+<details>
+    <summary><b>Solution</summary>
+        <ul>
+            <li> Look at the documentation/arguments</li>
+            <li> For a directory we need to use -r (recursive)</li>
+            <li> Recursion - a method of solving a problem where the solution depends on solutions to smaller instances of the same problem </li>
+            <li><a>https://en.wikipedia.org/wiki/Recursion_(computer_science)</a></li></b>
+        </ul>
+</details>
+
+<br>
+
+Try the commands
+
+```bash
+rm -ivr testdir2
+```
+
+- This command descends into dir, removes files, then removes the dir itself
+
+- **Question**
+  - What if we want to delete multiple files at once?
+
+<details>
+    <summary><b>Solution</b></summary>
+        <ul><b>
+            <li> For dissimilar files you can list each one separated by a space </li>
+            <li> For common bioinformatics situations where filenames are very similar - we need to use wildcard matching </li>
+            <li> A string is generally a collection of characters </li>
+            <li> The asterisk symbol will match zero or more characters </li>
+        </p></b>
+</details>
+
+<br>
+
+Try the commands
+
+```bash
+cd && ls
+cd testdir/
+touch filename{01..09}.cpp
+ls
+touch file{01..09}.py
+ls
+```
+
+- The curly braces `{}` can be used to generate sequences
+  - There are many creative ways to do this, look this up for more examples
+- This dir is getting a bit cluttered, let's remove all the files we just created
+- Be **careful** when using `*` in an `rm` command
+
+Try the commands
+
+```bash
+rm -Iv file* # remember this is the same as using ./file*
+# defaults to the current dir unless it is specified
+ls
+```
+
+- The matching removes all files that begin with 'file'
+  - The `*` will match 0 or more characters
+- Using the option `-I` prompts for the delete of all files, instead of individually like with `-i`
+- This is a very basic form of regular expressions (RegEx), which are very difficult but useful tools to filter through files or anything related to strings or expressions
+- We will not cover regex in any of the tutorials, but you are welcome to look it up for yourself
+
+### 3.4 `rmdir`
+
+- **`rmdir` - remove empty directories**
+- A simple version of rm for directories - checks if they are empty, if so then deletes
+- As always, worth looking at the help text `rmdir --help`
+  - `-p` and `-v` are useful options once again
+
+Try the commands
+
+```bash
+cd
+mkdir -pv emptydir/emptydirs{1..7}
+ls
+rmdir -pv emptydir
+rmdir -pv --ignore-fail-on-non-empty emptydir
+```
+
+- The option --ignore-fail-on-non-empty was required because the subdirectories mean the main directory was not actually empty
+- An alternate way to do this is:
+
+```bash
+mkdir -pv emptydir/emptydir{1..10}
+rmdir -v emptydir/* emptydir
+```
+
+- By removing the subdirectories first we ensure that the parent `emptydir` is empty when rmdir executes on it
+
+<br>
+
+### 3.5 Questions?
+
+---
+
+## 4.0 Extras
+
+- There should be about 30 minutes after each workshop to work on these questions and exercises with an instructor available for help if needed
+- These can also be completed at your own pace outside of workshop sessions
+- Answers can be obtained from the tutorial material or by using the bash commands
+  - Some questions will invite you to research on the internet to give greater context or understanding
+
+<br>
+
+### 4.1 Movement Shortcuts
+
+- From **The Linux Command Line** by William Shotts (Chapter 8)
+  - "In fact, one of the most cherished goals of the command line is laziness; doing the most work with the fewest number of keystrokes. Another goal is never having to lift our fingers from the keyboard and reach for the mouse."
+- These commands can be very efficient in using Linux once you know them well
+- The commands with Alt may not work in each environment
+  - **Ctrl-a** Move cursor to the beginning of the line.
+  - **Ctrl-e** Move cursor to the end of the line.
+  - **Ctrl-f** Move cursor forward one character; same as the right arrow key.
+  - **Ctrl-b** Move cursor backward one character; same as the left arrow key.
+  - **Alt-f** Move cursor forward one word.
+  - **Alt-b** Move cursor backward one word.
+  - **Ctrl-l** Clear the screen and move the cursor to the top-left corner. The clear command does the same thing.
+
+<br>
+
+### 4.2 Challenge Questions
+
+1. How would create directories 'dirA' through 'dirZ' with one command?
+2. How would you remove these directories with one command?
+
+<details>
+    <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
+        <ul><b>
+            <li> 1. `mkdir dir{A..Z}` </li>
+            <li> 2. `rm -rIv` --> the I is for an interactive prompt, but now it only asks once for all the dirs together </li>
+        </p></b>
+</details>
+
+<br>
+
+### 4.3 Fun Facts
+
+- \#notafact -> Astronauts use Linux - they can't open Windows in space!
+- This tutorial was created using VS Code - an editor from Microsoft that is incredible for markdown, programming, web development, etc.
+  - There are extensions to work with different filetypes - including fasta and fastq files
+- VS Code is very simple to use inside of Windows (no admin required) and WSL
+
+<br>

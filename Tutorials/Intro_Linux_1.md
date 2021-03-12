@@ -18,12 +18,16 @@
 - This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
   - This is an excellent resource for further study!
 
+<br>
+
 ### 1.1 Prerequisite(s)
 
 - Shell environment (WSL, Biocluster, cocalc, MobaXTerm-local)
 - **Discuss**
   - Which Linux environments are you using? Poll in the chat
   - Warning for MobaXterm local sessions
+
+<br>
 
 ### 1.2 Objectives
 
@@ -32,11 +36,11 @@
 - Define some key terms about Linux and the command line interface (CLI)
 - Study and practice some basic command line functions
 
+<br>
+
 ### 1.3 Commands covered in this session
 
-- `pwd`, `cd`, `ls`, `mkdir`, `touch`, `rm`, and `exit`
-- **As this is the very first session we may not cover all the planned material**
-  - This will be adjusted over the next 2 sessions if necessary
+- `pwd`, `cd`, `ls`, `clear`, `--help`, `man`, and `exit`
 - It is arguably more important to learn how to use commands than to learn the commands themself
   - Learning how to learn
 - Information about commands can usually be accessed within a terminal by using:
@@ -53,6 +57,8 @@ man <command_name>
 ```
 
 - more documentation at [manual-pages](https://www.kernel.org/doc/man-pages/)
+
+<br>
 
 ### 1.4 Questions
 
@@ -86,7 +92,7 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 - Console application
   - A command line program that functions without a required graphical interface
 - Bash
-  - Commonly distributed shell, or command language interpreter for Linux
+  - Commonly distributed command language for Linux
   - An enhanced version of the original sh (Bourne shell)
 - Ubuntu
   - A popular Linux distribution (distro) based on Debian (another distro)
@@ -147,7 +153,7 @@ NOTE: Some organizations use terms more specifically, these are the general defi
   - This shows the current directory you are located in (aka "working in")
   - It seems very simple but can be helpful for scripts that will use varying working directories while executing
 
-Try the command(s)
+Try the commands
 
 ```bash
 pwd
@@ -161,7 +167,8 @@ PWD
     <summary><b>Solution</summary>
       <ul>
         <li>Linux is case sensitive, only the exact command will work</li>
-        <li>This also applies to filenames and directories</li></b>
+        <li>This also applies to filenames and directories</li>
+        <li>eg. file1 and File1 are completely separate files in Linux (not in Windows)</li></b>
       </ul>
 </details>
 
@@ -170,26 +177,23 @@ PWD
 ### 3.3 `ls`
 
 - **`ls` - list directory contents**
-  - Shows the files and directories of a given location (defaults to pwd unless specified)
-  - This is a shortcut for `ll -s` (we will explore `ll` later)
-  - The `-s` is a **command option**
-  - These options give flexibility to commands
+  - Shows the files and directories of a given location (defaults to `.` unless specified)
   - Not restricted to your current directory, can specify a location to use `ls` without changing your `pwd`
-  - The directory that is specified at the end of the command is a **command argument**
+  - The directory that is specified at the end of this command is a **command argument**
 
-Try the command(s)
+Try the commands
 
 ```bash
 ls
 ll -s
-ls /usr/bin
+ls /
 ls -a
-ls -a /bin
+ls -a /home
 ```
 
-- `ls -a` uses the option to see all contents, including hidden files and folders that start with a `.`
+- `ls -a` uses a **command option** to see all contents, including hidden files and folders that start with a `.`
   - eg. `.bash_history` in your home directory (your 'user' folder)
-- `ls -a /bin` combines an option, `-a`, with an argument, `/bin`
+- `ls -a /home` combines an option, `-a`, with an argument, `/home`
 
 - **Discussion**
   - What are some other options we can use with `ls`?
@@ -228,7 +232,7 @@ pwd -h
 
 ### 3.5 `cd`
 
-- `cd` means change directory (aka folder)
+- **`cd` - change directory (aka folder)**
 - `/` is used in directory structure (Windows is `\`)
   - The directory location `/` is **root**, there are no separate 'drives' like in Windows
 - `.` is your current dir (a single dot character)
@@ -247,14 +251,15 @@ pwd -h
 
 <br>
 
-- `/` by istelf is a critical directory in Linux systems, it is the root directory
-  - all other storage branches from this location, even other drives (in /mnt)
+- `/` is a critical directory in Linux systems, it is the **root** directory
+  - All other storage branches from this location, even other drives (in /mnt)
+  - If you are using WSL you will be able to use your Windows drives (c, d, etc) in /mnt
 
 <br>
 
 #### Exercise 3.51
 
-- Try the command(s)
+- Try the commands
 - Use pwd to see where you are at any point, or look at the prompt
 
 ```bash
@@ -266,225 +271,58 @@ pwd
 cd
 cd ../..
 pwd
-cd etc
+cd lib # change to lib while in Root
 cd
-cd etc
+cd lib # change to lib while in user directory
 ```
 
-- If it is installed, use `tree` to view the file structure
-- Note that using paths like `home` or `etc` only works if they are a subdirectory of your current directory, otherwise a full or absolute path must be used
+- Note that using paths like `home` or `lib` only works if they are a subdirectory of your current directory, otherwise a full or absolute path must be used
 - Absolute path will include the full address to the location, whereas a relative path uses `.` and `..`
+- If it is installed, use `tree` to view the file structure
 
 - **Example**
   - If you are in `/home` and wish to go to your user account, this can be achieved by using `cd USERNAME` (substituting your own account name)
   - The relative path to do the same thing is `cd ./USERNAME`
 
+<br>
+
 ### Challenge 3.6
 
-- Find a system folder called "apt" using the commands from this session
+- Find a system file called "fstab" (**F**ile **S**ystem **TAB**le) using the commands from this session
 - Exploration only. DO NOT try to modify anything - just navigate directories and check for contents
 
 <details>
   <summary><b>Solution</b></summary>
     <ul><b>
-      <li>cd /usr/lib/apt</li>
-      <li>The directory is in root -> usr -> lib -> apt</li>
-      <li>apt means advanced package tool and handles the installation and removal of software packages</li>
-      <li>apt will be discussed in part 3</li></b>
+      <li>cd /etc/fstab</li>
+      <li>The directory is in root -> etc -> fstab </li>
+      <li>fstab can be configured to mount drives upon system startup, such as network drives </li></b>
 </details>
 <br/>
 
-### 3.7 Discussion
-
-- Relative vs absolute paths
-- '~' refers to /home/USERNAME/
-- To find username use `whoami`
-
-- **Optional** (Do not use in WSL terminal!) - use `clear` to clear your terminal
+- **Discussion**
+  - Were you able to find the file? Why or why not?
+  - Relative vs absolute paths
+  - '~' refers to /home/USERNAME/
+  - To find username use `whoami`
 
 <br>
 
-### 3.8 Break
+### 3.7 `exit`
 
-- Take a 5 minute break
+- **`exit` - exit the shell**
+- Likely the most simple command you will use!
+- Do not use this yet if you wish to do the extra questions
+
+<br>
+
+### 3.8 Questions
 
 <br>
 
 ---
 
-## 4.0 Instruction
-
-- Any questions?
-- We will now cover `mkdir`, `touch`, `rm`, and `exit`
-
-<br>
-
-### 4.1 `mkdir`
-
-- This command is short for 'make directories'
-- View the information using `mkdir --help`
-- It is best to only use arguments if you understand the consequences
-
-Try the command(s)
-
-```bash
-cd
-mkdir -v testdir
-```
-
-- **Discussion**
-  - What does `-v` add to this command?
-    - (This a very useful argument for many commands)
-  - What should we use to create multiple nested directories?
-
-Additional commands
-
-```bash
-mkdir -pv testdir/testdir1/testdir2
-mkdir -v testingdir0 testingdir1
-```
-
-- **Discussion**
-  - What is the resulting difference in these two commands?
-
-<br>
-
-### 4.2 `touch`
-
-- Change file timestamps
-- There are many options for this command, but commonly used to create a new file
-
-Try the command(s)
-
-```bash
-cd && ls
-cd testdir
-touch file1 file2.txt
-```
-
-- Commands can be chained together in bash with `&&`
-- We will look at other operators in part 2 and 3
-- File types must be assigned manually (`.txt` `.fastq` `.md` etc.)
-
-#### Exercise 4.21
-
-- Create a file in testdir1 and testdir2 at the same time
-- Name these files whatever you would like
-
-<details>
-    <summary><b>Solution</summary>
-        - touch testdir1/filewhatever testdir1/testdir2/filewhatever1</b>
-</details>
-
-<br>
-
-### 4.3 `rm`
-
-- Use great caution when learning this command!
-- Linux gives users great freedom - one of the great aspects of this OS
-  - However this comes with the drawback that mistakes are not prevented, you can delete important files and the system may not stop you
-- `rm` is used to 'remove files or directories'
-- Let's view some information with `rm --help`
-
-- **Question**
-  - which arguments should we use to be cautious when deleting files?
-
-<details>
-    <summary><b>Solution</summary>
-        - let's start by using -iv for interactive, verbose</b>
-</details>
-
-<br>
-
-Try the command(s)
-
-```bash
-cd && ls
-cd testdir/testdir1 && ls
-rm -iv filewhatever #substitute whichever filename you used
-rm -iv testdir2
-```
-
-- \# is used to comment out code in bash, any text after the \# in the same line will not execute
-- It is also used as a line comment in python and some other languages
-
-- **Discussion**
-  - why didn't the last command work?
-
-<details>
-    <summary><b>Solution</summary>
-        <ul>
-            <li> Look at the documentation/arguments</li>
-            <li> For a directory we need to use -r (recursive)</li>
-            <li> Recursion - a method of solving a problem where the solution depends on solutions to smaller instances of the same problem </li>
-            <li><a>https://en.wikipedia.org/wiki/Recursion_(computer_science)</a></li></b>
-        </ul>
-</details>
-
-<br>
-
-Try the command(s)
-
-```bash
-rm -ivr testdir2
-```
-
-- This command descends into dir, removes files, then removes the dir itself
-
-- **Question**
-  - What if we want to delete multiple files at once?
-
-<details>
-    <summary><b>Solution</b></summary>
-        <ul><b>
-            <li> For dissimilar files you can list each one separated by a space </li>
-            <li> For common bioinformatics situations where filenames are very similar - we need to use wildcard matching </li>
-            <li> A string is generally a collection of characters </li>
-            <li> The asterisk symbol will match zero or more characters </li>
-        </p></b>
-</details>
-
-<br>
-
-Try the command(s)
-
-```bash
-cd && ls
-cd testdir/
-touch filename{01..09}.cpp
-ls
-touch file{01..09}.py
-ls
-```
-
-- The curly braces `{}` can be used to generate sequences
-  - There are many creative ways to do this, we will cover some of them in future sessions
-- This dir is getting a bit cluttered, let's remove all the files we just created
-- Be **careful** when using `*` in an `rm` command
-
-Try the command(s)
-
-```bash
-rm -v file*
-ls
-```
-
-- The matching removes all files that begin with 'file'
-- This is a very basic form of regular expressions (RegEx), which are very difficult but useful tools to filter through files or anything related to strings or expressions
-- We will not cover regex in any of the tutorials, but you are welcome to look it up for yourself
-
-<br>
-
-### 4.4 `exit`
-
-- When you are finished using the shell, use `exit`
-- This simply ends the shell session
-
-<br>
-
----
-
-## 5.0 Challenge Exercises
+## 4.0 Challenge Exercises
 
 - There should be about 30 minutes after each workshop to work on these questions and exercises with an instructor available for help if needed
 - These can also be completed at your own pace outside of workshop sessions
@@ -493,25 +331,20 @@ ls
 
 <br>
 
-### 5.1 Questions
+### 4.1 Questions
 
 1. When could your pwd be different from the actual directory you are in?
 2. How do you view hidden files? What are some of the hidden files in your home directory?
-3. How would create directories 'dirA' through 'dirZ' with one command?
-4. How would you remove these directories with one command?
-5. 
+3. Filler for now
 
 <details>
     <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
         <ul><b>
             <li> 1. This can occur during a script, the working directory can vary depending on the files that are being altered </li>
             <li> 2. Using the command `ls -a`. Files relating your bash shell such as .bash_history, .bashrc, and .bash_logout are common </li>
-            <li> 3. `mkdir dir{A..Z}` </li>
-            <li> 4. `rm -rIv` --> the I is for an interactive prompt, but now it only asks once for all the dirs together </li>
-            <li> The asterisk symbol will match zero or more characters </li>
+            <li> 3.  </li>
         </p></b>
 </details>
-
 
 <br>
 

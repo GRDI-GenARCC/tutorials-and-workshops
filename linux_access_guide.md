@@ -27,9 +27,13 @@ This should be your first option if you plan to use bioinformatics tools in this
 - There are also apps like PuTTY and mobaXterm to connect to the biocluster with "username@biocluster.agr.gc.ca". They can be used as portable applications without the need for installation or admin rights on your device.
 - We will use the Biocluster in "interactive mode", so you must enter the command `qlogin` before using tools to avoid using resources on the head node.
 
+<br>
+
 ## Online Terminal
 
 This is the simplest option but will be a bit slower. There are publicly available resources you can find by searching google for “online terminal”. For some of these services there is no account is required, though you may create one if you wish. It will not be as useful as Biocluster or WSL for long term use but will be an easy option for the workshop.
+
+<br>
 
 ## WSL
 
@@ -40,6 +44,8 @@ a) Enable the WSL feature. You must have admin privileges or have your local IT 
 b) Restart the device.
 c) Use the manual download for the appx file from [this](https://docs.microsoft.com/en-us/windows/wsl/install-manual) page - Ubuntu 20.04 is the best option
 d) Finish the install and setup your user account - NOTE that there is no visible "*" symbols when typing a Linux password but keystrokes are being recorded.
+
+<br>
 
 ## MobaXterm - local terminal
 
