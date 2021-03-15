@@ -4,7 +4,7 @@
 
 ---
 
-## 1. Overview
+## 1.0 Overview
 
 - This is **part two** of three sessions designed to be delivered in a virtual group setting
 - It will be about 1 hour of instruction with an additional 0.5 hours set aside for extra material and questions
@@ -54,7 +54,7 @@ whatis mkdir
 
 ---
 
-## 2. Review
+## 2.0 Review
 
 - Review of part 1
   - History of Linux and definitions
@@ -93,7 +93,7 @@ mkdir -v testdir
 
 - **Discussion**
   - What does `-v` add to this command?
-    - (This a very useful argument for many commands)
+    - This a very useful argument for many commands
   - Which option should we use to create multiple nested directories?
 
 <details>
@@ -246,6 +246,7 @@ ls
 
 - The curly braces `{}` can be used to generate sequences
   - There are many creative ways to do this, look this up for more examples
+  - eg. mkdir dir{1..16..2}{1..10} will create dirs with 1 to 16 counting by 2, combined with each number in sequence 1 to 10
 - This dir is getting a bit cluttered, let's remove all the files we just created
 - Be **careful** when using `*` in an `rm` command
 
@@ -253,8 +254,8 @@ Try the commands
 
 ```bash
 rm -Iv file* # remember this is the same as using ./file*
-# defaults to the current dir unless it is specified
-ls
+# rm defaults to the current dir unless one is specified
+ls # also defaults to current dir, same as using ls .
 ```
 
 - The matching removes all files that begin with 'file'
@@ -323,14 +324,14 @@ rmdir -v emptydir/* emptydir
 
 ### 4.2 Challenge Questions
 
-1. How would create directories 'dirA' through 'dirZ' with one command?
+1. How would create directories 'dirA' through 'dirZ' with one command? What if you wanted to have two letter suffix, one ascending the alphabet while the other descends?
 2. How would you remove these directories with one command?
 
 <details>
     <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
         <ul><b>
-            <li> 1. `mkdir dir{A..Z}` </li>
-            <li> 2. `rm -rIv` --> the I is for an interactive prompt, but now it only asks once for all the dirs together </li>
+            <li> 1. `mkdir dir{A..Z}` and `mkdir dir{A..Z}{z..a} </li>
+            <li> 2. `rm -rIv dir*` --> the I is for an interactive prompt, but now it only asks once for all the dirs together </li>
         </p></b>
 </details>
 
