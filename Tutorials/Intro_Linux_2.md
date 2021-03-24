@@ -27,7 +27,7 @@
 - **Commands**
   - `whatis`, `mkdir`, `touch`, `rm`, `rmdir`
 - **Topics**
-  - symbolic links (symlinks), operators, wildcards
+  - operators, wildcards
 
 - Reminder: information about commands can be accessed within a terminal by using
 
@@ -167,6 +167,7 @@ touch file1 file2.txt
 - Linux gives users great freedom - one of the great aspects of this OS
   - However this comes with the drawback that mistakes are not prevented, you can delete important files and the system may not stop you
 
+
 - Let's view some information with `rm --help`
 
 - **Question**
@@ -249,10 +250,12 @@ ls
   - eg. mkdir dir{1..16..2}{1..10} will create dirs with 1 to 16 counting by 2, combined with each number in sequence 1 to 10
 - This dir is getting a bit cluttered, let's remove all the files we just created
 - Be **careful** when using `*` in an `rm` command
+- You can confirm the files you plan to remove by first using `ls TARGET` to see the list of files, then use `rm` on the TARGET files
 
 Try the commands
 
 ```bash
+ls file*
 rm -Iv file* # remember this is the same as using ./file*
 # rm defaults to the current dir unless one is specified
 ls # also defaults to current dir, same as using ls .
@@ -278,11 +281,12 @@ cd
 mkdir -pv emptydir/emptydirs{1..7}
 ls
 rmdir -pv emptydir
-rmdir -pv --ignore-fail-on-non-empty emptydir
+rmdir -pv --ignore-fail-on-non-empty emptydir # no directories are deleted
 ```
 
-- The option --ignore-fail-on-non-empty was required because the subdirectories mean the main directory was not actually empty
-- An alternate way to do this is:
+- The option --ignore-fail-on-non-empty just ignores the failure error, it does not delete the directories
+- Ignoring this warning could be useful when running a script or attempting to delete a large number of directories at once
+- An actual way to do this is:
 
 ```bash
 mkdir -pv emptydir/emptydir{1..10}
@@ -290,6 +294,7 @@ rmdir -v emptydir/* emptydir
 ```
 
 - By removing the subdirectories first we ensure that the parent `emptydir` is empty when rmdir executes on it
+- An alternative method is to use `rm -r` as we saw in the previous section
 
 <br>
 
