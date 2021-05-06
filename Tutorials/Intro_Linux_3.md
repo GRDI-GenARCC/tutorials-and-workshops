@@ -349,7 +349,6 @@ echo \\
 - How can you tell if someone uses Linux? - Oh don't worry about it they'll tell you themselves!
 - Linux and other computer tech often have little easter eggs and jokes - programmers do not take things too seriously
   - sl
-  - fortune
   - cowsay
   - apt moo
 
