@@ -167,7 +167,6 @@ touch file1 file2.txt
 - Linux gives users great freedom - one of the great aspects of this OS
   - However this comes with the drawback that mistakes are not prevented, you can delete important files and the system may not stop you
 
-
 - Let's view some information with `rm --help`
 
 - **Question**
