@@ -17,15 +17,17 @@
   - Many users have great expertise in other areas of science, this is the beginning of process to gain yet another area of expertise
 - This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
   - This is an excellent resource for further study!
+- Here are some other resources for Linux and Bioinformatics related training
+  - Excellent and in-depth Linux Tutorial - [Ryan's Tutorials](https://ryanstutorials.net/linuxtutorial/)
+  - The [BRSN resource page](https://collab.agr.gc.ca/co/BRS-SRB/SitePages/Resource%20Overview.aspx#title-1175) is repository with links and information for many other resources
 
 <br>
 
 ### 1.1 Prerequisite(s)
 
-- Shell environment (WSL, Biocluster, cocalc, MobaXTerm-local)
+- Shell environment (WSL, Biocluster, cocalc, replit)
 - **Discuss**
   - Which Linux environments are you using? Poll in the chat
-  - Warning for MobaXterm local sessions
 
 <br>
 
@@ -42,13 +44,14 @@
 
 - `pwd`, `cd`, `ls`, `clear`, `--help`, `man`, and `exit`
 - It is arguably more important to learn how to use commands than to learn the commands themself
-  - Learning how to learn
-- Information about commands can usually be accessed within a terminal by using:
+  - Learning how to learn - searching is a great skill
+- **Information about commands can usually be accessed within a terminal by using the following**
 
 ```bash
 man <command_name>
 ```
 
+- `man` pages often require pressing `q` to exit
 - Not all systems have manual entries for all commands
 - A shorter summary can often be found by using
 
@@ -56,7 +59,8 @@ man <command_name>
 <command_name> --help
 ```
 
-- more documentation at [manual-pages](https://www.kernel.org/doc/man-pages/)
+- We will use `--help` as the default for the workshop
+- More documentation is available at [manual-pages](https://www.kernel.org/doc/man-pages/)
 
 <br>
 
@@ -72,15 +76,28 @@ man <command_name>
 
 <details>
     <summary><b>Click to expand</b></summary>
-        <p>Linux comes from an early operating system called Unix. Users would connect to multi-user mainframe computers by display and keyboard only. Text is very light-weight compared to graphic user interfaces (GUI). Interacting with an operating system above the computer components was a "shell".</p>
-        <img src="https://cdn-media-1.freecodecamp.org/images/8dQXHBemVAUp4xgVzFqgEHGyNjCsQT0usHBw" alt = "Shell Diagram" width="200"/>
+        <p>Linux comes from an early operating system called Unix. Users would connect to multi-user mainframe computers by display and keyboard only. Text is very light-weight compared to graphic user interfaces (GUI). Interacting with an operating system above the computer components was a "shell". GNU and eventually Linux are open source components branching away from Unix.</p>
+        <img src="https://cdn-media-1.freecodecamp.org/images/8dQXHBemVAUp4xgVzFqgEHGyNjCsQT0usHBw" alt = "Shell Diagram, freecodecamp.org" width="200"/>
         <p>Users interacted with the system by sending input and receiving output. Multiple users could use the system simultaneously. They used programs or commands in a programming language - initially sh (shell, or Bourne shell), now bash ("Bourne again shell"). Thus the command line has been the basis of Linux systems ever since. It can be confusing to learn but offers the best performance, can be automated with scripts, and many important scientific tools use the CLI for development.</p>  
         <br>
 </details>
 
 <br>
 
-### 2.2 Definitions
+### 2.2 Linux in Bioinformatics
+
+- Linux is the preferred way to use bioinformatics tools for many practical and historical reasons
+  - Sequence files are usually in .fasta, which is essentially a text file. Command line tools can interact very well with text files
+  - It is simple to setup environments with specific compilers, languages, tools, etc. Containers are a relatively new option for this
+    - eg. May need tools that work for version 2.15.1 and not 2.16
+- Open source nature of Linux and bioinformatics tools
+  - Ease of development in an open source environment
+- High performance computers usually have Linux OS
+  - When connecting to HPC (eg. Biocluster) the command line is your main interface
+
+<br>
+
+### 2.3 Definitions
 
 NOTE: Some organizations use terms more specifically, these are the general definitions.
 
@@ -89,6 +106,8 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 - Shell
   - A text-mode application containing a CLI to the OS
   - Note that in casual usage - shell, prompt, terminal, and console all typically refer to the same thing
+- Console
+  - The window that hosts your shell and runs programs
 - Console application
   - A command line program that functions without a required graphical interface
 - Bash
@@ -112,7 +131,9 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 - GUI (pronounced gooey)
   - Graphical user interface
 
-### 2.3 Questions
+<br>
+
+### 2.4 Questions
 
 <br>
 
@@ -177,7 +198,7 @@ PWD
 ### 3.3 `ls`
 
 - **`ls` - list directory contents**
-  - Shows the files and directories of a given location (defaults to `.` unless specified)
+  - Shows the files and directories of a given location (defaults to `.`, your current directory, unless an argument is provided)
   - Not restricted to your current directory, can specify a location to use `ls` without changing your `pwd`
   - The directory that is specified at the end of this command is a **command argument**
 
@@ -185,9 +206,10 @@ Try the commands
 
 ```bash
 ls
-ll -s
+ll -s # ll may not be an "alias" in your shell
 ls /
 ls -a
+ls -A # may be set to "la" in your shell
 ls -a /home
 ```
 
@@ -203,7 +225,7 @@ ls -a /home
     <summary><b>Solution</summary>
       <ul>
         <li>These are not the only options, as all arguments have their usages</li>
-        <li>-h for human readable</li>
+        <li>-h for human readable (when viewing file sizes)</li>
         <li>-s to view the file size</li>
         <li>-S to sort by file size</li>
         <li>-t to sort by modification time</li>
@@ -290,6 +312,7 @@ cd lib # change to lib while in user directory
 
 - Find a system file called "fstab" (**F**ile **S**ystem **TAB**le) using the commands from this session
 - Exploration only. DO NOT try to modify anything - just navigate directories and check for contents
+- Hint: it can be useful to list contents in 1 column (default is alphabetical descending sort)
 
 <details>
   <summary><b>Solution</b></summary>
@@ -322,10 +345,9 @@ cd lib # change to lib while in user directory
 
 ---
 
-## 4.0 Challenge Exercises
+## 4.0 Extras
 
-- There should be about 30 minutes after each workshop to work on these questions and exercises with an instructor available for help if needed
-- These can also be completed at your own pace outside of workshop sessions
+- This section will not be covered during the 1 hour workshop session, they are completely optional
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
 
@@ -335,14 +357,12 @@ cd lib # change to lib while in user directory
 
 1. When could your pwd be different from the actual directory you are in?
 2. How do you view hidden files? What are some of the hidden files in your home directory?
-3. Filler for now
 
 <details>
     <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
         <ul><b>
             <li> 1. This can occur during a script, the working directory can vary depending on the files that are being altered </li>
             <li> 2. Using the command `ls -a`. Files relating your bash shell such as .bash_history, .bashrc, and .bash_logout are common </li>
-            <li> 3.  </li>
         </p></b>
 </details>
 
@@ -354,5 +374,5 @@ cd lib # change to lib while in user directory
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TuxFlat.svg/800px-TuxFlat.svg.png" alt = "Tux" width="150"/>
 
-- The document you are reading is made with a language called "Markdown", if you view the source in the main repo you will see what the unformatted version looks like
+- The document you are reading is written in a language called "Markdown", if you view the source in the main gitlab repo you will see what the unformatted version looks like
   - The expansion sections are written using raw html

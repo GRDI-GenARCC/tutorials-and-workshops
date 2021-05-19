@@ -1,12 +1,14 @@
-# Introduction to Linux Tutorial Part 3
+# Introduction to Linux Tutorial Part 4
 
 [[_TOC_]]
 
 ---
 
+- This section is a copy of part 3, and will mainly be a placeholder until there is a better idea of which material will spillover from parts 1, 2, 3
+
 ## 1.0 Overview
 
-- This is **part three** of three sessions designed to be delivered in a virtual group setting
+- This is **part four** of three sessions designed to be delivered in a virtual group setting
 - It will be about 1 hour of instruction with an additional 0.5 hours set aside for extra material and questions
 - This can also be worked through at a self-directed pace outside of workshop sessions
 - The material is meant for those with little or no experience with Linux, but can be helpful for intermediate users as well
@@ -63,37 +65,6 @@ whatis <command_name> # only one line summary
 ---
 
 ## 3.0 Instruction
-
-### 3.4 `rmdir`
-
-- **`rmdir` - remove empty directories**
-- A simple version of rm for directories - checks if they are empty, if so then deletes
-- As always, worth looking at the help text `rmdir --help`
-  - `-p` and `-v` are useful options once again
-
-Try the commands
-
-```bash
-cd
-mkdir -pv emptydir/emptydirs{1..7}
-ls
-rmdir -pv emptydir
-rmdir -pv --ignore-fail-on-non-empty emptydir # no directories are deleted
-```
-
-- The option --ignore-fail-on-non-empty just ignores the failure error, it does not delete the directories
-- Ignoring this warning could be useful when running a script or attempting to delete a large number of directories at once
-- An actual way to do this is:
-
-```bash
-mkdir -pv emptydir/emptydir{1..10}
-rmdir -v emptydir/* emptydir
-```
-
-- By removing the subdirectories first we ensure that the parent `emptydir` is empty when rmdir executes on it
-- An alternative method is to use `rm -r` as we saw in the previous section
-
-<br>
 
 ### 3.1 `mv`
 

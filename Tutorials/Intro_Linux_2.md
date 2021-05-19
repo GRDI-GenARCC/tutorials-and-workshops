@@ -7,14 +7,13 @@
 ## 1.0 Overview
 
 - This is **part two** of three sessions designed to be delivered in a virtual group setting
-- It will be about 1 hour of instruction with an additional 0.5 hours set aside for extra material and questions
 - This can also be worked through at a self-directed pace outside of workshop sessions
 - The material is meant for those with little or no experience with Linux, but can be helpful for intermediate users as well
 
 ### 1.1 Prerequisite(s)
 
 - Completion of Intro to Linux part 1 (or at least familiarity of the material)
-- Shell environment (WSL, Biocluster, online terminal, MobaXTerm-local)
+- Shell environment (WSL, Biocluster, online terminal)
 
 ### 1.2 Objectives
 
@@ -61,16 +60,32 @@ whatis mkdir
   - Command line options and arguments
   - `--help`, `man`, `pwd`, `cd`, `ls`, `clear`, and `exit`
 
-<br>
+### 2.1 Review Exercises
 
-- Corrections/Clarifications
-  - `ls` is not a version of `ll`, it's the opposite (`ll` is short for `ls -alF`)
-  - Also discovered that `la` is a shortcut for `ls -A` (`-A` is almost-all, omits `.` and `..`)
-    - We'll discuss these shortcuts more in part 3
-  - Clarify bash vs. shell
-    - `bash` is a command language, acts as your shell (inside a terminal)
-    - `fish` or `zsh` are other shells (`zsh` is now the standard on macOS devices)
-  - Challenge exercise in part 1 now looks for a file called `fstab`, not for dir called `apt`
+- Here is a self-directed exercise to review the commands from part 1
+  - Do as much as you can using the command names above, referring to `--help` if you're stuck
+  - Clicking the expansion below will reveal all the suggested solutions
+
+```bash
+# Change directory to your 'root' directoty hint - "cd /"
+# Now go to your user folder (there is more than one way to do this)
+# List the contents in one column
+# Change directory to /home
+# List the contents with color
+# What are the options for the 'exit' command?
+```
+
+<details>
+    <summary><b>Solutions</summary>
+      <ul>
+        <li>'cd /'</li>
+        <li>'cd ' OR 'cd /home/USERNAME'</li>
+        <li>'ls -1'</li>
+        <li>'cd /home' OR 'cd ..' <- this is the relative path</li>
+        <li>'ls --color' (--color may already be the default)</li>
+        <li>'n' - representing a number as an exit code (it is unlikely you will ever need this)</li></b>
+      </ul>
+</details>
 
 <br>
 
@@ -266,38 +281,9 @@ ls # also defaults to current dir, same as using ls .
 - This is a very basic form of regular expressions (RegEx), which are very difficult but useful tools to filter through files or anything related to strings or expressions
 - We will not cover regex in any of the tutorials, but you are welcome to look it up for yourself
 
-### 3.4 `rmdir`
-
-- **`rmdir` - remove empty directories**
-- A simple version of rm for directories - checks if they are empty, if so then deletes
-- As always, worth looking at the help text `rmdir --help`
-  - `-p` and `-v` are useful options once again
-
-Try the commands
-
-```bash
-cd
-mkdir -pv emptydir/emptydirs{1..7}
-ls
-rmdir -pv emptydir
-rmdir -pv --ignore-fail-on-non-empty emptydir # no directories are deleted
-```
-
-- The option --ignore-fail-on-non-empty just ignores the failure error, it does not delete the directories
-- Ignoring this warning could be useful when running a script or attempting to delete a large number of directories at once
-- An actual way to do this is:
-
-```bash
-mkdir -pv emptydir/emptydir{1..10}
-rmdir -v emptydir/* emptydir
-```
-
-- By removing the subdirectories first we ensure that the parent `emptydir` is empty when rmdir executes on it
-- An alternative method is to use `rm -r` as we saw in the previous section
-
 <br>
 
-### 3.5 Questions?
+### 3.4 Questions?
 
 ---
 

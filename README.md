@@ -2,8 +2,9 @@
 
 Note: This README document is copied to the "Home" page in the wiki
 
-- This repository contains `Introduction to Linux` in 3 parts
-- These are designed to be completed in 1-1.5 hour workshop sessions, with 1 hour of interactive instruction and an optional half an hour of challenge exercises and questions
+- This repository contains `Introduction to Linux` in 4 parts
+- These are designed to be completed in 1 hour workshop sessions
+  - There are also optional materials for practice and enrichment
 - They can also be completed outside of workshops at your own pace
 
 <br>
