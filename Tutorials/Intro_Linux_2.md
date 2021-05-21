@@ -59,6 +59,7 @@ whatis mkdir
   - History of Linux and definitions
   - Command line options and arguments
   - `--help`, `man`, `pwd`, `cd`, `ls`, `clear`, and `exit`
+- Clarification - console vs shell
 
 ### 2.1 Review Exercises
 
@@ -66,24 +67,24 @@ whatis mkdir
   - Do as much as you can using the command names above, referring to `--help` if you're stuck
   - Clicking the expansion below will reveal all the suggested solutions
 
-```bash
-# Change directory to your 'root' directoty hint - "cd /"
-# Now go to your user folder (there is more than one way to do this)
-# List the contents in one column
-# Change directory to /home
-# List the contents with color
-# What are the options for the 'exit' command?
-```
+1. Change directory to your 'root' directoty hint - "cd /"
+2. Now go to your user folder (there is more than one way to do this)
+3. List the contents one item per line
+4. Now change directory to /home
+5. Which option for `ls` will reverse the sorting order?
+6. For the command `ls -S /tmp` - which is the option and which is the argument?
+7. (Challenge question) If you are in your home directory and want to change to root directory using the relative path, what is the command?
 
 <details>
     <summary><b>Solutions</summary>
       <ul>
         <li>'cd /'</li>
-        <li>'cd ' OR 'cd /home/USERNAME'</li>
+        <li>'cd ' OR 'cd /home/USERNAME' --> use `whoami` to find username OR `cd ~`</li>
         <li>'ls -1'</li>
-        <li>'cd /home' OR 'cd ..' <- this is the relative path</li>
-        <li>'ls --color' (--color may already be the default)</li>
-        <li>'n' - representing a number as an exit code (it is unlikely you will ever need this)</li></b>
+        <li>'cd /home' (absolute path) OR 'cd ..' (relative path) </li>
+        <li>`-r` reverses the sort order, by defaults contents are sorted alphabetically</li>
+        <li>`-S` is the option (sort by file size), and `/tmp` is the argument</li>
+        <li>`cd ../..` - This goes up 2 parent directories (user --> home --> root)</li></b>
       </ul>
 </details>
 
@@ -97,7 +98,7 @@ whatis mkdir
 
 - **`mkdir` - make directory**
 - View the help text using `mkdir --help`
-- It is best to only use arguments if you understand the consequences
+- It is best to only use options if you understand the consequences
 
 Try the commands
 
@@ -158,9 +159,9 @@ cd testdir
 touch file1 file2.txt
 ```
 
-- Commands can be chained together in bash with `&&`
+- Commands can be chained together in bash with `&&` (this is an operator)
   - Note that other shells have different operators (eg. `;` in fish)
-- We will look at other operators in part 3
+- We will look at other operators later
 - File types must be assigned manually (`.txt` `.fastq` `.md` etc.)
 
 #### Exercise 3.21
@@ -289,8 +290,7 @@ ls # also defaults to current dir, same as using ls .
 
 ## 4.0 Extras
 
-- There should be about 30 minutes after each workshop to work on these questions and exercises with an instructor available for help if needed
-- These can also be completed at your own pace outside of workshop sessions
+- This section will not be covered during the 1 hour workshop session, they are completely optional
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
 
