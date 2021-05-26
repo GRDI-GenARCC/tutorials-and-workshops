@@ -6,7 +6,7 @@
 
 ## 1.0 Overview
 
-- This is **part two** of three sessions designed to be delivered in a virtual group setting
+- This is **part two** of four sessions designed to be delivered in a virtual group setting
 - This can also be worked through at a self-directed pace outside of workshop sessions
 - The material is meant for those with little or no experience with Linux, but can be helpful for intermediate users as well
 
@@ -24,9 +24,9 @@
 ### 1.3 Commands and topics covered in this session
 
 - **Commands**
-  - `whatis`, `mkdir`, `touch`, `rm`, `rmdir`
+  - `whatis`, `mkdir`, `touch`, `rm`
 - **Topics**
-  - operators, wildcards
+  - Operators, wildcards, curly braces
 
 - Reminder: information about commands can be accessed within a terminal by using
 
@@ -332,6 +332,6 @@ ls # also defaults to current dir, same as using ls .
 - \#notafact -> Astronauts use Linux - they can't open Windows in space!
 - This tutorial was created using VS Code - an editor from Microsoft that is incredible for markdown, programming, web development, etc.
   - There are extensions to work with different filetypes - including fasta and fastq files
-- VS Code is very simple to use inside of Windows (no admin required) and WSL
+- VS Code is approved software and is very simple to use inside of Windows (no admin required) and WSL
 
 <br>

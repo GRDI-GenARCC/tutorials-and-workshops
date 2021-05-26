@@ -4,18 +4,17 @@
 
 ---
 
-- This section is a copy of part 3, and will mainly be a placeholder until there is a better idea of which material will spillover from parts 1, 2, 3
+- This section will mainly be a placeholder until there is a better idea of which material will spillover from parts 1, 2, 3
 
 ## 1.0 Overview
 
-- This is **part four** of three sessions designed to be delivered in a virtual group setting
-- It will be about 1 hour of instruction with an additional 0.5 hours set aside for extra material and questions
+- This is **part four** of four sessions designed to be delivered in a virtual group setting
 - This can also be worked through at a self-directed pace outside of workshop sessions
 - The material is meant for those with little or no experience with Linux, but can be helpful for intermediate users as well
 
 ### 1.1 Prerequisite(s)
 
-- Completion of Intro to Linux parts 1 and 2 (or at least familiarity of the material)
+- Completion of Intro to Linux parts 1,2 and 3 (or at least familiarity of the material)
 - Shell environment (WSL, Biocluster, online terminal, MobaXTerm-local)
 
 ### 1.2 Objectives
@@ -26,7 +25,7 @@
 ### 1.3 Commands and topics covered in this session
 
 - **Commands**
-  - `mv`, `less`, `cat`, `more`, `file`, `chmod`, `ll`, `echo`
+  - `less`, `cat`, `more`, `echo`, `tar`, `wget`
 - **Topics**
   - symbolic links (symlinks)
 
@@ -35,7 +34,7 @@
 ```bash
 man <command_name>
 <command_name> --help
-whatis <command_name> # only one line summary
+whatis <command_name> # one line summary
 ```
 
 - more documentation at [manual-pages](https://www.kernel.org/doc/man-pages/)
@@ -48,17 +47,35 @@ whatis <command_name> # only one line summary
 
 ## 2.0 Review
 
-- Review of part 2
-  - `whatis`, `mkdir`, `touch`, `rm`, `rmdir`
-  - operators, wildcards
-  - Why are Linux users so introverted? - They never get out of their shell!
+- Review of part 3
+  - `rmdir`, `mv`, `file`, `chmod`, `ll`
 
-<br>
+### 2.1 Review Exercises
 
-- Corrections/Clarifications
-  - When using `rmdir` the option `--ignore-fail-on-non-empty` does not allow the command to remove the directory(ies), it hides the warning instead that they are non-empty (the condition non-empty causes the delete to fail)
-    - Either remove any child directories first or use `rm -r` to remove these dirs (-iv or -Iv is also recommended)
-- I failed to use alias properly, we will cover that command a little today
+- Here is a self-directed exercise to review the commands from part 3
+  - Do as much as you can using the command names above, referring to `--help` if you're stuck
+  - Clicking the expansion below will reveal all the suggested solutions
+
+1. What is the difference between -i and -I in rm?
+2. What is the functional purpose of `touch`?
+3. What is the difference between an absolute path and relative path? --> can you give an example of either of them?
+4. What does `&&` do between commands?
+5. What is the difference between `-v` and `--verbose` for `rm` or `mkdir`?
+6. What does the `*` character do?
+7. (Challenge Question) What will happen if you use `rm -Iv` on 3 or less target files? You can test this to verify
+
+<details>
+    <summary><b>Solutions</summary>
+      <ul>
+        <li>1. '-i will prompt for each delete, -I will prompt for a group of > 3 files (or a folder)'</li>
+        <li>2. To create an empty file</li>
+        <li>3. Absolute path is the full path from root. Relative path is defined by the pwd (present working directory). An example would be if you are in /home/user/testdir. This is the absolute path, root --> home --> user --> testdir. The relative path from testdir to your user folder is simply ../ (`..` is up one level in the directory structure)</li>
+        <li>4. If the first command executes correctly, it will allow another command to execute in the same line </li>
+        <li>5. There is no difference other than the appearance. They are the short and long form for the same options. There must be a space between long form options</li>
+        <li>6. `*` will match 0 or more characters.</li>
+        <li>7. It will not prompt at all, the files will be removed.</li></b>
+      </ul>
+</details>
 
 <br>
 
@@ -66,174 +83,7 @@ whatis <command_name> # only one line summary
 
 ## 3.0 Instruction
 
-### 3.1 `mv`
-
-- **`mv` - move and/or rename files**
-  - This command can either move or rename a file, it all depends on how it is used
-  - View the help text for the command with `mv --help`
-  - Moving a file within the same directory will rename the file
-  - Moving file(s) to another dir will move the file(s)
-  - We need a test directory to manipulate files safely, let's do this first
-
-Try the command(s)
-
-```bash
-cd && ls
-mkdir -pv testdir/insidedir && cd testdir
-touch file0 insidedir/file1
-```
-
-- Now we're ready to use `mv`
-- What are the arguments we should include?
-- Start in testdir
-
-Try the command(s)
-
-```bash
-pwd
-mv -iv file0 file00
-mv -iv file00 insidedir/
-```
-
-- **Discussion**
-  - How to move multiple files to a new dir?
-
-<details>
-    <summary><b>Solution</summary>
-      <ul>
-        <li>In the help text under `Usage:` you can see</li>
-        <li>mv [OPTION]... SOURCE... DIRECTORY</li>
-        <li>Which means you can have multiple sources into a single directory</li>
-        <li>Either using matching(*) to list multiple files with a single source, or listing them individually</li></b>
-      </ul>
-</details>
-
-<br>
-
-### 3.2 `ll`, `type`, and `alias`
-
-- The long listing format of `ls`, the same as `ls -alF`
-- `ll --help` lists the info for `ls`
-- `type` will determine if a command is an `alias` that has been set
-  - **`type` - display information about command type**
-  - **`alias` - define or display aliases**
-- `alias` can be used to shortcut commands to simpler or alternate commands
-  - `alias --help` gives info and only one option
-  - Use this by indicating `alias name_of_alias="command being aliased"`
-  - Use **caution** if you want to alias any commands, these will only be temporary and must be set each time you login
-    - A good example is using `alias` to make a command safer - like `alias rm="rm -Iv"`
-    - To set a permanent alias you can read more [here](https://www.tecmint.com/create-alias-in-linux/)
-
-Try the command(s)
-
-```bash
-type ll
-type ls
-type type
-```
-
-- `ll` is important for understanding more about files in our systems
-- In the output there is a 10-character section comprising of certain letters or dashes (-) indicating file permissions
-  - The first digit is usually `l`, `d`, or `-` meaning link, directory, or file
-  - `rwx` stand for read, write, execute respectively
-    - The 3 instances of them mean `owner`, `group`, and `world`
-  - The digit is the number of hard links
-  - Username of the files owner
-  - Group that owns the file
-  - Size in bytes
-  - Date and time of last modification (timestamp modified in `touch`)
-
-<br>
-
-### 3.2 `ln` and `file`
-
-- In bioinformatics files can be extremely large, a way to be more efficient is to use symbolic links (aka symlinks) so a file is not duplicated needlessly
-- The `ln` command can create links, as always let's look at the options using `--help`
-  - For this command we only really need `-s`, it is generally preferable to use symbolic (aka soft) links
-- We should have a testdir in place for this, if you do not have one from before please create one
-
-Try the command(s)
-
-```bash
-cd ~/testdir
-touch scriptfile_macOS scriptfile_linux
-ln -s scriptfile_linux scriptfile
-ll
-```
-
-- **Discussion**
-  - When could this be useful?
-  - Do you see the link in a different colour?
-
-<details>
-    <summary><b>Solution</summary>
-      <ul>
-        <li>This is useful for the above mentioned situation in reducing storage usage</li>
-        <li>The situation with the scripts can be used to run system specific commands for a workflow - ie. Snakemake</li>
-        <li>Different colour for the link may vary by terminal, this is out of curiosity</li></b>
-      </ul>
-</details>
-
-<br>
-
-- Another useful command that can help inform us about a file is `file`
-- Simply outputs information about the file and it's format
-  - Also tells basic info for a symlink
-
-Try the command(s)
-
-```bash
-touch textfile.txt
-file textfile.txt
-echo "Some text for the file" >> textfile.txt
-file textfile.txt
-file scriptfile_linux
-file scriptfile
-```
-
-- **Discussion**
-  - What does `echo` do? (hint: check with `whatis`)
-  - What about the `>>` operator?
-
-<details>
-    <summary><b>Solution</summary>
-      <ul>
-        <li>echo displays text as an output</li>
-        <li>>> will append to a file, or even create one if the specified filename doesn't exist </li></b>
-      </ul>
-</details>
-
-<br>
-
-### 3.3 `chmod`
-
-- This subject can be very complicated so we are only covering the basics. Use caution with this command!
-- Only the file's owner or the superuser can change the permissions
-- From the `ll` command we can see permissions for a file - read, write and execute for user, group, and world
-- In bioinformatics it is sometimes necessary to make a script executable (able to act as a program)
-  - So if permissions are `rw-`, we need to change this to `rwx`
-  - This can be done using octal numbers representing binary for rwx, but the easier version is to use `u+x`
-    - You can also specify the permissions for `u`= user, `g`= group, `o`= other
-      - ie. u=rwx, g=rw
-    - This gives the user permission to execute the file(s)
-  
-Try the command(s)
-
-```bash
-chmod --help
-ll
-chmod -c u+x scriptfile_linux 
-ll
-./scriptfile_linux
-```
-
-- **Discussion**
-  - What did the script do?
-  - What does the `./` mean?
-
-<br>
-
-### 3.4 `less`, `more`, and `cat`
+### 3.1 `less`, `more`, and `cat`
 
 - These are all commands to view text in a file
   - `cat` displays the contents to the output
@@ -276,7 +126,7 @@ less -N /usr/share/common-licenses/GPL-3
 
 <br>
 
-### 3.5 `echo`
+### 3.2 `echo`
 
 - `echo` is used to display a line of text
 - This can be very simple, but in combination with other options and commands it is very versatile
@@ -303,6 +153,14 @@ echo \\
   - There are many other examples but we'll stop there and discuss these ones
   - What is the difference in parentheses for some expressions?
   - What does the backslash (\\) do?
+
+<br>
+
+### 3.3 `tar`
+
+### 3.4 `wget`
+
+### 3.5 Variables
 
 <br>
 
@@ -348,6 +206,7 @@ echo \\
 
 ### 4.3 Fun Facts
 
+- Why are Linux users so introverted? - They never get out of their shell!
 - How can you tell if someone uses Linux? - Oh don't worry about it they'll tell you themselves!
 - Linux and other computer tech often have little easter eggs and jokes - programmers do not take things too seriously
   - sl
