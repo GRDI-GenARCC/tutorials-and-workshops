@@ -4,8 +4,6 @@
 
 ---
 
-- This section will mainly be a placeholder until there is a better idea of which material will spillover from parts 1, 2, 3
-
 ## 1.0 Overview
 
 - This is **part four** of four sessions designed to be delivered in a virtual group setting
@@ -27,7 +25,7 @@
 - **Commands**
   - `less`, `cat`, `more`, `echo`, `tar`, `wget`
 - **Topics**
-  - symbolic links (symlinks)
+  - Variables
 
 - Reminder: information about commands can be accessed within a terminal by using
 
@@ -48,7 +46,7 @@ whatis <command_name> # one line summary
 ## 2.0 Review
 
 - Review of part 3
-  - `rmdir`, `mv`, `file`, `chmod`, `ll`
+  - `rmdir`, `mv`, `file`, `chmod`, `ll`, `type`, `alias`, `ln`
 
 ### 2.1 Review Exercises
 
@@ -56,24 +54,21 @@ whatis <command_name> # one line summary
   - Do as much as you can using the command names above, referring to `--help` if you're stuck
   - Clicking the expansion below will reveal all the suggested solutions
 
-1. What is the difference between -i and -I in rm?
-2. What is the functional purpose of `touch`?
-3. What is the difference between an absolute path and relative path? --> can you give an example of either of them?
-4. What does `&&` do between commands?
-5. What is the difference between `-v` and `--verbose` for `rm` or `mkdir`?
-6. What does the `*` character do?
-7. (Challenge Question) What will happen if you use `rm -Iv` on 3 or less target files? You can test this to verify
+1. What will `rmdir` do if you target a non-empty directory?
+2. How can you distinguish between renaming and moving file(s) with `mv`?
+3. What are the `ls` options included in the (sometimes) preset `ll` command? Which command can you use to figure this out?
+4. Which option is the most common and useful for `ln`?
+5. (Challenge) What do the following characters mean in regards to file/directory details?
+  a. `d`, `l`, `-`, `r`, `w`, `x`
 
 <details>
     <summary><b>Solutions</summary>
       <ul>
-        <li>1. '-i will prompt for each delete, -I will prompt for a group of > 3 files (or a folder)'</li>
-        <li>2. To create an empty file</li>
-        <li>3. Absolute path is the full path from root. Relative path is defined by the pwd (present working directory). An example would be if you are in /home/user/testdir. This is the absolute path, root --> home --> user --> testdir. The relative path from testdir to your user folder is simply ../ (`..` is up one level in the directory structure)</li>
-        <li>4. If the first command executes correctly, it will allow another command to execute in the same line </li>
-        <li>5. There is no difference other than the appearance. They are the short and long form for the same options. There must be a space between long form options</li>
-        <li>6. `*` will match 0 or more characters.</li>
-        <li>7. It will not prompt at all, the files will be removed.</li></b>
+        <li>1. A warning message is given and the directory is NOT removed</li>
+        <li>2. The simple answer is that `moving` a file within the same directory renames it, and targeting another directory moves it. What is really happening is that you are modifying the absolute path of the file, whether it is just location(moving) or also changing the last portion of the absolute path (name)</li>
+        <li>3. `ls -a -l -F` (shown separately for detail), also equivalent to `ls -alF`. To find this alias use `type`</li>
+        <li>4. `-s` to create a symbolic link</li>
+        <li>5. d = directory, l = link, `-` = file, `r` = read, `w` = write, `x` = execute</li></b>
       </ul>
 </details>
 
@@ -108,21 +103,20 @@ whatis <command_name> # one line summary
 Try the command(s)
 
 ```bash
-less /usr/share/common-licenses/GPL-3
-h
-# note the commands to move by lines, pages, and search
-q
-e
-y
-f
-b
-/
-?
-q
 less -N /usr/share/common-licenses/GPL-3
+h # Display the help text
+# note the commands to move by lines, pages, and search
+q # Quit (in this case from the help text)
+e # Forward one line
+y # Backward one line
+f # Forward one window
+b # Backward one window
+/`pattern` # Search forward for matching line
+?`pattern` # Search backward for matching line
+q # Quit - this time from `less`
 ```
 
-- It is not necessary to memorize the commands for `less`, but it is important to know where they are
+- It is not necessary to memorize the commands for `less`, but it is important to know where they are (remember `h` within `less`)
 
 <br>
 
@@ -131,7 +125,8 @@ less -N /usr/share/common-licenses/GPL-3
 - `echo` is used to display a line of text
 - This can be very simple, but in combination with other options and commands it is very versatile
 - As per usual, start with `echo --help`
-- Now instead use `man echo`
+  - However, this doesn't work. Instead try `/bin/echo --help`
+  - Alternatively, use `man echo`
   - There is really not much in terms of options, but we'll see some other ways to use it
 
 Try the commands
@@ -152,15 +147,101 @@ echo \\
 - **Discussion**
   - There are many other examples but we'll stop there and discuss these ones
   - What is the difference in parentheses for some expressions?
-  - What does the backslash (\\) do?
+  - What does the backslash (\\) do in this example?
 
 <br>
 
-### 3.3 `tar`
+### 3.3 `tar` and `gunzip`
+
+- **`tar` - GNU 'tar' saves many files together into a single tape or disk archive, and can restore individual files from the archive**
+  - common archiving (zip) utility
+- help text is very lengthy, here are some common examples (these are from the help text)
+  
+```bash
+  tar -cf archive.tar foo bar  # Create archive.tar from files foo and bar.
+  tar -tvf archive.tar         # List all files in archive.tar verbosely.
+  tar -xf archive.tar          # Extract all files from archive.tar.
+```
+
+- `-c` creates an archive
+- `-x` extracts an archive
+- `-f` use archive file or device archive
+- `-t` displays or lists files in archived file
+- `-v` verbosely list files processed
+- `-z` zip, filter the archive through gzip (zip or unzips)
+
+- The most common usage in my experience is `tar -xvzf file.tar.gz` to extract and unzip
+
+- **`gzip` - Compress or uncompress FILEs**
+  - Often used as part of tar, but still helpful to know as a separate command
+  - The help text is relatively small, but there are many useful options
+    - Note `-k` for keep, as gzip will compress them remove the original
+- **`gunzip` - Uncompress FILEs**
+  - Very similar options to `gzip`
+  - Use to uncompress the .gz file back to the original file
+
+Try the commands
+
+```bash
+# If you do not already have a `playgound`, make some files
+touch files{0..6}.txt
+# Zip them into gzip format with
+gzip files*
+# Unzip them back to txt files
+gunzip *.gz
+# Combine them all into an archive as gz files
+tar -czvf archive_files.tar files*
+# Now to unpack them and unzip them
+tar -xzvf archive_files.tar
+```
+
+- **Discussion**
+  - What happened to the files once added to the .tar archive?
+    - `--remove-files` will modify this
+  - Note the use of the wildcard with the file extension, this is another method to match all files of a certain extension
 
 ### 3.4 `wget`
 
+- **`wget` - GNU Wget 1.20.3, a non-interactive network retriever.**
+  - In simple terms, use this to download a file from a web address
+  - It is usually pre-installed, but this is not guaranteed
+  - There are many options available if needed, but in it's simplest form it looks like this
+
+```bash
+wget -v [url address]
+```
+
+- `wget` is non-interactive - which means it can even work when you are not logged in. This can be useful in scripts when files must be downloaded.
+- When learning to use this command it can be helpful to use the option `--spider`, which will not download anything, but check that the target exists
+
+```bash
+wget -v --spider https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh
+```
+
+- This file is the installer for conda - a package and environment manager system that is very useful in bioinformatics
+
 ### 3.5 Variables
+
+- This concept becomes more useful in bash scripting, but we will discuss some of the basics here
+- A name and value are provided and a reference is created
+
+```bash
+me=Batman
+who_am_I="I am"
+nocturnal="the night"
+# Now print these variables
+echo $me
+echo $who_am_I
+echo $nocturnal
+# Variables can be combined
+combined="$who_am_I $nocturnal"
+echo "I'm $me, $combined"
+# Variables can be re-assigned 
+me="Lego Batman"
+echo "I'm $me, $combined"
+```
+
+### 3.6 Questions?
 
 <br>
 
@@ -168,49 +249,19 @@ echo \\
 
 ## 4.0 Extras
 
-- There should be about 30 minutes after each workshop to work on these questions and exercises with an instructor available for help if needed
-- These can also be completed at your own pace outside of workshop sessions
+- This section will not be covered during the 1 hour workshop session, they are completely optional
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
-
-<br>
-
-### 4.1 Movement Shortcuts
-
-- From **The Linux Command Line** by William Shotts (Chapter 8)
-  - "In fact, one of the most cherished goals of the command line is laziness; doing the most work with the fewest number of keystrokes. Another goal is never having to lift our fingers from the keyboard and reach for the mouse."
-- These commands can be very efficient in using Linux once you know them well
-- The commands with Alt may not work in each environment
-  - **Ctrl-a** Move cursor to the beginning of the line.
-  - **Ctrl-e** Move cursor to the end of the line.
-  - **Ctrl-f** Move cursor forward one character; same as the right arrow key.
-  - **Ctrl-b** Move cursor backward one character; same as the left arrow key.
-  - **Alt-f** Move cursor forward one word.
-  - **Alt-b** Move cursor backward one word.
-  - **Ctrl-l** Clear the screen and move the cursor to the top-left corner. The clear command does the same thing.
-
-<br>
-
-### 4.2 Challenge Questions
-
-1. TBD
-
-<details>
-    <summary><b>Empty</b></summary>
-        <ul><b>
-            <li> Empty here too </li>
-        </p></b>
-</details>
 
 <br>
 
 ### 4.3 Fun Facts
 
 - Why are Linux users so introverted? - They never get out of their shell!
-- How can you tell if someone uses Linux? - Oh don't worry about it they'll tell you themselves!
-- Linux and other computer tech often have little easter eggs and jokes - programmers do not take things too seriously
-  - sl
-  - cowsay
-  - apt moo
+- The name Linux comes from the first name of the "creator" of Linux, Linus Torvalds, combined with Unix
+- There are many distributions that use the Linux kernel - the core of the OS
+  - The most popular is Ubuntu, which itself is based on Debian
+- The components of a "Linux" system include: the kernel, the GNU utilites (including the terminal), the X server (which produces the graphics), the desktop environment, and more
+  - Some versions/distros modify others - such as Linux Mint. It is based on Ubuntu (which is based on Debian). Mint and Ubuntu are generally accepted as the most beginner friendly.
 
 <br>

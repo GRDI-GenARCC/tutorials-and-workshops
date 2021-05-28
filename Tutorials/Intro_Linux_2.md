@@ -73,7 +73,7 @@ whatis mkdir
 4. Now change directory to /home
 5. Which option for `ls` will reverse the sorting order?
 6. For the command `ls -S /tmp` - which is the option and which is the argument?
-7. (Challenge question) If you are in your home directory and want to change to root directory using the relative path, what is the command?
+7. (Challenge) If you are in your home directory and want to change to root directory using the relative path, what is the command?
 
 <details>
     <summary><b>Solutions</summary>

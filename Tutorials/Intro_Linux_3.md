@@ -23,7 +23,7 @@
 ### 1.3 Commands and topics covered in this session
 
 - **Commands**
-  - `rmdir`, `mv`, `file`, `chmod`, `ll`, `type`, `alias`
+  - `rmdir`, `mv`, `file`, `chmod`, `ll`, `type`, `alias`, `ln`
 - **Topics**
   - symbolic links (symlinks)
 
@@ -61,12 +61,12 @@ whatis <command_name> # one line summary
 4. What does `&&` do between commands?
 5. What is the difference between `-v` and `--verbose` for `rm` or `mkdir`?
 6. What does the `*` character do?
-7. (Challenge Question) What will happen if you use `rm -Iv` on 3 or less target files? You can test this to verify
+7. (Challenge) What will happen if you use `rm -Iv` on 3 or less target files? You can test this to verify
 
 <details>
     <summary><b>Solutions</summary>
       <ul>
-        <li>1. '-i will prompt for each delete, -I will prompt for a group of > 3 files (or a folder)'</li>
+        <li>1. '-i` will prompt for each delete, -I will prompt for a group of > 3 files (or a folder)'</li>
         <li>2. To create an empty file</li>
         <li>3. Absolute path is the full path from root. Relative path is defined by the pwd (present working directory). An example would be if you are in /home/user/testdir. This is the absolute path, root --> home --> user --> testdir. The relative path from testdir to your user folder is simply ../ (`..` is up one level in the directory structure)</li>
         <li>4. If the first command executes correctly, it will allow another command to execute in the same line </li>
@@ -225,6 +225,7 @@ ll
 <br>
 
 - Another useful command that can help inform us about a file is `file`
+  - let's use `file --help` to look at the information
 - Simply outputs information about the file and it's format
   - Also tells basic info for a symlink
 
@@ -234,6 +235,7 @@ Try the command(s)
 touch textfile.txt
 file textfile.txt
 echo "Some text for the file" >> textfile.txt
+echo "echo This script ran successfully" >> scriptfile_linux
 file textfile.txt
 file scriptfile_linux
 file scriptfile
@@ -270,9 +272,9 @@ Try the command(s)
 ```bash
 chmod --help
 ll
-chmod -c u+x scriptfile_linux 
+chmod -c u+x scriptfile
 ll
-./scriptfile_linux
+./scriptfile
 ```
 
 - **Discussion**
