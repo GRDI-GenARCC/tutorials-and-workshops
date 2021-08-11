@@ -1,6 +1,6 @@
 # Ubuntu Installation Guide
 
-- [Home page of the repository](/)
+- [Home page of the repository](linux_resources)
 - [WSL Workshop](/WSL_workshop)
 
 - Ubuntu is a widely-used and beginner-friendly Linux distribution. With the addition of the Windows Subsystem for Linux feature that is now available on AAFC devices running Windows 10, we can use a Ubuntu command line interface within our Windows OS.
