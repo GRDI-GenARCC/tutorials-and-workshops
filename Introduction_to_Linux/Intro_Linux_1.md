@@ -1,6 +1,6 @@
 # Introduction to Linux Tutorial Part 1
 
-- [Home page of the repository](/README.md)
+- [Home page of the repository](master)
 - [Introduction to Linux overview](/Introduction_to_Linux)
 
 [[_TOC_]]
