@@ -1,6 +1,6 @@
 # Introduction to Linux
 
-- [Home page of the repository](linux_resources)
+- [Home page of the repository](../README.md)
 - [WSL Workshop](/WSL_Workshop)
 - Links to each session
   - [Part 1](/Introduction_to_Linux/Intro_Linux_1.md)
