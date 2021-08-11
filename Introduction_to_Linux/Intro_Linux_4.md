@@ -1,5 +1,8 @@
 # Introduction to Linux Tutorial Part 4
 
+- [Home page of the repository](/)
+- [Introduction to Linux overview](/Introduction_to_Linux)
+
 [[_TOC_]]
 
 ---

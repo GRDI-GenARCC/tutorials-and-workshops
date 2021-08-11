@@ -1,5 +1,13 @@
 # Introduction to Linux
 
+- [Home page of the repository](/)
+- [WSL Workshop](/WSL_Workshop)
+- Links to each session
+  - [Part 1](/Introduction_to_Linux/Intro_Linux_1.md)
+  - [Part 2](/Introduction_to_Linux/Intro_Linux_2.md)
+  - [Part 3](/Introduction_to_Linux/Intro_Linux_3.md)
+  - [Part 4](/Introduction_to_Linux/Intro_Linux_4.md)
+
 - This repository contains `Introduction to Linux` in 4 parts
 - These are designed to be completed in 1 hour workshop sessions
   - There are also optional materials for practice and enrichment

@@ -1,5 +1,8 @@
 # Ubuntu Installation Guide
 
+- [Home page of the repository](/)
+- [WSL Workshop](/WSL_workshop)
+
 - Ubuntu is a widely-used and beginner-friendly Linux distribution. With the addition of the Windows Subsystem for Linux feature that is now available on AAFC devices running Windows 10, we can use a Ubuntu command line interface within our Windows OS.
 - The [BRSN](https://collab.agr.gc.ca/co/BRS-SRB/SitePages/Home.aspx) (Bioinformatics Research Support Network) is excited to offer an [Introduction to Linux](https://gccode.ssc-spc.gc.ca/bioinformatics_aafc/training_documentation/intro_to_linux_workshop/-/blob/master/README.md) workshop for users interested in using Linux and command line tools for Bioinformatics or other purposes
 - The [software review committee approved WSL](https://collab.agr.gc.ca/co/ndlm-gncob/Lists/Software%20List/AllItems.aspx?FilterField1=FL&FilterValue1=W) for use this summer, **however** there is a work-around required to install Ubuntu with the latest build of Windows 10 (Version 20H2)
