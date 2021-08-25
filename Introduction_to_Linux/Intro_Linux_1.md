@@ -1,6 +1,6 @@
 # Introduction to Linux Tutorial Part 1
 
-- [Home page of the repository](tree)
+- [Home page of the repository](../README.md)
 - [Introduction to Linux overview](/Introduction_to_Linux)
 
 [[_TOC_]]
@@ -19,7 +19,7 @@
   - Patience for both instructors and learners will help everyone achieve their best results
   - Many users have great expertise in other areas of science, this is the beginning of process to gain yet another area of expertise
 - This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
-  - This is an excellent resource for further study!
+  - **This is an excellent resource for further study!**
 - Here are some other resources for Linux and Bioinformatics related training
   - Excellent and in-depth Linux Tutorial - [Ryan's Tutorials](https://ryanstutorials.net/linuxtutorial/)
   - The [BRSN resource page](https://collab.agr.gc.ca/co/BRS-SRB/SitePages/Resource%20Overview.aspx#title-1175) is repository with links and information for many other resources
@@ -28,15 +28,17 @@
 
 ### 1.1 Prerequisite(s)
 
-- Shell environment (WSL, Biocluster, cocalc, replit)
-- **Discuss**
-  - Which Linux environments are you using? Poll in the chat
+- Ubuntu installed in WSL (Windows Subsystem for Linux)
+  - An installation guide is available [here](/WSL_Workshop/WSL_installation.md) - current as of August 2021
+  - For many users at AAFC this will be the most simple and practical way to access Linux
+  - Ubuntu in WSL is a great environment for training, practice, and even some light data analysis. For anything above this you should use a full-fledged Linux workstation or the [Biocluster](https://redmine.biodiversity.agr.gc.ca/projects/biocluster/wiki/Biocluster_User_Guide) - use your AAFC credentials to access this site
+- Any `bash` command line will suffice, but the guide will focus on Ubuntu in WSL as it is now widely available to AAFC users
 
 <br>
 
 ### 1.2 Objectives
 
-- Overall objective --> build a foundation of skills to be confident in using bioinformatics tools in Linux
+- Overall objective --> build a foundation of skills in Linux
 - Learn some background information about Linux
 - Define some key terms about Linux and the command line interface (CLI)
 - Study and practice some basic command line functions
@@ -81,8 +83,7 @@ man <command_name>
     <summary><b>Click to expand</b></summary>
         <p>Linux comes from an early operating system called Unix. Users would connect to multi-user mainframe computers by display and keyboard only. Text is very light-weight compared to graphic user interfaces (GUI). Interacting with an operating system above the computer components was a "shell". GNU and eventually Linux are open source components branching away from Unix.</p>
         <img src="https://cdn-media-1.freecodecamp.org/images/8dQXHBemVAUp4xgVzFqgEHGyNjCsQT0usHBw" alt = "Shell Diagram, freecodecamp.org" width="200"/>
-        <p>Users interacted with the system by sending input and receiving output. Multiple users could use the system simultaneously. They used programs or commands in a programming language - initially sh (shell, or Bourne shell), now bash ("Bourne again shell"). Thus the command line has been the basis of Linux systems ever since. It can be confusing to learn but offers the best performance, can be automated with scripts, and many important scientific tools use the CLI for development.</p>  
-        <br>
+        <p>Users interacted with the system by sending input and receiving output. Multiple users could use the system simultaneously. They used programs or commands in a programming language - initially sh (shell, or Bourne shell), now bash ("Bourne again shell"). Thus the command line has been the basis of Linux systems ever since. It can be confusing to learn but offers the best performance, can be automated with scripts, and many important scientific tools use the command line interface (CLI) for development.</p>  
 </details>
 
 <br>
@@ -94,9 +95,8 @@ man <command_name>
   - It is simple to setup environments with specific compilers, languages, tools, etc. Containers are a relatively new option for this
     - eg. May need tools that work for version 2.15.1 and not 2.16
 - Open source nature of Linux and bioinformatics tools
-  - Ease of development in an open source environment
 - High performance computers usually have Linux OS
-  - When connecting to HPC (eg. Biocluster) the command line is your main interface
+  - When connecting to HPC (eg. [Biocluster](https://redmine.biodiversity.agr.gc.ca/projects/biocluster/wiki/Biocluster_User_Guide)) the command line is your interface
 
 <br>
 
@@ -105,23 +105,25 @@ man <command_name>
 NOTE: Some organizations use terms more specifically, these are the general definitions.
 
 - Command line interface
-  - Text session where the user enters commands with options and arguments. Output is displayed from the operating system (OS).
+  - Text session where the user enters commands with options and arguments. Output is displayed from the operating system (OS)
 - Shell
-  - A text-mode application containing a CLI to the OS
-  - Note that in casual usage - shell, prompt, terminal, and console all typically refer to the same thing
+  - Program that takes commands from the keyboard and interprets them for the operating system
+  - `bash` acts the default shell for most Linux distributions
+  - In Windows there is a language called PowerShell
+  - Other shells are available such as: `zsh`, `fish`
 - Console
   - The window that hosts your shell and runs programs
 - Console application
   - A command line program that functions without a required graphical interface
-- Bash
+- bash
   - Commonly distributed command language for Linux
+  - bash acts as your shell when using it in the command line
   - An enhanced version of the original sh (Bourne shell)
 - Ubuntu
   - A popular Linux distribution (distro) based on Debian (another distro)
   - Widely used and considered to be very user friendly
 - Terminal
-  - Often used synonymously with shell
-  - More accurately - the terminal gives access to the shell
+  - The terminal gives access to the shell - eg. The window or program that allows you to use bash or another shell
   - Can refer to the software that hosts the shell/CLI
   - Can also refer to the physical hardware used to interface with the OS
 - Prompt
@@ -133,6 +135,8 @@ NOTE: Some organizations use terms more specifically, these are the general defi
     - Usually ends with $
 - GUI (pronounced gooey)
   - Graphical user interface
+- WSL (Windows Subsystem for Linux)
+  - A compatibility layer allowing Linux commands in Windows. Linux distributions are installed and can use most command line features. In AAFC only version 1 is approved at this time.
 
 <br>
 
@@ -146,6 +150,10 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 
 - In a Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
 - If you are in Ubuntu in WSL or connected to the Biocluster, you're already using CLI
+- Review window placement for the workshop
+  - Teams or markdown document split to one side
+  - Ubuntu window
+  - other (slido)
 
 <br>
 
@@ -160,14 +168,16 @@ NOTE: Some organizations use terms more specifically, these are the general defi
   - Typically paste is right-click
   - Sometimes ctrl+shift+c and ctrl+shift+v used for copy and paste respectively
 - **ctrl+c** - interrupt/kill the current process in the terminal
+  - :wink:
 
 - #### Exercise 3.11
 
   - Copy some text from outside your shell and paste it into the command line
   - This does not need to execute properly in Linux, in fact it's safer if it doesn't
-  - Feel free to use text from this tutorial  
+  - Feel free to use text from this tutorial
+  - In Ubuntu/WSL you can configure options by right-clicking the top of the window and choosing "Properties"
 
-- We will learn to use these other navigation shortcuts throughout the tutorial
+- We will learn to use these navigation shortcuts throughout the tutorial
 
 <br>
 
@@ -188,11 +198,11 @@ PWD
   - Why did the second command not work?
 
 <details>
-    <summary><b>Solution</summary>
+    <summary>Solution</summary>
       <ul>
         <li>Linux is case sensitive, only the exact command will work</li>
         <li>This also applies to filenames and directories</li>
-        <li>eg. file1 and File1 are completely separate files in Linux (not in Windows)</li></b>
+        <li>eg. file1 and File1 are completely separate files in Linux (not in Windows)</li>
       </ul>
 </details>
 
@@ -209,6 +219,7 @@ Try the commands
 
 ```bash
 ls
+ls . # The command above defaults to `.` as the location, unless one is specified
 ll -s # ll may not be an "alias" in your shell
 ls /
 ls -a
@@ -217,7 +228,8 @@ ls -a /home
 ```
 
 - `ls -a` uses a **command option** to see all contents, including hidden files and folders that start with a `.`
-  - eg. `.bash_history` in your home directory (your 'user' folder)
+  - In Ubuntu this is "aliased" to `la` (more on `alias` later)
+  - eg. Hidden files -> `.bash_history` in your home directory (your 'user' folder)
 - `ls -a /home` combines an option, `-a`, with an argument, `/home`
 
 - **Discussion**
@@ -225,14 +237,14 @@ ls -a /home
   - How do they help?
 
 <details>
-    <summary><b>Solution</summary>
+    <summary>Solution</summary>
       <ul>
         <li>These are not the only options, as all arguments have their usages</li>
         <li>-h for human readable (when viewing file sizes)</li>
         <li>-s to view the file size</li>
         <li>-S to sort by file size</li>
         <li>-t to sort by modification time</li>
-        <li>-1 to view in one column, </li></b>
+        <li>-1 to view in one column, </li>
       </ul>
 </details>
 
@@ -240,8 +252,8 @@ ls -a /home
 
 ### 3.4 Command Line Options and Arguments
 
-- these are important for basic linux and especially in scientific tools
-- a good way to learn them is to use the `--help` argument before attempting to use a command
+- These are important for basic linux and especially in scientific tools
+- A good way to learn them is to use the `--help` argument before attempting to use a command
 
 ```bash
 pwd --help
@@ -250,8 +262,9 @@ pwd -h
 
 - `-h` is often a shortcut for `--help` but can also have a meaning as an argument, use caution and check the options before using a command
 - These options can enhance the usage of a command - displaying the changes, or asking for inputs, etc.
-- Usually not required, but for some commands they are necessary
-- These options can be used together, for instance `ls -1hast` will display all contents in one column sorted by last modification time with the "human readable" size listed as well
+- The command is what you want to, the options/parameters are how you want to do it, and the arguments are the things you want to apply these to
+- Options are usually not required, but for some commands they are necessary
+- These options can be used together, for instance `ls -1hast` will display all contents in one column sorted by last modification time with the "human readable" size listed as well. This is equivalent to `ls -1 -h -a -s -t` or `ls -1ha -st`
 
 <br>
 
@@ -268,9 +281,9 @@ pwd -h
   - How do you view the command line options for `cd`
 
 <details>
-    <summary><b>Solution</summary>
+    <summary>Solution</summary>
       <ul>
-        <li>cd --help</li></b>
+        <li>cd --help</li>
       </ul>
 </details>
 
@@ -278,7 +291,7 @@ pwd -h
 
 - `/` is a critical directory in Linux systems, it is the **root** directory
   - All other storage branches from this location, even other drives (in /mnt)
-  - If you are using WSL you will be able to use your Windows drives (c, d, etc) in /mnt
+  - If you are using WSL you will be able to use your Windows drives (c, d, etc) in /mnt (for more on WSL-specific usage see the [WSL Workshop](/WSL_Workshop))
 
 <br>
 
@@ -303,11 +316,17 @@ cd lib # change to lib while in user directory
 
 - Note that using paths like `home` or `lib` only works if they are a subdirectory of your current directory, otherwise a full or absolute path must be used
 - Absolute path will include the full address to the location, whereas a relative path uses `.` and `..`
-- If it is installed, use `tree` to view the file structure
+- The package `tree` can be used to view the file structure
+  - For instructions on how to install packages using `apt` see [Using WSL](/WSL_Workshop/Using_WSL.md)
+
+- **realpath**
 
 - **Example**
   - If you are in `/home` and wish to go to your user account, this can be achieved by using `cd USERNAME` (substituting your own account name)
   - The relative path to do the same thing is `cd ./USERNAME`
+  - An absolute path includes all the directories from root
+    - For my directory to create this workshop I have a folder called `gitlab_gccode`, and within that is `linux_resources` (remember no spaces in files/folders!)
+    - The absolute path is `/home/mat/gitlab_gccode/linux_resources` whereas if I was already in my user directory, I could just use `gitlab_gccode/linux_resources` as a relative path
 
 <br>
 
@@ -318,12 +337,14 @@ cd lib # change to lib while in user directory
 - Hint: it can be useful to list contents in 1 column (default is alphabetical descending sort)
 
 <details>
-  <summary><b>Solution</b></summary>
-    <ul><b>
+  <summary>Solution</summary>
+    <ul>
       <li>cd /etc/fstab</li>
       <li>The directory is in root -> etc -> fstab </li>
-      <li>fstab can be configured to mount drives upon system startup, such as network drives </li></b>
+      <li>fstab can be configured to mount drives upon system startup, such as network drives </li>
+    </ul>
 </details>
+
 <br/>
 
 - **Discussion**
@@ -360,13 +381,15 @@ cd lib # change to lib while in user directory
 
 1. When could your pwd be different from the actual directory you are in?
 2. How do you view hidden files? What are some of the hidden files in your home directory?
+3. Type in the command `yes` and press enter. What do you do now?
 
 <details>
-    <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
-        <ul><b>
+    <summary>This will reveal all the answers, please go through as many as you can before looking</summary>
+        <ul>
             <li> 1. This can occur during a script, the working directory can vary depending on the files that are being altered </li>
             <li> 2. Using the command `ls -a`. Files relating your bash shell such as .bash_history, .bashrc, and .bash_logout are common </li>
-        </p></b>
+            <li> 3. The only way out of this loop is <b>Ctrl+c</b> </li>
+        </ul>
 </details>
 
 <br>
@@ -378,4 +401,4 @@ cd lib # change to lib while in user directory
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TuxFlat.svg/800px-TuxFlat.svg.png" alt = "Tux" width="150"/>
 
 - The document you are reading is written in a language called "Markdown", if you view the source in the main gitlab repo you will see what the unformatted version looks like
-  - The expansion sections are written using raw html
+  - The click-to-expand sections are written using raw html

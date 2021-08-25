@@ -16,7 +16,7 @@
 ### 1.1 Prerequisite(s)
 
 - Completion of Intro to Linux parts 1,2 and 3 (or at least familiarity of the material)
-- Shell environment (WSL, Biocluster, online terminal, MobaXTerm-local)
+- Shell environment
 
 ### 1.2 Objectives
 

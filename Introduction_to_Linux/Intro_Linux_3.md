@@ -183,7 +183,9 @@ type ls
 type type
 ```
 
-- `ll` is important for understanding more about files in our systems
+- `ll` is important for understanding more about files in our system
+  - By just entering `ll` it is the same as entering `ll .`, which is your current directory
+    - You can specify a single file to reduce the amount of information provided in the output. In your user directory you can try `ll .bashrc`
 - In the output there is a 10-character section comprising of certain letters or dashes (-) indicating file permissions
   - The first digit is usually `l`, `d`, or `-` meaning link, directory, or file
   - `rwx` stand for read, write, execute respectively

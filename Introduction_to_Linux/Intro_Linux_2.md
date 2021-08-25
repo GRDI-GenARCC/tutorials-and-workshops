@@ -16,7 +16,7 @@
 ### 1.1 Prerequisite(s)
 
 - Completion of Intro to Linux part 1 (or at least familiarity of the material)
-- Shell environment (WSL, Biocluster, online terminal)
+- `bash` command line (Ubuntu in WSL will be the default for all commands shown)
 
 ### 1.2 Objectives
 
@@ -79,7 +79,7 @@ whatis mkdir
 7. (Challenge) If you are in your home directory and want to change to root directory using the relative path, what is the command?
 
 <details>
-    <summary><b>Solutions</summary>
+    <summary><b>Solutions</b></summary>
       <ul>
         <li>'cd /'</li>
         <li>'cd ' OR 'cd /home/USERNAME' --> use `whoami` to find username OR `cd ~`</li>
@@ -87,7 +87,7 @@ whatis mkdir
         <li>'cd /home' (absolute path) OR 'cd ..' (relative path) </li>
         <li>`-r` reverses the sort order, by defaults contents are sorted alphabetically</li>
         <li>`-S` is the option (sort by file size), and `/tmp` is the argument</li>
-        <li>`cd ../..` - This goes up 2 parent directories (user --> home --> root)</li></b>
+        <li>`cd ../..` - This goes up 2 parent directories (user --> home --> root)</li>
       </ul>
 </details>
 
@@ -103,11 +103,18 @@ whatis mkdir
 - View the help text using `mkdir --help`
 - It is best to only use options if you understand the consequences
 
+#### 3.11 A Note About Directory Structure
+
+- Previously `testdir` was used as a test directory
+  - `bioinfo_test` will now be used, and the testfiles will relate to bioinformatics
+- In Ubuntu on WSL the user folder is blank upon account creation, in a full Ubuntu system you would have `Documents`, `Downloads`, `Photos`, etc.
+- As with filenames, it is important to have detailed names for directories
+
 Try the commands
 
 ```bash
 cd
-mkdir -v testdir
+mkdir -v bioinfo_projects
 ```
 
 - **Discussion**
@@ -116,12 +123,12 @@ mkdir -v testdir
   - Which option should we use to create multiple nested directories?
 
 <details>
-    <summary><b>Solution</summary>
+    <summary><b>Solution</b></summary>
         <ul>
-            <li>The option -v is for verbose (prints out what the command is doing)</li>  
+            <li>The option -v is for <b>verbose</b> (prints out what the command is doing)</li>  
             <li>To create nested directories we need the option -p or --parents</li>
             <li>This will make parent directories as needed </li>
-            <li>Sometimes using the full name of the command options gives clarity to what the option is doing</li></b>
+            <li>Sometimes using the full name of the command options gives clarity to what the option is doing</li>
         </ul>
 </details>
 
@@ -130,7 +137,7 @@ mkdir -v testdir
 Additional commands
 
 ```bash
-mkdir --parents --verbose testdir/testdir1/testdir2
+mkdir --parents --verbose bioinfo_projects/2021microbiome/raw_data
 mkdir -v testingdir0 testingdir1
 ```
 
@@ -138,11 +145,11 @@ mkdir -v testingdir0 testingdir1
   - What is the resulting difference in these two commands?
 
 <details>
-    <summary><b>Solution</summary>
+    <summary><b>Solution</b></summary>
         <ul>
             <li>Nested directories vs. separate directories</li>
             <li>In the man page/help text you can determine if a command has multiple 'targets' by looking for the elipsis ("...")</li>
-            <li>If you have access to the command `tree` you can see this in the directory structure</li></b>
+            <li>If you have access to the command `tree` you can see this in the directory structure</li>
         </ul>
 </details>
 
@@ -163,7 +170,8 @@ touch file1 file2.txt
 ```
 
 - Commands can be chained together in bash with `&&` (this is an operator)
-  - Note that other shells have different operators (eg. `;` in fish)
+  - This means the second command will only execute after the first command is successful (logical `AND`)
+    - Using a semi-colon will ensure the 2nd command will execute regardless of the first command ie. `cd; ls`
 - We will look at other operators later
 - File types must be assigned manually (`.txt` `.fastq` `.md` etc.)
 
@@ -173,8 +181,8 @@ touch file1 file2.txt
 - Name these files whatever you would like
 
 <details>
-    <summary><b>Solution</summary>
-        - touch testdir1/filewhatever testdir1/testdir2/filewhatever1</b>
+    <summary>Solution</summary>
+        - touch testdir1/filewhatever testdir1/testdir2/filewhatever1
 </details>
 
 <br>
@@ -218,12 +226,12 @@ rm -iv testdir2
   - Why didn't the last command work?
 
 <details>
-    <summary><b>Solution</summary>
+    <summary>Solution</summary>
         <ul>
             <li> Look at the documentation/arguments</li>
             <li> For a directory we need to use -r (recursive)</li>
             <li> Recursion - a method of solving a problem where the solution depends on solutions to smaller instances of the same problem </li>
-            <li><a>https://en.wikipedia.org/wiki/Recursion_(computer_science)</a></li></b>
+            <li><a>https://en.wikipedia.org/wiki/Recursion_(computer_science)</a></li>
         </ul>
 </details>
 
