@@ -16,7 +16,7 @@
 ### 1.1 Prerequisite(s)
 
 - Completion of Intro to Linux parts 1 and 2 (or at least familiarity of the material)
-- Shell environment (WSL, Biocluster, online terminal, MobaXTerm-local)
+- `bash` command line (Ubuntu in WSL will be the default for all commands shown)
 
 ### 1.2 Objectives
 
@@ -59,23 +59,23 @@ whatis <command_name> # one line summary
   - Clicking the expansion below will reveal all the suggested solutions
 
 1. What is the difference between -i and -I in rm?
-2. What is the functional purpose of `touch`?
-3. What is the difference between an absolute path and relative path? --> can you give an example of either of them?
+2. What is the usual purpose for `touch`?
+3. What is the difference between an absolute path and relative path? --> can you give an example of either of them? (recall the command `realpath`)
 4. What does `&&` do between commands?
 5. What is the difference between `-v` and `--verbose` for `rm` or `mkdir`?
 6. What does the `*` character do?
 7. (Challenge) What will happen if you use `rm -Iv` on 3 or less target files? You can test this to verify
 
 <details>
-    <summary><b>Solutions</summary>
+    <summary><b>Solutions</b></summary>
       <ul>
         <li>1. '-i` will prompt for each delete, -I will prompt for a group of > 3 files (or a folder)'</li>
         <li>2. To create an empty file</li>
-        <li>3. Absolute path is the full path from root. Relative path is defined by the pwd (present working directory). An example would be if you are in /home/user/testdir. This is the absolute path, root --> home --> user --> testdir. The relative path from testdir to your user folder is simply ../ (`..` is up one level in the directory structure)</li>
+        <li>3. Absolute path is the full path from root. Relative path is defined by the pwd (present working directory). An example would be if you are in /home/user/testdir. This is the absolute path, root --> home --> user --> testdir. The relative path from testdir to your user folder is simply ../ (`..` is up one level in the directory structure). Using <b>realpath</b> with dir/file(s) outputs the absolute path of the file(s) in that dir.</li>
         <li>4. If the first command executes correctly, it will allow another command to execute in the same line </li>
         <li>5. There is no difference other than the appearance. They are the short and long form for the same options. There must be a space between long form options</li>
         <li>6. `*` will match 0 or more characters.</li>
-        <li>7. It will not prompt at all, the files will be removed.</li></b>
+        <li>7. It will not prompt at all, the files will be removed.</li>
       </ul>
 </details>
 
@@ -88,7 +88,8 @@ whatis <command_name> # one line summary
 ### 3.1 `rmdir`
 
 - **`rmdir` - remove empty directories**
-- A simple version of rm for directories - checks if they are empty, if so then deletes
+- This command is not used often, but is a great review and companion to `rm`, which is used often
+- A simple version of `rm` for directories - checks if they are empty, if so then deletes
 - As always, worth looking at the help text `rmdir --help`
   - `-p` and `-v` are useful options once again
 
@@ -98,17 +99,9 @@ Try the commands
 cd
 mkdir -pv emptydir/emptydirs{1..7}
 ls
-rmdir -pv emptydir
-rmdir -pv --ignore-fail-on-non-empty emptydir # no directories are deleted
-```
-
-- The option `--ignore-fail-on-non-empty` just ignores the failure error, it does not delete the directories
-- Ignoring this warning could be useful when running a script or attempting to delete a large number of directories at once
-- An actual way to do this is:
-
-```bash
+rmdir -pv emptydir # does not work because the subdirectories mean this dir is not truly "empty"
 mkdir -pv emptydir/emptydir{1..10}
-rmdir -v emptydir/* emptydir
+rmdir -v emptydir/* emptydir # alternate way to do this, delete the subdirs, then the main dir
 ```
 
 - By removing the subdirectories first we ensure that the parent `emptydir` is empty when rmdir executes on it
@@ -120,45 +113,58 @@ rmdir -v emptydir/* emptydir
 
 - **`mv` - move and/or rename files**
   - This command can either move or rename a file, it all depends on how it is used
+  - It essentially changes the absolute path for a file, whether it includes location or file name (the last part of the absolute path)
   - View the help text for the command with `mv --help`
   - Moving a file within the same directory will rename the file
   - Moving file(s) to another dir will move the file(s)
-  - We need a test directory to manipulate files safely, let's do this first
+  - We will work from the same `linux_workshop` directory as last time, if you do not have it use these first commands to create it
 
 Try the command(s)
 
 ```bash
 cd && ls
-mkdir -pv dirA/insidedir && cd dirA
-touch file0 insidedir/file1
+mkdir -pv linux_workshop/2021microbiome && cd linux_workshop
+touch file0 microbiome/file1
 ```
 
 - Now we're ready to use `mv`
 - What are the arguments we should include?
-- Start in dirA
+- Start in linux_workshop
 
-Try the command(s)
+Try the commands
 
 ```bash
 pwd
-mv -iv file0 file00
-mv -iv file00 insidedir/
+mv -iv file0 sequencefiles.fa # file0 is not descriptive at all, change to sequencefiles.fa (.fa is fasta file format - also .fasta)
+mv -iv sequencefiles.fa 2021microbiome/ # move the sequencefiles.fa into the subfolder
 ```
 
 - **Discussion**
   - How to move multiple files to a new dir?
 
 <details>
-    <summary><b>Solution</summary>
+    <summary><b>Solution</b></summary>
       <ul>
         <li>In the help text under `Usage:` you can see</li>
         <li>mv [OPTION]... SOURCE... DIRECTORY</li>
         <li>Which means you can have multiple sources into a single directory</li>
-        <li>Either using matching(*) to list multiple files with a single source, or listing them individually</li></b>
+        <li>Either using matching(*) to list multiple files with a single source, or listing them individually</li>
       </ul>
 </details>
 
 <br>
+
+Try the commands
+
+```bash
+cd ~/linux_workshop # `~` is the shortcut for our user folder, so this path will work regardless of where we are
+touch config.yaml manifest.csv readme.md
+ls
+mv config.yaml manifest.csv readme.md 2021microbiome/
+cd 2021microbiome; ls # check new location for files
+```
+
+- You can also use pattern matching to move multiple files matching a wildcard pattern with *
 
 ### 3.3 `ll`, `type`, and `alias`
 
@@ -203,12 +209,12 @@ type type
 - In bioinformatics files can be extremely large, a way to be more efficient is to use symbolic links (aka symlinks) so a file is not duplicated needlessly
 - The `ln` command can create links, as always let's look at the options using `--help`
   - For this command we only really need `-s`, it is generally preferable to use symbolic (aka soft) links
-- We should have a testdir in place for this, if you do not have one from before please create one
+- We will continue to use the `linux_workshop` workshop for this
 
 Try the command(s)
 
 ```bash
-cd ~/dirA
+cd ~/linux_workshop
 touch scriptfile_macOS scriptfile_linux
 ln -s scriptfile_linux scriptfile
 ll
@@ -219,11 +225,11 @@ ll
   - Do you see the link in a different colour?
 
 <details>
-    <summary><b>Solution</summary>
+    <summary><b>Solution</b></summary>
       <ul>
-        <li>This is useful for the above mentioned situation in reducing storage usage</li>
-        <li>The situation with the scripts can be used to run system specific commands for a workflow - ie. Snakemake</li>
-        <li>Different colour for the link may vary by terminal, this is out of curiosity</li></b>
+        <li>This examples shows some packages may come with diverging options, due to factors like Operating System (OS)</li>
+        <li>The workflow can be built to use the generic name (in this case - scriptfile), which links to the appropriate file</li>
+        <li>Overall the main usage for links is to avoid file duplication, but there are useful situations like this as well</li>
       </ul>
 </details>
 
@@ -279,12 +285,16 @@ chmod --help
 ll
 chmod -c u+x scriptfile
 ll
-./scriptfile
+./scriptfile # execute the file
 ```
 
 - **Discussion**
   - What did the script do?
   - What does the `./` mean?
+
+<br>
+
+### 3.6 Questions?
 
 <br>
 
@@ -316,23 +326,33 @@ ll
 
 ### 4.2 Challenge Questions
 
-1. When could you take advantage of the conditional logic of `&&`?
+1. What will happen to a link when the original file is removed? Test this yourself to see
 
 <details>
-    <summary><b>Empty</b></summary>
-        <ul><b>
-            <li> Empty here too </li>
-        </p></b>
+    <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
+        <ul>
+            <li>1. Create a file, then a link to this file, remove the original file. This will cause the link to be `broken`. Create a file --> `touch original_file.txt`, link to the file --> `ln -s original_file.txt link_file.txt`, then `rm -i original_file.txt`. Now try `file link_file.txt` </li>
+        </ul>
 </details>
 
 <br>
 
 ### 4.3 Fun Facts
 
-- How can you tell if someone uses Linux? - Oh don't worry about it they'll tell you themselves!
+- Joke: How can you tell if someone uses Linux? - Oh don't worry about it they'll tell you themselves!
 - Linux and other computer tech often have little easter eggs and jokes - programmers do not take things too seriously
-  - sl
-  - cowsay
-  - apt moo
+  - sl (steam locomotive - 'trains' (ha) you not to mistype `ls`)
+  - cowsay - like `echo` but with a cow using a speech bubble
+
+```bash
+_____________________________
+< This tutorial is phenomenal >
+ -----------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
 
 <br>
