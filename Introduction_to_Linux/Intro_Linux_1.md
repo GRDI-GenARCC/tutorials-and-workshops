@@ -318,8 +318,9 @@ cd lib # change to lib while in user directory
 - Absolute path will include the full address to the location, whereas a relative path uses `.` and `..`
 - The package `tree` can be used to view the file structure
   - For instructions on how to install packages using `apt` see [Using WSL](/WSL_Workshop/Using_WSL.md)
-
-- **realpath**
+- A useful command for viewing the absolute path of files is `realpath`
+  - For more in-depth information, see the help text
+  - Simple usage is to use `realpath DIRNAME/*` to see the abs path of all files in the given directory
 
 - **Example**
   - If you are in `/home` and wish to go to your user account, this can be achieved by using `cd USERNAME` (substituting your own account name)

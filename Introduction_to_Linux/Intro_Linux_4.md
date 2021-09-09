@@ -16,12 +16,15 @@
 ### 1.1 Prerequisite(s)
 
 - Completion of Intro to Linux parts 1,2 and 3 (or at least familiarity of the material)
-- Shell environment
+- `bash` command line (Ubuntu in WSL will be the default for all commands shown)
 
 ### 1.2 Objectives
 
 - Overall objective --> build a foundation of skills to be confident in using bioinformatics tools in Linux
 - This session will focus on some useful utilities in the command line and file permissions
+- This session contains more intermediate commands - however it is not necessary to remember them all - use this guide as a reference
+  - Part of learning Linux/command line is knowing where to find resources for when you need them later
+  - Unless you use something constantly you will need to lookup command names and options
 
 ### 1.3 Commands and topics covered in this session
 
@@ -59,19 +62,19 @@ whatis <command_name> # one line summary
 
 1. What will `rmdir` do if you target a non-empty directory?
 2. How can you distinguish between renaming and moving file(s) with `mv`?
-3. What are the `ls` options included in the (sometimes) preset `ll` command? Which command can you use to figure this out?
+3. What are the `ls` options included in the preset `ll` command? Which command can you use to figure this out?
 4. Which option is the most common and useful for `ln`?
 5. (Challenge) What do the following characters mean in regards to file/directory details?
   a. `d`, `l`, `-`, `r`, `w`, `x`
 
 <details>
-    <summary><b>Solutions</summary>
+    <summary><b>Solutions</b></summary>
       <ul>
         <li>1. A warning message is given and the directory is NOT removed</li>
         <li>2. The simple answer is that `moving` a file within the same directory renames it, and targeting another directory moves it. What is really happening is that you are modifying the absolute path of the file, whether it is just location(moving) or also changing the last portion of the absolute path (name)</li>
         <li>3. `ls -a -l -F` (shown separately for detail), also equivalent to `ls -alF`. To find this alias use `type`</li>
         <li>4. `-s` to create a symbolic link</li>
-        <li>5. d = directory, l = link, `-` = file, `r` = read, `w` = write, `x` = execute</li></b>
+        <li>5. d = directory, l = link, `-` = file, `r` = read, `w` = write, `x` = execute</li>
       </ul>
 </details>
 
@@ -94,10 +97,10 @@ whatis <command_name> # one line summary
   - This looks different than with usual help text, why is this?
 
 <details>
-    <summary><b>Solution</summary>
+    <summary><b>Solution</b></summary>
       <ul>
         <li>The information is being displayed by the `less` command</li>
-        <li>Usually help text is displayed using `cat`</li></b>
+        <li>Usually help text is displayed using `cat`</li>
       </ul>
 </details>
 
@@ -157,7 +160,7 @@ echo \\
 ### 3.3 `tar` and `gunzip`
 
 - **`tar` - GNU 'tar' saves many files together into a single tape or disk archive, and can restore individual files from the archive**
-  - common archiving (zip) utility
+  - common archiving utility
 - help text is very lengthy, here are some common examples (these are from the help text)
   
 ```bash
@@ -193,8 +196,11 @@ gzip files*
 # Unzip them back to txt files
 gunzip *.gz
 # Combine them all into an archive as gz files
+# c = create archive, f =  archive file
+# z = gzip, gunzip, v = verbose
 tar -czvf archive_files.tar files*
 # Now to unpack them and unzip them
+# x = extract or get
 tar -xzvf archive_files.tar
 ```
 
@@ -230,18 +236,18 @@ wget -v --spider https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux
 
 ```bash
 me=Batman
-who_am_I="I am"
+who_am_I="I am" # requires quotations to capture two words
 nocturnal="the night"
 # Now print these variables
-echo $me
-echo $who_am_I
+echo $me # $ indicates a variable, if we used 'me' it would simply print the word, not our variable
+echo $who_am_I # try using `tab` for autocomplete
 echo $nocturnal
 # Variables can be combined
 combined="$who_am_I $nocturnal"
 echo "I'm $me, $combined"
 # Variables can be re-assigned 
 me="Lego Batman"
-echo "I'm $me, $combined"
+echo "I'm $me, $combined" # use 'up arrow' twice to access previous command instead of re-typing it
 ```
 
 ### 3.6 Questions?
@@ -255,16 +261,33 @@ echo "I'm $me, $combined"
 - This section will not be covered during the 1 hour workshop session, they are completely optional
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
+- Now that you have a basic mastery of using the `--help` command, there is a package you can install that will highlight the most common or simple usage of many commands called `tldr` (too long, didn't read)
+  - Use `sudo apt install tldr` then simply use `tldr "command name"'
+  - This package is another tool to learn commands along with `man`, `--help`, and `whatis`
 
 <br>
 
-### 4.3 Fun Facts
+### 4.1 Challenge Questions
 
-- Why are Linux users so introverted? - They never get out of their shell!
+1. If you had three types files (let's assume there are 100s of digits after the name in each) -> Jim.txt, Jim.md, and James.txt -> How could you filter to choose only the Jim.txt files??
+
+<details>
+    <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
+        <ul>
+            <li>1. Pattern matching can apply in various ways. In this case you need the characters 'J' and 'i', as 'J' alone would match 'James'. Then you can specify '.txt' at the end. Everything else in the middle can be captured with  '*'. So final answer 'Ji*.txt' </li>
+        </ul>
+</details>
+
+<br>
+
+### 4.2 Fun Facts
+
+- Joke: Why are Linux users so introverted? - They never get out of their shell!
 - The name Linux comes from the first name of the "creator" of Linux, Linus Torvalds, combined with Unix
 - There are many distributions that use the Linux kernel - the core of the OS
   - The most popular is Ubuntu, which itself is based on Debian
 - The components of a "Linux" system include: the kernel, the GNU utilites (including the terminal), the X server (which produces the graphics), the desktop environment, and more
   - Some versions/distros modify others - such as Linux Mint. It is based on Ubuntu (which is based on Debian). Mint and Ubuntu are generally accepted as the most beginner friendly.
+- One of the underlying philosophies of Linux/GNU is that each program does one thing well. This is seen in the `tar` and `gzip` commands. They each have one specific purpose and do one thing well. You must often use them together to get the required result, there is no command that does both as that would violate this philosophy.
 
 <br>
