@@ -98,14 +98,48 @@ Conda has a simple syntax. There is only a short list of commands to know for ba
 | Base Environment | The default Conda environment that is created when Conda is installed. It should initially only contain the Conda package and its dependencies. Installing packages directly into the base environment is not recommended |
 | Conda Channels | Different users who upload conda packages to the [Anaconda Cloud](https://anaconda.org/). Some of these channels are actually communities of users who collaborate on packaging software |
 
-### Create and activate Conda environment
+### Create and manipulate Conda environment
 
-### Install a software
+#### Create a new environment
+
+```{bash}
+conda create -n my-first-env
+```
+
+#### Activate an environment
+
+```{bash}
+conda activate my-first-env
+```
+
+#### Deactivate an environment
+
+```{bash}
+conda deactivate
+```
+
+#### Clone an environment
+
+```{bash}
+conda create -n my-first-clone-env --clone my-first-env
+```
+
+#### List available env
+
+```{bash}
+conda env list
+```
+
+#### Remove an environment
+
+```{bash}
+conda env remove -n my-first-env
+```
+
+### Software management
 
 ### Import and export environment
 
 ### Use conda environment in a script
-
-### Other useful commands
 
 ## Tips and best practices
