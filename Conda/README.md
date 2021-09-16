@@ -1,11 +1,11 @@
-# Conda
+# Conda - Package management tool
 
 - [Home page of the repository](../README.md)
 - [WSL Workshop](/WSL_Workshop)
 
 [[_TOC_]]
 
-## Conda basics
+## Introduction to Conda
 
 **Part of this document was taken from the [Biocluster documentation](https://redmine.biodiversity.agr.gc.ca/projects/biocluster/wiki/Installing_Conda)**
 
