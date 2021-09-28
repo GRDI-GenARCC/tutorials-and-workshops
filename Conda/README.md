@@ -111,7 +111,7 @@ Conda has a simple syntax. There is only a short list of commands to know for ba
 
 ### Manage Conda environment
 
-Conda environments are useful to isolate and manage multiple softwares/versions/dependencies that differs from your different projects or analysis. You can 
+Conda environments are useful to isolate and manage multiple softwares/versions/dependencies that differs from your different projects or analysis. Here is a list of basic commands to manage your Conda environments.
 
 #### Create a new environment
 
@@ -225,10 +225,6 @@ conda remove package
 
 ### Import and export environment
 
-
-
 ### Use conda environment in a script
-
-
 
 ## Tips and best practices
