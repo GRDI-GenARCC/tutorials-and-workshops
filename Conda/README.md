@@ -1,6 +1,7 @@
 # Conda - Package management tool
 
 - [Home page of the repository](../README.md)
+- [Conda Workshop](conda_workshop)
 - [WSL Workshop](/WSL_Workshop)
 
 [[_TOC_]]
@@ -223,8 +224,61 @@ conda remove package
 
 <br>
 
-### Import and export environment
+### Export and import Conda environment
+
+#### Export environment
+
+To best way to export a conda environmnet is in a [YAML](https://en.wikipedia.org/wiki/YAML) file. You can create the `.yml` file of your active environment with the following command:
+
+```{bash}
+# yml file with all packages dependencies and versions
+conda env export > my_env.yml
+
+# yml file with only the packages installed by the user.
+# No dependencies and no versions
+conda env export --from-history > my_env.yml
+```
+
+You can also modify your `.yml` file or create one from scratch. More details on this in the [conda user-guide](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually) 
+
+#### Import environment
+
+You can import an environment from a `.yml` file with the following command:
+
+```{bash}
+# The name of your environment is defined in the yml first line
+conda env create --file my_env.yml
+
+# To change the name of the environment, use this command
+conda env create -n new-env-name --file my_env.yml
+```
+
+<br>
 
 ### Use conda environment in a script
 
+To use conda environment from a shell script, you need to run the conda source script. Like you did in your *bashrc* file (see [Installation step 3](#installation)). Then you will be able to activate your environment from your script.
+
+```{bashrc}
+#!/bin/bash
+
+### Template script to enable Conda environment from a script
+
+# Run the conda source script
+source ~/miniconda3/etc/profile.d/conda.sh
+
+# Activate your base environment
+conda activate
+```
+
+<br>
+
 ## Tips and best practices
+
+- **Build multiple small environments**  
+   Conda environments can become too complex if you install too many packages in a single environment. In some cases, the package manager won't be able to resolved the dependencies which will creates problems with your environment. To avoid this:
+  - Do not install all your packages in your base environment
+  - Create one environment for each pipeline/projects
+
+- Use meaningful name for your environments
+- Add your environment file (`.yml`) to your Git project. Your environment will change while you are working on your pipeline or project.
