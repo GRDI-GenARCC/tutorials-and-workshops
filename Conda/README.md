@@ -31,7 +31,7 @@ Conda is an open source package and environment manager. It provides an easy way
 
 ### How can I use Conda
 
-Conda can be install on all platforms (Windows, macOS, Linux). But most of bioinformatics and data analysis packages are only available on Linux and macOS. **If you have a Windows computer we recommend using the Windows Subsystem for Linux. See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more info.** This page focus on the Linux installation of Miniconda but the installation and the usage is almost identical for other platform.
+Conda can be install on all platforms (Windows, macOS, Linux). But most of bioinformatics and data analysis packages are only available on Linux and macOS. **If you have a Windows computer we recommend using the Windows Subsystem for Linux. See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more info.** [The Conda installation guide page](/Conda/conda_installation_guide.md) focus on the Linux installation of Miniconda but the installation and the usage is almost identical for other platform.
 
 <br>
 
