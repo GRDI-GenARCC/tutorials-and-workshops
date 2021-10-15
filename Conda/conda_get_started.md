@@ -20,7 +20,7 @@ Now that conda is install on your Linux terminal. Let's do a short demo of the b
 
 You can create your first environment with the command:
 
-```{bash}
+```bash
 conda create -n my_first_env
 ```
 
@@ -30,7 +30,7 @@ conda create -n my_first_env
 
 The best way to search for a package is to go to [anaconda.org](https://anaconda.org/) and use the search bar to find your package. Let's install the Blast package in the environment you just created.
 
-```{bash}
+```bash
 # Install the blast package
 conda install -n my_first_env blast
 ```
@@ -39,7 +39,7 @@ conda install -n my_first_env blast
 
 Now let's see if Blast is installed and which version you installed.
 
-```{bash}
+```bash
 blastn -version
 ```
 
@@ -51,7 +51,7 @@ You should get an error message like: `Command 'blastn' not found`. This is beca
 
 The name of the active environment is always display on the left side of your command prompt. *e.g.* `(base) username@hostname:~$`. The name between the parenthesis is the name of the active environment. To list the available environments use the command:
 
-```{bash}
+```bash
 conda env list
 ```
 
@@ -59,13 +59,13 @@ conda env list
 
 To use the Blast package you installed you need to activate the `my_first_env` environment.
 
-```{bash}
+```bash
 conda activate my_first_env
 ```
 
 Now that the environment is active we can verify if Blast is installed and which version you installed.
 
-```{bash}
+```bash
 blastn -version
 ```
 
@@ -75,14 +75,14 @@ blastn -version
 
 A good practice is to use meaningful environment name. We did a poor job naming our first environment (my_first_env). Let's duplicate and rename this environment to fix this.
 
-```{bash}
+```bash
 # Clone the environment
 conda create -n blast_env --clone my_first_env
 ```
 
 You created a new environment, let's see the list of available Conda environments.
 
-```{bash}
+```bash
 conda env list
 ```
 
@@ -92,7 +92,7 @@ conda env list
 
 Now that we created a clone of our first environment with a meaningful name, let's clean and remove our first environment.
 
-```{bash}
+```bash
 # Remove the environment
 conda env remove -n my_first_env
 
@@ -104,11 +104,11 @@ conda env list
 
 ### Use a conda environment in a script
 
-To use conda environment from a shell script, you need to run the conda source script like you did in your *bashrc* file (see [Installation step 3](conda_installation_guide#Installation)). Then you will be able to activate the environment you want from your script.
+To use conda environment from a shell script, you need to run the conda source script like you did in your *bashrc* file (see [Installation step 3](conda_installation_guide.md#installation)). Then you will be able to activate the environment you want from your script.
 
 We will create a bash script that run the `blastn -version` command. Name your script `blast_version.sh`. Copy the following line in your script:
 
-```{bashrc}
+```bash
 #!/bin/bash
 
 # Run the conda source script
@@ -122,7 +122,7 @@ blastn -version
 
 Change the permission of your script to make it executable and run it.
 
-```{bash}
+```bash
 # Change permission to make the file executable
 chmod 744 blast_version.sh
 
