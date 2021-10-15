@@ -3,8 +3,8 @@
 ## Links to other Conda pages in this repository
 
 - [Conda home page](/Conda) - Home page of the Conda repository
-- [Conda installation guide](/conda_installation_guide.md) - How to install Conda from a Linux terminal
-- [Conda usage](/conda_usage.md) - List of useful Conda commands
+- [Conda installation guide](/Conda/conda_installation_guide.md) - How to install Conda from a Linux terminal
+- [Conda usage](/Conda/conda_usage.md) - List of useful Conda commands
 
 ## Table of contents
 
