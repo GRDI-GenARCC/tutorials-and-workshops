@@ -1,4 +1,4 @@
-# List of useful Conda commands
+# Conda usage
 
 ## Links to other Conda pages in this repository
 
@@ -10,7 +10,7 @@
 
 [[_TOC_]]
 
-## Conda usage
+## List of useful Conda commands
 
 ### Manage Conda environment
 
