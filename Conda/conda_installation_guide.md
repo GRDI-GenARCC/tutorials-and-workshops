@@ -3,8 +3,8 @@
 ## Links to other Conda pages in this repository
 
 - [Conda home page](/Conda) - Home page of the Conda repository
-- [Conda get started](/conda_get_started.md) - Beginners tutorial for basic Conda commands
-- [Conda usage](/conda_usage.md) - List of useful Conda commands
+- [Conda get started](/Conda/conda_get_started.md) - Beginners tutorial for basic Conda commands
+- [Conda usage](/Conda/conda_usage.md) - List of useful Conda commands
 
 ## Table of contents
 
