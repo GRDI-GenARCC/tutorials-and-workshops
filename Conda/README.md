@@ -1,13 +1,14 @@
 # Conda - Package management tool
 
-- [Home page of the repository](../README.md)
-- [WSL Workshop](/WSL_Workshop)
+- [Home page of the Linux Resources repository](../README.md)
 
 ## Links to other Conda pages in this repository
 
-- [Conda installation guide](conda_installation_guide) - How to install Conda from a Linux terminal
-- [Conda get started](conda_get_started) - Beginners tutorial for basic Conda commands
-- [Conda usage](conda_usage) - List of useful Conda commands
+- [Conda installation guide](/conda_installation_guide.md) - How to install Conda from a Linux terminal
+- [Conda get started](/conda_get_started.md) - Beginners tutorial for basic Conda commands
+- [Conda usage](/conda_usage.md) - List of useful Conda commands
+
+## Table of contents
 
 [[_TOC_]]
 

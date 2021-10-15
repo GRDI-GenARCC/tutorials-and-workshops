@@ -2,9 +2,11 @@
 
 ## Links to other Conda pages in this repository
 
-- [Conda main Page](README) - List of useful Conda commands
-- [Conda get started](conda_get_started) - Beginners tutorial for basic Conda commands
-- [Conda usage](conda_usage) - List of useful Conda commands
+- [Conda home page](/Conda) - Home page of the Conda repository
+- [Conda get started](/conda_get_started.md) - Beginners tutorial for basic Conda commands
+- [Conda usage](/conda_usage.md) - List of useful Conda commands
+
+## Table of contents
 
 [[_TOC_]]
 
