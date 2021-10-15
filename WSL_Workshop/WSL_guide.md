@@ -95,7 +95,7 @@ ls projects/
   - You can change directory to the Windows file system to use command line tools on Windows files
     - `cd /mnt/c/Users/USERNAME/` then navigate from within the Windows files
 
-- One of the advantages that WSL 1 has is that it has faster access to files in Windows. The practical applications of this are narrow, but if you have to work on files in Windows from Ubuntu or vice versa then WSL 1 will be better than version 2. 
+- One of the advantages that WSL 1 has is that it has faster access to files in Windows. The practical applications of this are narrow, but if you have to work on files in Windows from Ubuntu or vice versa then WSL 1 will be better than version 2.
 
 ### Accessing your WSL storage from File Explorer
 
@@ -116,4 +116,16 @@ ls projects/
 - text filtering?
 - selective deletions?
 
-## 
+## VS Code Integrations
+
+- An IDE (Integrated Development Environment) that allows for code-editing or working with a variety of data files. VS Code is a free software from Microsoft
+  - It is approved on the AAFC software list. It can be installed in Program Files, requiring an IT Ticket and assistance from IT Client services. Altervatively it can be installed in the LocalApps folder of your user folder without Admin rights
+  - [https://code.visualstudio.com/](https://code.visualstudio.com/)
+- VS Code can be used for programming in Python or writings bash scripts, or simply to look at text or tabulated files
+  - The markdown for this workshop was written using VS Code.
+
+- There are integrations in VS Code that work nicely with WSL. If VS Code is installed you can launch a remote session connected to your WSL file system using `code .`, specifying the location (`.` is the pwd)
+- If VS Code is open from Windows, use the >< icon in the bottom-left to connect a remote session to WSL. This may require the WSL extension to be installed first. Extensions are accessed via the "blocks" icon on the left panel, or by using "ctrl+shift+x"
+  - Search for and install the "Remote - WSL" extension
+- When a VS Code window is connected to VS Code you have access to the Ubuntu filesystem of the location you are working in. You can create and modify files in Ubuntu but using a graphical window.
+  - There are also great shortcuts for version control - see more material [here](https://gccode.ssc-spc.gc.ca/bioinformatics_aafc/training_documentation/git_resources)
