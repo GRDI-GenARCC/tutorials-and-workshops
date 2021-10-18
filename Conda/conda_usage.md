@@ -50,7 +50,7 @@ conda env list
 
 #### Remove an environment
 
-``bash
+```bash
 conda env remove -n my-env-name
 ```
 
