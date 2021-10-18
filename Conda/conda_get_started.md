@@ -37,9 +37,13 @@ conda install -n my_first_env blast
 
 **You can specify the version of the package you want to install using `conda install -n my_first_env blast=2.12.0`**
 
-Now let's see if Blast is installed and which version you installed.
+Now let's see if Blast is installed in the miniconda repository and which version you installed.
 
 ```bash
+# Get the path to blastn executable
+which blastn
+
+# Check which version of Blast is installed
 blastn -version
 ```
 
@@ -63,9 +67,13 @@ To use the Blast package you installed you need to activate the `my_first_env` e
 conda activate my_first_env
 ```
 
-Now that the environment is active we can verify if Blast is installed and which version you installed.
+Now that the environment is active we can verify again if Blast is installed in the miniconda repository and which version you installed.
 
 ```bash
+# Get the path to blastn executable
+which blastn
+
+# Check which version of Blast is installed
 blastn -version
 ```
 

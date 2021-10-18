@@ -20,37 +20,37 @@ Conda environments are useful to isolate and manage multiple softwares/versions/
 
 #### Create a new environment
 
-```{bash}
+```bash
 conda create -n my-first-env
 ```
 
 #### Activate an environment
 
-```{bash}
+```bash
 conda activate my-first-env
 ```
 
 #### Deactivate an environment
 
-```{bash}
+```bash
 conda deactivate
 ```
 
 #### Clone an environment
 
-```{bash}
+```bash
 conda create -n my-first-clone-env --clone my-first-env
 ```
 
 #### List available environment
 
-```{bash}
+```bash
 conda env list
 ```
 
 #### Remove an environment
 
-```{bash}
+``bash
 conda env remove -n my-env-name
 ```
 
@@ -64,7 +64,7 @@ conda env remove -n my-env-name
 
 The best way to search for a package is to go to [anaconda.org](https://anaconda.org/) and use the search bar to find your package. You can also search for packages using the following command:
 
-```{bash}
+```bash
 conda search package
 ```
 
@@ -74,25 +74,25 @@ conda search package
 
 Install the default version of a package in your active environment
 
-```{bash}
+```bash
 conda install package
 ```
 
 Install a specific version of a package in your active environment
 
-```{bash}
+```bash
 conda install package=2.4.3
 ```
 
 Install a package in a specific environment
 
-```{bash}
+```bash
 conda install package -n my-env-name
 ```
 
 Install multiple packages
 
-```{bash}
+```bash
 conda install package1 package2 package3
 ```
 
@@ -102,13 +102,13 @@ conda install package1 package2 package3
 
 For the active environment
 
-```{bash}
+```bash
 conda list
 ```
 
 For a specific environment
 
-```{bash}
+```bash
 conda list -n my-env-name
 ```
 
@@ -116,7 +116,7 @@ conda list -n my-env-name
 
 #### Update a package
 
-```{bash}
+```bash
 conda update package
 ```
 
@@ -124,7 +124,7 @@ conda update package
 
 #### Remove a package
 
-```{bash}
+```bash
 conda remove package
 ```
 
@@ -136,7 +136,7 @@ conda remove package
 
 To best way to export a conda environmnet is in a [YAML](https://en.wikipedia.org/wiki/YAML) file. You can create the `.yml` file of your active environment with the following command:
 
-```{bash}
+```bash
 # yml file with all packages dependencies and versions
 conda env export > my_env.yml
 
@@ -150,14 +150,14 @@ You can also modify your `.yml` file or create one from scratch. More details on
 
 You can import an environment from a `.yml` file with the following command:
 
-```{bash}
+```bash
 # The name of your environment is defined in the yml first line
 conda env create --file my_env.yml
 ```
 
 To change the name of the environment, use this command instead
 
-```{bash}
+```bash
 conda env create -n new-env-name --file my_env.yml
 ```
 
@@ -167,7 +167,7 @@ conda env create -n new-env-name --file my_env.yml
 
 To use conda environment from a shell script, you need to run the conda source script. Like you did in your *bashrc* file (see [Installation step 3](#installation)). Then you will be able to activate your environment from your script.
 
-```{bashrc}
+```bash
 #!/bin/bash
 
 ### Template script to enable Conda environment from a script
