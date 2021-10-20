@@ -58,3 +58,11 @@ Conda has a simple syntax. There is only a short list of commands to know for ba
   - Create one environment for each pipeline/projects
 - Use meaningful name for your environments
 - Add your environment file (`.yml`) to your Git project. Your environment will change while you are working on your pipeline or project.
+
+<br>
+
+---
+
+- [Conda installation guide](/Conda/conda_installation_guide.md) - How to install Conda from a Linux terminal
+- [Conda get started](/Conda/conda_get_started.md) - Beginners tutorial for basic Conda commands
+- [Conda usage](/Conda/conda_usage.md) - List of useful Conda commands

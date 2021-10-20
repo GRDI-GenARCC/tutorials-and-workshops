@@ -29,7 +29,7 @@
    2. Press `q` to close the license or `<enter>` to scroll through it until you've read it all
    3. Type `"yes"` to accept the license, then press `<enter>`
    4. The default install location of `~/miniconda3/` is fine, so press `<enter>`
-   5. Prepending the miniconda install location is no longer the recommended way to enable Conda, so type `"no"` and press `<enter>`
+   5. Running `conda init` is no longer the recommended way to enable Conda, so type `"no"` and press `<enter>`
 
 ### 3. Enable the `conda` command
 
