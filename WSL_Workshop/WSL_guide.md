@@ -1,34 +1,38 @@
 # Using WSL
 
 - Examples of command line tools being efficient vs. Windows
+- note about passwords
+- Link to Installation instructions!
 
 ## Some of the basics
   
 - What is WSL?
   - Windows Subsystem for Linux (WSL) is a compatibility layer allowing Linux utilities and commands to run in a Windows system
   - A Linux distribution is installed in this subsystem and users can access the command line and shell languages
+    - WSL vs Linux vs Ubuntu
+      - WSL is the feature that allows Linux to be installed in your Windows 10. There are many varieties of Linux, with Ubuntu being one of the most common.
   - NOTE: There are two versions of WSL. Currently only version 1 is approved in AAFC. Version 2 is generally better but has some networking challenges.
-    - WSL 2 offers greater performance, some graphical capabilities, and is becoming even easier to enable and install with Windows 11. We hope to eventually use version 2.
+    - WSL 2 offers greater performance, some graphical capabilities, and is becoming even easier to enable and install with future Windows 10 builds and Windows 11. We hope to eventually use version 2.
 
 - What is Ubuntu?
   - A Linux distribution that is generally considered to be user-friendly and well built. It is a free operating system that is managed by a corportation (Canonical) that offers enterprise support at a price.
-  - There are many Linux distributions. Some of the most common are Debian, Ubuntu, Linux Mint, Arch Linux, CentOS, and openSUSE.
+  - There are many Linux distributions. Some of the most common are Debian, Ubuntu, Linux Mint, Arch Linux, CentOS, and openSUSE. In WSL 
 
 - Philosophy of Linux/GNU
   - Single responsiblity principle - each program should only do one thing
   - Linux uses small actions that work together
 
 - Opening Ubuntu
-  - The main method to open your Ubuntu terminal is the icon from your Windows 10 start menu. You can use your mouse to navigate or simply press the Windows key and start typing "Ubuntu" and you should see your installation.
+  - The main method to open your Ubuntu terminal is the icon from your Windows 10 start menu. You can use your mouse to navigate or simply press the Windows key and start typing "Ubuntu" and you should see your installation.ls
   - Depending on the file name when it was extracted it could be simply "Ubuntu" or possibly "Ubuntu20.04".
     - If you are using Ubuntu 18 that is completely fine.
-  - If for any reason that icon is not available, you can also launch Ubuntu from the PowerShell app. Simply open PowerShell and type `wsl` to launch your default distro (it is possible to have more than one, but it is an uneccessary complication)
+  - If for any reason that icon is not available, you can also launch Ubuntu from the **PowerShell** app. Simply open PowerShell and type `wsl` to launch your default distro (it is possible to have more than one, but it is an uneccessary complication)
 
 ### Updates
 
 - **DISCLAIMER!**
-  - If you are following this during the live session with a new WSL system, please DO NOT apply updates. It can take 10+ minutes the first time and will make participation difficult.
-  - This is a good thing to do after the workshop.
+  - If you are following this during the live session with a new WSL system, please DO NOT apply updates right now. It can take 10+ minutes the first time and will make participation difficult. This is a good thing to do after the workshop.
+  - For other commands in the workshop you can try to do these in real time, but if the pace is too quick remember these guides will be available and there are recordings of the workshop as well.
 
 - To perform updates to Ubuntu and all packages, the commands
 
@@ -56,6 +60,8 @@ sudo apt update; sudo apt upgrade # perform both commands with one line, watch f
 - "Admin mode" in Linux is called `sudo`, which means "super user do"
 - We need to use `sudo` to use the package manager
   - At least for the first usage of `sudo` in a given session, you must enter your password
+    - As noted in the [installation instructions](https://gccode.ssc-spc.gc.ca/bioinformatics_aafc/training_documentation/linux_resources/-/blob/dev/WSL_Workshop/WSL_installation.md) you do not need to use the same password as your Windows login. It can be simple as you are already behind a personal login and security is not as great a concern at that point. However if you cannot remember your password it will require a full reinstall of Ubuntu. Please remember or record it somewhere safe.
+    - If you need to change your password you can use the command `passwd`. You need to enter the old password, then 2 prompts are given to match the new password.
 - NOTE: Updates should be applied before new packages installed. Depending on the current state of your updates this may be required.
 
 - If you already have an up to date system here are a few small packages to try installing
