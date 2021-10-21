@@ -220,6 +220,7 @@ PWD
 Try the commands
 
 ```bash
+cd # make sure to begin in your user directory
 ls
 ls . # The command above defaults to `.` as the location, unless one is specified
 ll -s # ll may not be an "alias" in your shell

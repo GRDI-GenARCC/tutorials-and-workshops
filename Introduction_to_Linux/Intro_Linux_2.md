@@ -70,7 +70,7 @@ whatis mkdir
   - Do as much as you can using the command names above, referring to `--help` if you're stuck
   - Clicking the expansion below will reveal all the suggested solutions
 
-1. Change directory to your 'root' directoty hint - "`/` is root"
+1. Change directory to your 'root' directory hint - "`/` is root"
 2. Now go to your user folder (there is more than one way to do this)
 3. List the contents one item per line
 4. Now change directory to /home
@@ -81,13 +81,13 @@ whatis mkdir
 <details>
     <summary><b>Solutions</b></summary>
       <ul>
-        <li>cd /</li>
-        <li>cd  OR cd /home/USERNAME --> use whoami to find username OR cd ~</li>
-        <li>ls -1</li>
-        <li>cd /home (absolute path) OR cd .. (relative path) </li>
-        <li>-r reverses the sort order, by defaults contents are sorted alphabetically</li>
-        <li>-S is the option (sort by file size), and /tmp is the argument</li>
-        <li>cd ../.. - This goes up 2 parent directories (user --> home --> root)</li>
+        <li>1. cd /</li>
+        <li>2. cd  OR cd /home/USERNAME --> use whoami to find username OR cd ~</li>
+        <li>3. ls -1</li>
+        <li>4. cd /home (absolute path) OR cd .. (relative path) </li>
+        <li>5. -r reverses the sort order, by defaults contents are sorted alphabetically</li>
+        <li>6. -S is the option (sort by file size), and /tmp is the argument</li>
+        <li>7. cd ../.. - This goes up 2 parent directories (user --> home --> root)</li>
       </ul>
 </details>
 
