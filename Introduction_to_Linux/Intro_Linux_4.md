@@ -192,9 +192,9 @@ Try the commands
 # If you do not already have a `playgound`, make some files
 touch files{0..6}.txt
 # Zip them into gzip format with
-gzip files*
+gzip -v files*
 # Unzip them back to txt files
-gunzip *.gz
+gunzip -v *.gz
 # Combine them all into an archive as gz files
 # c = create archive, f =  archive file
 # z = gzip, gunzip, v = verbose
@@ -228,6 +228,7 @@ wget -v --spider https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux
 ```
 
 - This file is the installer for conda - a package and environment manager system that is very useful in bioinformatics
+  - There is now a user guide for conda [here](../Conda/README.md)
 
 ### 3.5 Variables
 

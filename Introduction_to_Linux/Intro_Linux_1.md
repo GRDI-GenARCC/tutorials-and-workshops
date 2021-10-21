@@ -166,7 +166,8 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 - **left/right arrows** - used to control cursor placement in the text
 - **copy/paste** - this can depend on which terminal you are using, and the configurations
   - Typically paste is right-click
-  - Sometimes ctrl+shift+c and ctrl+shift+v used for copy and paste respectively
+  - In WSL/Ubuntu you can use ctrl+shift+c and ctrl+shift+v used for copy and paste respectively (hold ctrl, shift, then press the 'c' key. To paste hold ctrl, shift, then press 'v')
+    - Typically this is enabled in your properties. Access this menu by right-clicking the 'title bar' of the terminal
 - **ctrl+c** - interrupt/kill the current process in the terminal
   - :wink:
 
@@ -176,6 +177,7 @@ NOTE: Some organizations use terms more specifically, these are the general defi
   - This does not need to execute properly in Linux, in fact it's safer if it doesn't
   - Feel free to use text from this tutorial
   - In Ubuntu/WSL you can configure options by right-clicking the top of the window and choosing "Properties"
+    - In properties you can enable ctrl+shift+c/v for copy-paste
 
 - We will learn to use these navigation shortcuts throughout the tutorial
 
