@@ -1,4 +1,4 @@
-# Ubuntu Installation Instructions
+# WSL/Ubuntu Installation Instructions
 
 - [Home page of the repository](../README.md)
 - [WSL Workshop](/WSL_workshop)
