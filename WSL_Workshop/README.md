@@ -5,4 +5,5 @@
 
 - Welcome to the material for the WSL Workshop
 
-- [WSL Installation Guide](/WSL_Workshop/WSL_installation.md)
+- [WSL Installation Guide](./WSL_installation.md)
+- [WSL User Guide](./WSL_guide.md)

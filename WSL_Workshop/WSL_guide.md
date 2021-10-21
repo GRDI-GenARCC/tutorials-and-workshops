@@ -1,8 +1,10 @@
-# Using WSL
+# WSL User Guide
 
-- Examples of command line tools being efficient vs. Windows
-- note about passwords
-- Link to Installation instructions!
+- [Home page of the repository](../README.md)
+- [WSL Resources Overview](./README.md)
+- [WSL/Ubuntu Installation Guide](./WSL_installation.md)
+
+[[_TOC_]]
 
 ## Some of the basics
   
@@ -16,7 +18,7 @@
 
 - What is Ubuntu?
   - A Linux distribution that is generally considered to be user-friendly and well built. It is a free operating system that is managed by a corportation (Canonical) that offers enterprise support at a price.
-  - There are many Linux distributions. Some of the most common are Debian, Ubuntu, Linux Mint, Arch Linux, CentOS, and openSUSE. In WSL 
+  - There are many Linux distributions. Some of the most common are Debian, Ubuntu, Linux Mint, Arch Linux, CentOS, and openSUSE. In WSL there are other some other distros available to install but it is strongly recommended to use Ubuntu.
 
 - Philosophy of Linux/GNU
   - Single responsiblity principle - each program should only do one thing
@@ -36,7 +38,7 @@
 
 - To perform updates to Ubuntu and all packages, the commands
 
-```bash
+```{bash}
 sudo apt update # fetch the package lists
 sudo apt upgrade # apply them
 
@@ -72,6 +74,7 @@ sudo apt update; sudo apt upgrade # perform both commands with one line, watch f
     - The package itself is small, but may need to load some information upon first usage
   - `htop` - an interactive process-viewer and process-manager
     - Allows you to see hardware utilization and which processes are using resources
+    - Press `q` or F10 to quit
   - `cowsay` - outputs a message just like `echo`, but with a cow using a "speech bubble".
     - Just for fun.
 
@@ -81,11 +84,19 @@ sudo apt update; sudo apt upgrade # perform both commands with one line, watch f
   - If you do not have anything in your user dir, make a projects directory (or something else if you would like, just have something)
     - Also create a file in that directory, we'll add some text so it's not empty
 
-```bash
+```{bash}
 cd; ls
 mkdir -v projects
 echo "Index file for projects dir. Add info for each project added to this dir" > projects/index.txt
 ls projects/
+```
+
+- Remember to view a text file the best application is `less`. We can read `index.txt` with the command
+  - Alternatively for a small file such as this one you can use `cat` to print it to the command line
+
+```bash
+less projects/index.txt
+# Use q to quit less
 ```
 
 ### Mounting your Windows storage
@@ -98,6 +109,13 @@ ls projects/
     - `cd /mnt/c/Users/USERNAME/` then navigate from within the Windows files
 
 - One of the advantages that WSL 1 has is that it has faster access to files in Windows. The practical applications of this are narrow, but if you have to work on files in Windows from Ubuntu or vice versa then WSL 1 will be better than version 2.
+
+- If you will access your Windows storage at all then it is a good idea to create a link in your user directory. This is a shortcut to access your Windows storage in future situations
+
+```bash
+cd; ls
+ln -s /mnt/c/Users/USERNAME/
+```
 
 ### Accessing your WSL storage from File Explorer
 
@@ -112,11 +130,22 @@ ls projects/
       - This will show any distros installed in WSL, the version, and the current state (running, stopped, etc.)
   - From here you have typical File Explorer access to your WSL files
     - Depending on the files in you use in Ubuntu it may be a good idea to back these up in a Windows location. WSL is stable feature but it can be easy to make errors that affect the file system
+- You can pin the location to your Quick Access menu if you want a shortcut to access the Ubuntu storage in the future
 
 ## Using bash with Windows files
 
-- text filtering?
-- selective deletions?
+- There are times when using the command line can be more effective on files in Windows than utilities in Windows would be
+  - This is especially true for a large set of files, as you may encounter in Bioinformatics
+- I will demonstrate on a smaller subset of copied data, but limited storage can mean it's better to create symbolic links (symlinks) from the data in Windows storage
+  - There does not seem to be a published storage size for WSL 1, but for version 2 it is 256 GB. It is possibly using the same style of virtual hard drive for both versions.
+  - To create symbolic links for a directory simply specify it as the target. `ln -s TARGET` and the link to the dir will be created in your pwd
+  - To create links to each file requires a slight tweak - you must use a wildcard to match a pattern in a directory then specify a target directory.
+    - eg. `ln -s TARGET/*files .`
+- Sorting and displaying information is very fast through the command line. The command `du` can be used to display disk usage information. The options `-h` for human readable (from bytes to KB, MB, etc.) and `-s` for summarize (displays totals for subdirectories, doesn't show each file) are very useful.
+- Selecting subset of the files to delete
+  - If I wanted to move or remove a subset of my files this is another operation where the command line may be more efficient. Wildcard matching is very fast and convenient. For these example files I want to remove all the reverse strand sequences.
+    - It's always safe to list the files first - `ls -1 *R2*`
+    - Then they can be removed - `rm -Iv *R2*`
 
 ## VS Code Integrations
 
