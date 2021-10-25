@@ -39,7 +39,7 @@
     source ~/miniconda3/etc/profile.d/conda.sh
    ```
 
-   This command tells the command line interpreter to run the Conda source script, which enables the conda command for your environment. You will likely want to run this command every time you connect to the Biocluster, so you are encouraged to edit your ~/.bashrc file, and add that command to the end of the file.
+   This command tells the command line interpreter to run the Conda source script, which enables the conda command for your environment. You will likely want to run this command every time you connect to Linux terminal(WSL, Biocluster, etc.), so you are encouraged to edit your ~/.bashrc file, and add that command to the end of the file.
 
 ### 4. Activate The Base environment
 
@@ -63,6 +63,14 @@
 You are now all set to start using Conda.
 
 <br>
+
+### Conda HTTP error
+
+Some AAFC users encountered an error after the installation of Conda on WSL. The error title is **CondaHTTPError: HTTP 000 CONECTION FAILED**. If this happen to you, simply run the installation script a second time with the `-u` argument to force a new install.
+
+```bash
+    sh Miniconda3-latest-Linux-x86_64.sh -u
+```
 
 ## Update Conda
 
