@@ -28,7 +28,7 @@ conda create -n my_first_env
 
 ### Install packages
 
-To search a package, you can search directly on [anaconda.org](https://anaconda.org/) and use the search bar to find your package. But the Anaconda search tool is sometimes not working correctly if you don't have the exact name of the package. This is why **the best way to search for a package is to Google it**. Simply Google `conda <your package name>` and the first result should be page of the page of the package on [anaconda.org](https://anaconda.org/).
+To search a package, you can search directly on [anaconda.org](https://anaconda.org/) and use the search bar to find your package. But the Anaconda search tool is sometimes not working correctly if you don't have the exact name of the package. This is why **the best way to search for a package is to Google it**. Simply Google `conda <your package name>` and the first result should be the page of the package on [anaconda.org](https://anaconda.org/).
 
 Let's install the Blast package in the environment you just created.
 
