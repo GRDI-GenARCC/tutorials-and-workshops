@@ -33,7 +33,9 @@ Expand-Archive .\Ubuntu.zip .\Ubuntu
 
 - You will now have a regular folder called Ubuntu in your file explorer
 - Now you simply need to open this folder and run `Ubuntu.exe` to install
-  - When selecting a username and password they not need to match your Windows credentials, and there is no visual indicator when you type in characters for a password. **It will record your typing even though it appears blank.**
+  - You will be prompted to select a username and password. This username should be **lower case letters only**. 
+  - The Ubuntu username and password do not need to match your Windows credentials. 
+  - There is no visual indicator when you type in characters for a password. **It will record your typing even though it appears blank.**
 
 - Once installation is complete, to use WSL in the future, you can:
   - Search for Ubuntu in the start menu; if using Ubuntu 20.04 LTS, you should see ubuntu2004.exe in the Start Menu
