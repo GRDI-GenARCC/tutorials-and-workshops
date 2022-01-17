@@ -21,6 +21,11 @@
 - This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
   - **This is an excellent resource for further study!**
 - Here are some other resources for Linux and Bioinformatics related training
+  - freecodecamp.org has great resources for many tech-related topics
+    - This of course includes Linux materials
+    - [The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners](The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners) is a 5 hour video (best to watch in pieces) that will cover much more than this tutorial. It is fairly recent and well curated for useful commands. 
+    - [Command Line Crash Course](https://www.youtube.com/watch?v=yz7nYlnXLfE) is a 35 minute video with the basics of the command line. 
+    - [The Linux Commands Handbook](https://www.freecodecamp.org/news/the-linux-commands-handbook/) has a long list of useful commands with useful details about them.
   - Excellent and in-depth Linux Tutorial - [Ryan's Tutorials](https://ryanstutorials.net/linuxtutorial/)
   - The [BRSN resource page](https://collab.agr.gc.ca/co/BRS-SRB/SitePages/Resource%20Overview.aspx#title-1175) is repository with links and information for many other resources
 
