@@ -16,11 +16,11 @@
 
 <br>
 
-- This workshop is a result of feedback from AAFC's Bioinformatic Conference 2020
+## Acknowledgements 
 
-  - This workshop and training material will be **iteratively developed**
-    - Starting with something is much better than nothing, and with time, expertise, and user feedback, this workshop will continuously improve
-    - User feedback is collected after workshop sessions, but you can contribute ideas by filing an **Issue** in the main repository
+This tutorial was originally created by AAFC's Bioinformatics Research Support Network [(BRSN)](mailto:aafc.bioinfosupport.aac@agr.gc.ca) 
+in [their repository](https://gccode.ssc-spc.gc.ca/bioinformatics_aafc/training_documentation/linux_resources). It was 
+cloned and adapted for the purposes of GenARCC with permission from the BRSN.
 
-  <br>
+<br>
 

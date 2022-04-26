@@ -1,6 +1,6 @@
-# Linux Resources
+# Tutorials and Workshops
 
-- Welcome to the Linux Resources repository
+- Welcome to GenARCC's Tutorials and Workshops repository
   - This repo contains:
     - [Introduction to Linux Workshop](/Introduction_to_Linux/README.md)
       - Links to each session: [Part 1](/Introduction_to_Linux/Intro_Linux_1.md), [Part 2](/Introduction_to_Linux/Intro_Linux_2.md), [Part 3](/Introduction_to_Linux/Intro_Linux_3.md), [Part 4](/Introduction_to_Linux/Intro_Linux_4.md)

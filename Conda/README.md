@@ -20,24 +20,32 @@ This is a summary page for basic usage of Conda. For more details or more advanc
 
 ### What is Conda
 
-Conda is an open source package and environment manager. It provides an easy way for users to install packages in isolated environment without worring about dependencies and conflicting requirements.
+Conda is an open source package and environment manager. It provides an easy way for users to install packages in isolated 
+environments without worrying about dependencies and conflicting requirements.
 
 ### Why I need to use Conda
 
-- Conda can be install by any user into their own userspace (**you don't need admin rights**). This provides maximum control to users over their Conda installation.
-- You can quickly install any version of a software without worrying about dependencies conflict between your softwares and/or other users' configurations
-- You can have multiple environments. *e.g.* One for each of your project or pipeline.
-- You can easily export and import Conda environment from other users to replicate environment.
+- Conda can be installed by any user into their own userspace (**you don't need admin rights**). This provides maximum 
+control to users over their Conda installation.
+- You can quickly install any version of a software without worrying about dependencies conflict with other software 
+and/or other users' configurations
+- You can have multiple environments. *e.g.* One for each of your projects or pipelines.
+- You can easily export and import Conda environments from other users to replicate an environment.
 
 ### How can I use Conda
 
-Conda can be install on all platforms (Windows, macOS, Linux). But most of bioinformatics and data analysis packages are only available on Linux and macOS. **If you have a Windows computer we recommend using the Windows Subsystem for Linux. See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more info.** [The Conda installation guide page](/Conda/conda_installation_guide.md) focus on the Linux installation of Miniconda but the installation and the usage is almost identical for other platform.
+Conda can be installed on all platforms (Windows, macOS, Linux), but most bioinformatics and data analysis packages are 
+only available on Linux and macOS. **If you have a Windows computer we recommend using the Windows Subsystem for Linux (WSL). 
+See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more info.** 
+[The Conda installation guide page](/Conda/conda_installation_guide.md) focuses on the Linux installation of Miniconda,
+but its installation and the usage is almost identical for other platforms.
 
 <br>
 
 ### Terms and definition
 
-Conda has a simple syntax. There is only a short list of commands to know for basic Conda users. Before getting to the list of commands, here is a terminology table of the most common terms used with `conda`:
+Conda has a simple syntax. There is only a short list of commands to know for basic Conda users. Before getting to the 
+list of commands, here is a terminology table of the most common terms used with `conda`:
 
 | Term | Definition |
 | --- | --- |
@@ -53,11 +61,20 @@ Conda has a simple syntax. There is only a short list of commands to know for ba
 ## Tips and best practices
 
 - **Build multiple small environments**  
-   Conda environments can become too complex if you install too many packages in a single environment. In some cases, the package manager won't be able to resolved the dependencies which will creates problems with your environment. To avoid this:
+   Conda environments can become too complex if you install too many packages in a single environment. In some cases, 
+   the package manager becomes unable to resolve the dependencies which will creates problems with your environment. To avoid this:
   - Do not install all your packages in your base environment
   - Create one environment for each pipeline/projects
 - Use meaningful name for your environments
 - Add your environment file (`.yml`) to your Git project. Your environment will change while you are working on your pipeline or project.
+
+<br>
+
+## Acknowledgements 
+
+This tutorial was originally created by AAFC's Bioinformatics Research Support Network [(BRSN)](mailto:aafc.bioinfosupport.aac@agr.gc.ca) 
+in [their repository](https://gccode.ssc-spc.gc.ca/bioinformatics_aafc/training_documentation/linux_resources). It was 
+cloned and adapted for the purposes of GenARCC with the BRSN's permission.
 
 <br>
 

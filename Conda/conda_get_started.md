@@ -12,7 +12,7 @@
 
 ## Getting started with conda
 
-Now that conda is install on your Linux terminal. Let's do a short demo of the basic Conda commands.
+Now that conda is installed on your Linux terminal. Let's do a short demo of the basic Conda commands.
 
 <br>
 
@@ -28,7 +28,10 @@ conda create -n my_first_env
 
 ### Install packages
 
-To search a package, you can search directly on [anaconda.org](https://anaconda.org/) and use the search bar to find your package. But the Anaconda search tool is sometimes not working correctly if you don't have the exact name of the package. This is why **the best way to search for a package is to Google it**. Simply Google `conda <your package name>` and the first result should be the page of the package on [anaconda.org](https://anaconda.org/).
+To search a package, you can search directly on [anaconda.org](https://anaconda.org/) and use the search bar to find 
+your package. The Anaconda search tool doesn't always find what you're looking for if you don't have the exact name of 
+the package. This is why **the best way to search for a package is to Google it**. 
+Simply Google `conda <your package name>` and the first result should be the page of the package on [anaconda.org](https://anaconda.org/).
 
 Let's install the Blast package in the environment you just created.
 
@@ -49,13 +52,16 @@ which blastn
 blastn -version
 ```
 
-You should get an error message like: `Command 'blastn' not found`. This is because you installed the Blast package on the `my_first_env` environment and you are currently in the `base` environment.
+You should get an error message like: `Command 'blastn' not found`. This is because you installed the Blast package on 
+the `my_first_env` environment, and you are currently in the `base` environment.
 
 <br>
 
 ### List environments
 
-The name of the active environment is always display on the left side of your command prompt. *e.g.* `(base) username@hostname:~$`. The name between the parenthesis is the name of the active environment. To list the available environments use the command:
+The name of the active environment is always displayed on the left side of your command prompt. 
+*e.g.* `(base) username@hostname:~$`. The name between the parentheses is the name of the active environment. To list 
+the available environments use the command:
 
 ```bash
 conda env list
@@ -69,7 +75,8 @@ To use the Blast package you installed you need to activate the `my_first_env` e
 conda activate my_first_env
 ```
 
-Now that the environment is active we can verify again if Blast is installed in the miniconda repository and which version you installed.
+Now that the environment is active we can verify again if Blast is installed in the miniconda repository and which 
+version you installed.
 
 ```bash
 # Get the path to blastn executable
@@ -83,7 +90,8 @@ blastn -version
 
 ### Clone an environment
 
-A good practice is to use meaningful environment name. We did a poor job naming our first environment (my_first_env). Let's duplicate and rename this environment to fix this.
+A good practice is to use meaningful environment names. We did a poor job naming our first environment (my_first_env). 
+Let's duplicate and rename this environment to fix this.
 
 ```bash
 # Clone the environment
@@ -117,11 +125,14 @@ conda env list
 
 <br>
 
-### Use a conda environment in a script
+### Use a Conda environment in a script
 
-To use conda environment from a shell script, you need to run the conda source script like you did in your *bashrc* file (see [Installation step 3](conda_installation_guide.md#installation)). Then you will be able to activate the environment you want from your script.
+To use a Conda environment from a shell script, you need to run the conda source script like you did in your *bashrc* 
+file (see [Installation step 3](conda_installation_guide.md#installation)). Then you will be able to activate the 
+environment you want from your script.
 
-We will create a bash script that run the `blastn -version` command. Name your script `blast_version.sh`. Copy the following line in your script:
+We will create a bash script that runs the `blastn -version` command. Name your script `blast_version.sh`. 
+Copy the following line in your script:
 
 ```bash
 #!/bin/bash
