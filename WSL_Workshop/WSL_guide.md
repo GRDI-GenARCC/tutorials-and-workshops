@@ -13,7 +13,7 @@
   - A Linux distribution is installed in this subsystem and users can access the command line and shell languages
     - WSL vs Linux vs Ubuntu
       - WSL is the feature that allows Linux to be installed in your Windows 10. There are many varieties of Linux, with Ubuntu being one of the most common.
-  - NOTE: There are two versions of WSL. Currently only version 1 is approved in AAFC. Version 2 is generally better but has some networking challenges.
+  - NOTE: There are two versions of WSL. Depending on the Currently only version 1 is approved in AAFC. Version 2 is generally better but has some networking challenges.
     - WSL 2 offers greater performance, some graphical capabilities, and is becoming even easier to enable and install with future Windows 10 builds and Windows 11. We hope to eventually use version 2.
 
 - What is Ubuntu?
@@ -129,28 +129,29 @@ ln -s /mnt/c/Users/USERNAME/
     - If you ever need to find information about your WSL distro you can use PowerShell -> `wsl -l -v`
       - This will show any distros installed in WSL, the version, and the current state (running, stopped, etc.)
   - From here you have typical File Explorer access to your WSL files
-    - Depending on the files in you use in Ubuntu it may be a good idea to back these up in a Windows location. WSL is stable feature but it can be easy to make errors that affect the file system
+    - Depending on the files you use in Ubuntu, it may be a good idea to back these up in a Windows location. WSL is stable feature, but it can be easy to make errors that affect the file system
 - You can pin the location to your Quick Access menu if you want a shortcut to access the Ubuntu storage in the future
 
 ## Using bash with Windows files
 
-- There are times when using the command line can be more effective on files in Windows than utilities in Windows would be
+- There are times when using the bash command line can be more effective on files in Windows than utilities in Windows would be
   - This is especially true for a large set of files, as you may encounter in Bioinformatics
-- I will demonstrate on a smaller subset of copied data, but limited storage can mean it's better to create symbolic links (symlinks) from the data in Windows storage
+- We will demonstrate on a smaller subset of copied data, but limited storage can mean it's better to create symbolic links (symlinks) from the data in Windows storage
   - There does not seem to be a published storage size for WSL 1, but for version 2 it is 256 GB. It is possibly using the same style of virtual hard drive for both versions.
   - To create symbolic links for a directory simply specify it as the target. `ln -s TARGET` and the link to the dir will be created in your pwd
   - To create links to each file requires a slight tweak - you must use a wildcard to match a pattern in a directory then specify a target directory.
     - eg. `ln -s TARGET/*files .`
 - Sorting and displaying information is very fast through the command line. The command `du` can be used to display disk usage information. The options `-h` for human readable (from bytes to KB, MB, etc.) and `-s` for summarize (displays totals for subdirectories, doesn't show each file) are very useful.
 - Selecting subset of the files to delete
-  - If I wanted to move or remove a subset of my files this is another operation where the command line may be more efficient. Wildcard matching is very fast and convenient. For these example files I want to remove all the reverse strand sequences.
+  - Moving or removing a subset of files this is another operation where the bash command line may be more efficient. Wildcard matching is very fast and convenient. For these example files shows how to remove all the reverse strand sequences.
     - It's always safe to list the files first - `ls -1 *R2*`
     - Then they can be removed - `rm -Iv *R2*`
 
 ## VS Code Integrations
 
 - An IDE (Integrated Development Environment) that allows for code-editing or working with a variety of data files. VS Code is a free software from Microsoft
-  - It is approved on the AAFC software list. It can be installed in Program Files, requiring an IT Ticket and assistance from IT Client services. Altervatively it can be installed in the LocalApps folder of your user folder without Admin rights
+  - It is approved on the AAFC software list, but you will need to check if you are in another department or agency. 
+    It can be installed in Program Files, requiring an IT Ticket and assistance from IT Client services. Alternatively, it can be installed in the LocalApps folder of your user folder without Admin rights
   - [https://code.visualstudio.com/](https://code.visualstudio.com/)
 - VS Code can be used for programming in Python or writings bash scripts, or simply to look at text or tabulated files
   - The markdown for this workshop was written using VS Code.

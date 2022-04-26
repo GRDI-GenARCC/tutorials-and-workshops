@@ -1,4 +1,4 @@
-# WSL Workshop
+# Windows Subsystem for Linux (WSL) Workshop
 
 - [Home page of the repository](../README.md)
 - [Introduction to Linux overview](/Introduction_to_Linux)

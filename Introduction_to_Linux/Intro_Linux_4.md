@@ -64,7 +64,7 @@ whatis <command_name> # one line summary
 2. How can you distinguish between renaming and moving file(s) with `mv`?
 3. What are the `ls` options included in the preset `ll` command? Which command can you use to figure this out?
 4. Which option is the most common and useful for `ln`?
-5. (Challenge) What do the following characters mean in regards to file/directory details?
+5. (Challenge) What do the following characters mean regarding file/directory details?
   a. `d`, `l`, `-`, `r`, `w`, `x`
 
 <details>
@@ -94,7 +94,7 @@ whatis <command_name> # one line summary
   - As always, let's look at `less --help`
 
 - **Question**
-  - This looks different than with usual help text, why is this?
+  - This looks different from usual help text, why is this?
 
 <details>
     <summary><b>Solution</b></summary>
@@ -259,7 +259,7 @@ echo "I'm $me, $combined" # use 'up arrow' twice to access previous command inst
 
 ## 4.0 Extras
 
-- This section will not be covered during the 1 hour workshop session, they are completely optional
+- This section will not be covered during the hour-long workshop session, they are completely optional
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
 - Now that you have a basic mastery of using the `--help` command, there is a package you can install that will highlight the most common or simple usage of many commands called `tldr` (too long, didn't read)
@@ -287,8 +287,8 @@ echo "I'm $me, $combined" # use 'up arrow' twice to access previous command inst
 - The name Linux comes from the first name of the "creator" of Linux, Linus Torvalds, combined with Unix
 - There are many distributions that use the Linux kernel - the core of the OS
   - The most popular is Ubuntu, which itself is based on Debian
-- The components of a "Linux" system include: the kernel, the GNU utilites (including the terminal), the X server (which produces the graphics), the desktop environment, and more
-  - Some versions/distros modify others - such as Linux Mint. It is based on Ubuntu (which is based on Debian). Mint and Ubuntu are generally accepted as the most beginner friendly.
+- The components of a "Linux" system include: the kernel, the GNU utilities (including the terminal), the X server (which produces the graphics), the desktop environment, and more
+  - Some versions/distros modify others - such as Linux Mint. It is based on Ubuntu (which is based on Debian). Mint and Ubuntu are generally accepted as the most beginner-friendly.
 - One of the underlying philosophies of Linux/GNU is that each program does one thing well. This is seen in the `tar` and `gzip` commands. They each have one specific purpose and do one thing well. You must often use them together to get the required result, there is no command that does both as that would violate this philosophy.
 
 <br>

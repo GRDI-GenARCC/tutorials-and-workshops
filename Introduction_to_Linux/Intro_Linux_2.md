@@ -113,7 +113,7 @@ whatis mkdir
   - It also helps to structure things so autocomplete can be used easily
     - Use lower case
     - Different starting letters
-      - eg. Using p for `projects` and `personal_files` causes an extra step in navigation before using tab. Instead use `projects` and `my_files` to avoid this (if possible)
+      - e.g. Using p for `projects` and `personal_files` causes an extra step in navigation before using tab. Instead use `projects` and `my_files` to avoid this (if possible)
     - Using dates (YEAR.MO, YEAR-MON-DAY, etc.) can be a great way to keep items structured. Although this may come at the cost of convenience with tools like autocomplete, the benefits exceed the drawbacks when you are further into a structure and do not access it as often
 
 Try the commands
@@ -286,7 +286,7 @@ ls
 
 - The curly braces `{}` can be used to generate sequences
   - There are many creative ways to do this, look this up for more examples
-  - eg. mkdir dir{1..16..2}{1..10} will create dirs with 1 to 16 counting by 2, combined with each number in sequence 1 to 10
+  - e.g. mkdir dir{1..16..2}{1..10} will create dirs with 1 to 16 counting by 2, combined with each number in sequence 1 to 10
 - This dir is getting a bit cluttered, let's remove all the files we just created
 - Be **careful** when using `*` in an `rm` command
 - You can confirm the files you plan to remove by first using `ls TARGET` to see the list of files, then use `rm` on the TARGET files
@@ -302,7 +302,7 @@ ls # also defaults to current dir, same as using ls .
 
 - The matching removes all files that begin with 'file'
   - The `*` will match 0 or more characters
-- Using the option `-I` prompts for the delete of all files, instead of individually like with `-i`
+- Using the option `-I` prompts for the deletion of all files, instead of individually like with `-i`
 - This is a very basic form of regular expressions (RegEx), which are very difficult but useful tools to filter through files or anything related to strings or expressions
 - We will not cover regex in any of the tutorials, but you are welcome to look it up for yourself
 
@@ -314,7 +314,7 @@ ls # also defaults to current dir, same as using ls .
 
 ## 4.0 Extras
 
-- This section will not be covered during the 1 hour workshop session, they are completely optional
+- This section will not be covered during the hour-long workshop session, they are completely optional
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
 

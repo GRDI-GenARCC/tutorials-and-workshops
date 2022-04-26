@@ -268,7 +268,7 @@ file scriptfile
 
 ### 3.5 `chmod`
 
-- This subject can be very complicated so we are only covering the basics. Use caution with this command!
+- This subject can be very complicated, so we are only covering the basics. Use caution with this command!
 - Only the file's owner or the superuser can change the permissions
 - From the `ll` command we can see permissions for a file - read, write and execute for user, group, and world
 - In bioinformatics it is sometimes necessary to make a script executable (able to act as a program)

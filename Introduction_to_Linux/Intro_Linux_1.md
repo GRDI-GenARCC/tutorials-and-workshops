@@ -15,18 +15,18 @@
 <br>
 
 - The material is meant for those with little or no experience with Linux, but can be helpful for intermediate users as well
-  - These session are introductory, it takes time and practice to become proficient with Linux (as with any new technology skill)
-  - Patience for both instructors and learners will help everyone achieve their best results
-  - Many users have great expertise in other areas of science, this is the beginning of process to gain yet another area of expertise
+  - These sessions are introductory, it takes time and practise to become proficient with Linux (as with any new technology skill)
+  - Patience for both instructors and learners will help everyone to achieve their best results
+  - Many users have great expertise in other areas of science, this is the beginning of a process to gain yet another area of expertise
 - This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
   - **This is an excellent resource for further study!**
 - Here are some other resources for Linux and Bioinformatics related training
   - freecodecamp.org has great resources for many tech-related topics, including Linux and command line!
-    - [The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners](The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners) is a 5 hour video (best to watch in pieces) that will cover much more than this tutorial. It is fairly recent and well curated for useful commands. 
-    - [Command Line Crash Course](https://www.youtube.com/watch?v=yz7nYlnXLfE) is a 35 minute video with the basics of the command line. 
+    - [The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners](The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners) is a 5-hour video (best to watch in pieces) that will cover much more than this tutorial. It is fairly recent and well curated for useful commands. 
+    - [Command Line Crash Course](https://www.youtube.com/watch?v=yz7nYlnXLfE) is a 35-minute video with the basics of the command line. 
     - [The Linux Commands Handbook](https://www.freecodecamp.org/news/the-linux-commands-handbook/) has a long list of useful commands with useful details about them.
   - Excellent and in-depth Linux Tutorial - [Ryan's Tutorials](https://ryanstutorials.net/linuxtutorial/)
-  - The [BRSN resource page](https://collab.agr.gc.ca/co/BRS-SRB/SitePages/Resource%20Overview.aspx#title-1175) is repository with links and information for many other resources
+  - For those of you with access to the AAFC network, the [BRSN resource page](https://collab.agr.gc.ca/co/BRS-SRB/SitePages/Resource%20Overview.aspx#title-1175) is repository with links and information for many other resources
 
 <br>
 
@@ -34,9 +34,9 @@
 
 - Ubuntu installed in WSL (Windows Subsystem for Linux)
   - An installation guide is available [here](/WSL_Workshop/WSL_installation.md) - current as of August 2021
-  - For many users at AAFC this will be the most simple and practical way to access Linux
-  - Ubuntu in WSL is a great environment for training, practice, and even some light data analysis. For anything above this you should use a full-fledged Linux workstation or the [Biocluster](https://redmine.biodiversity.agr.gc.ca/projects/biocluster/wiki/Biocluster_User_Guide) - use your AAFC credentials to access this site
-- Any `bash` command line will suffice, but the guide will focus on Ubuntu in WSL as it is now widely available to AAFC users
+  - For many users, this will be the most simple and practical way to access Linux
+  - Ubuntu in WSL is a great environment for training, practice, and even some light data analysis. For anything above this you should use a full-fledged Linux workstation or the GPSC
+- Any `bash` command line will suffice, but the guide will focus on Ubuntu in WSL
 
 <br>
 
@@ -52,7 +52,7 @@
 ### 1.3 Commands covered in this session
 
 - `pwd`, `cd`, `ls`, `clear`, `--help`, `man`, and `exit`
-- It is arguably more important to learn how to use commands than to learn the commands themself
+- It is arguably more important to learn how to use commands than to learn the commands themselves
   - Learning how to learn - searching is a great skill
 - **Information about commands can usually be accessed within a terminal by using the following**
 
@@ -125,13 +125,13 @@ NOTE: Some organizations use terms more specifically, these are the general defi
   - An enhanced version of the original sh (Bourne shell)
 - Ubuntu
   - A popular Linux distribution (distro) based on Debian (another distro)
-  - Widely used and considered to be very user friendly
+  - Widely used and considered to be very user-friendly
 - Terminal
-  - The terminal gives access to the shell - eg. The window or program that allows you to use bash or another shell
+  - The terminal gives access to the shell - e.g. The window or program that allows you to use bash or another shell
   - Can refer to the software that hosts the shell/CLI
   - Can also refer to the physical hardware used to interface with the OS
 - Prompt
-  - Short for command prompt, refers to the small section preceeding a command
+  - Short for command prompt, refers to the small section preceding a command
   - In bash this has:
     - User
     - Name of the computer
@@ -152,10 +152,10 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 
 ## 3.0 Instruction
 
-- In a Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
+- In an Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
 - If you are in Ubuntu in WSL or connected to the Biocluster, you're already using CLI
 - Review window placement for the workshop
-  - Teams or markdown document split to one side
+  - Teams or Markdown document split to one side
   - Ubuntu window
   - other (slido)
 
@@ -169,9 +169,9 @@ NOTE: Some organizations use terms more specifically, these are the general defi
   - You can navigate back through these commands with the down arrow
 - **left/right arrows** - used to control cursor placement in the text
 - **copy/paste** - this can depend on which terminal you are using, and the configurations
-  - Typically paste is right-click
+  - Typically, paste is right-click
   - In WSL/Ubuntu you can use ctrl+shift+c and ctrl+shift+v used for copy and paste respectively (hold ctrl, shift, then press the 'c' key. To paste hold ctrl, shift, then press 'v')
-    - Typically this is enabled in your properties. Access this menu by right-clicking the 'title bar' of the terminal
+    - Typically, this is enabled in your properties. Access this menu by right-clicking the 'title bar' of the terminal
 - **ctrl+c** - interrupt/kill the current process in the terminal
   - :wink:
 
@@ -181,7 +181,7 @@ NOTE: Some organizations use terms more specifically, these are the general defi
   - This does not need to execute properly in Linux, in fact it's safer if it doesn't
   - Feel free to use text from this tutorial
   - In Ubuntu/WSL you can configure options by right-clicking the top of the window and choosing "Properties"
-    - In properties you can enable ctrl+shift+c/v for copy-paste
+    - In properties, you can enable ctrl+shift+c/v for copy-paste
 
 - We will learn to use these navigation shortcuts throughout the tutorial
 
@@ -208,7 +208,7 @@ PWD
       <ul>
         <li>Linux is case sensitive, only the exact command will work</li>
         <li>This also applies to filenames and directories</li>
-        <li>eg. file1 and File1 are completely separate files in Linux (not in Windows)</li>
+        <li>e.g. file1 and File1 are completely separate files in Linux (not in Windows)</li>
       </ul>
 </details>
 
@@ -269,7 +269,7 @@ pwd -h
 
 - `-h` is often a shortcut for `--help` but can also have a meaning as an argument, use caution and check the options before using a command
 - These options can enhance the usage of a command - displaying the changes, or asking for inputs, etc.
-- The command is what you want to, the options/parameters are how you want to do it, and the arguments are the things you want to apply these to
+- The command is what you want to do, the options/parameters are how you want to do it, and the arguments are the things you want to apply these to
 - Options are usually not required, but for some commands they are necessary
 - These options can be used together, for instance `ls -1hast` will display all contents in one column sorted by last modification time with the "human readable" size listed as well. This is equivalent to `ls -1 -h -a -s -t` or `ls -1ha -st`
 
@@ -298,7 +298,7 @@ pwd -h
 
 - `/` is a critical directory in Linux systems, it is the **root** directory
   - All other storage branches from this location, even other drives (in /mnt)
-  - If you are using WSL you will be able to use your Windows drives (c, d, etc) in /mnt (for more on WSL-specific usage see the [WSL Workshop](/WSL_Workshop))
+  - If you are using WSL you will be able to use your Windows drives (c, d, etc.) in /mnt (for more on WSL-specific usage see the [WSL Workshop](/WSL_Workshop))
 
 <br>
 
@@ -379,7 +379,7 @@ cd lib # change to lib while in user directory
 
 ## 4.0 Extras
 
-- This section will not be covered during the 1 hour workshop session, they are completely optional
+- This section will not be covered during the hour workshop session, they are completely optional
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
 
@@ -388,7 +388,7 @@ cd lib # change to lib while in user directory
 ### 4.1 Questions
 
 1. When could your pwd be different from the actual directory you are in?
-2. How do you view hidden files? What are some of the hidden files in your home directory?
+2. How do you view hidden files? What are some hidden files in your home directory?
 3. Type in the command `yes` and press enter. What do you do now?
 
 <details>
