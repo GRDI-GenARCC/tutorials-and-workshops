@@ -17,12 +17,12 @@
 
 ## Installing Ubuntu (regular user permissions)
 
-- The new Windows 10 build (Summer 2021, version 20H2) seems to block the installation of .appx packages that normally come from the Windows store
-- We simply rename the .appx into a .zip and open the Ubuntu install file
+- Some Windows 10 builds seem to block the installation of .appx or AppxBundle packages that normally come from the Windows store
+- We simply rename the .appx or .AppxBundle into a .zip and open the Ubuntu install file
 - You will need to download the .appx file from this [Microsoft page](https://docs.microsoft.com/en-us/windows/wsl/install-manual) or from the direct link to the recommended version - Ubuntu 20.04 [here](https://aka.ms/wslubuntu2004) (Note - this will begin the download immediately using your web browser)
 - Note the name of this download, as you will need to match it to the first part of the rename command. Also note the location of this download, if it is **not** in your Downloads folder you will need to adjust accordingly with powershell.
-- You will also need to have powershell work in the correct location. It will open in `C:\User\username` by default. Simply change directory in powershell with `cd Downloads` to then work in `C:\Users\username\Downloads`
-- Once you are in the proper location, use these commands:
+- You will also need to have *powershell* work in the correct location. It will open in `C:\User\username` by default. Simply change directory in powershell with `cd Downloads` to then work in `C:\Users\username\Downloads`
+- Once you have opened powershell and are in the proper location (typically `C:\username\Downloads`), use these commands:
 ```powershell
 Rename-Item .\NAME_OF_YOUR_DOWNLOAD.AppxBundle .\Ubuntu.zip
 Expand-Archive .\Ubuntu.zip .\Ubuntu
@@ -42,7 +42,8 @@ cd .\Ubuntu
   - You will be prompted to select a username and password. This username should be **lower case letters only**. 
   - The Ubuntu username and password do not need to match your Windows credentials. 
   - There is no visual indicator when you type in characters for a password. **It will record your typing even though it appears blank.**
+  - Remember your password! If you lose or forget it, you will have to re-install Ubunutu from scratch.
 
-- Once installation is complete, to use WSL in the future, you can:
-  - Search for Ubuntu in the start menu; if using Ubuntu 20.04 LTS, you should see ubuntu2004.exe or ubuntu.exe in the Start Menu
-  - Open ubuntu2004.exe (ubuntu.exe) in the folder that was previously extracted
+  - Once installation is complete, to use WSL in the future, you can:
+    - Search for Ubuntu in the start menu; if using Ubuntu 20.04 LTS, you should see ubuntu2004.exe in the Start Menu
+    - Open ubuntu2004.exe (ubuntu.exe) in the folder that was previously extracted
