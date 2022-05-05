@@ -9,3 +9,6 @@
     
 
 - This is a work in progress. Tutorials will be updated as necessary.
+
+
+Contact: melanie.belisle-leclerc@agr.gc.ca
