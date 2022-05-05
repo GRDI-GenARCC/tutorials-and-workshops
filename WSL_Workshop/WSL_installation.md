@@ -24,16 +24,25 @@
 - You will also need to have powershell work in the correct location. It will open in `C:\User\username` by default. Simply change directory in powershell with `cd Downloads` to then work in `C:\Users\username\Downloads`
 - Once you are in the proper location, use these commands:
 ```powershell
-Rename-Item .\NAME_OF_YOUR_DOWNLOAD.appx .\Ubuntu.zip
+Rename-Item .\NAME_OF_YOUR_DOWNLOAD.AppxBundle .\Ubuntu.zip
+Expand-Archive .\Ubuntu.zip .\Ubuntu
+cd Ubuntu
+```
+- You now have a regular folder called Ubuntu in your file explorer
+- There should be one file in your newly created Ubuntu directory ending in `_x64.appx`. We rename and expand it:
+```powershell
+Rename-Item .\UBUNTU_VERSION_x64.appx .\Ubuntu.zip
 Expand-Archive .\Ubuntu.zip .\Ubuntu
 ```
-
-- You now have a regular folder called Ubuntu in your file explorer
-- Open this folder and run `Ubuntu.exe` to install
+- Open this folder and run `ubuntu.exe` to install:
+```powershell
+cd .\Ubuntu
+.\ubuntu.exe
+```
   - You will be prompted to select a username and password. This username should be **lower case letters only**. 
   - The Ubuntu username and password do not need to match your Windows credentials. 
   - There is no visual indicator when you type in characters for a password. **It will record your typing even though it appears blank.**
 
 - Once installation is complete, to use WSL in the future, you can:
-  - Search for Ubuntu in the start menu; if using Ubuntu 20.04 LTS, you should see ubuntu2004.exe in the Start Menu
-  - Open ubuntu2004.exe in the folder that was previously extracted
+  - Search for Ubuntu in the start menu; if using Ubuntu 20.04 LTS, you should see ubuntu2004.exe or ubuntu.exe in the Start Menu
+  - Open ubuntu2004.exe (ubuntu.exe) in the folder that was previously extracted
