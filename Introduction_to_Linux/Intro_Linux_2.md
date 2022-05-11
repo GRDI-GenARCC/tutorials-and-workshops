@@ -3,8 +3,6 @@
 - [Home page of the repository](../README.md)
 - [Introduction to Linux overview](/Introduction_to_Linux)
 
-[[_TOC_]]
-
 ---
 
 ## 1.0 Overview
@@ -52,7 +50,7 @@ whatis mkdir
 
 ### 1.4 Questions?
 
-</br>
+<br/>
 
 ---
 
@@ -82,7 +80,7 @@ whatis mkdir
     <summary><b>Solutions</b></summary>
       <ul>
         <li>1. cd /</li>
-        <li>2. cd  OR cd /home/USERNAME --> use whoami to find username OR cd ~</li>
+        <li>2. cd  OR cd /home/USERNAME --> use `whoami` to find username OR `cd ~` OR `cd home/USERNAME` OR `cd ./home/USERNAME`</li>
         <li>3. ls -1</li>
         <li>4. cd /home (absolute path) OR cd .. (relative path) </li>
         <li>5. -r reverses the sort order, by defaults contents are sorted alphabetically</li>
@@ -356,6 +354,6 @@ ls # also defaults to current dir, same as using ls .
 - \#notafact -> Astronauts use Linux - they can't open Windows in space!
 - This tutorial was created using VS Code - an editor from Microsoft that is incredible for markdown, programming, web development, etc.
   - There are extensions to work with different filetypes - including fasta and fastq files
-- VS Code is approved software and is very simple to use inside of Windows (no admin required) and WSL
+- VS Code is very simple to use inside of Windows (no admin required) and WSL
 
 <br>

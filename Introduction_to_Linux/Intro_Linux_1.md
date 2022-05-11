@@ -3,13 +3,11 @@
 - [Home page of the repository](../README.md)
 - [Introduction to Linux overview](/Introduction_to_Linux)
 
-[[_TOC_]]
-
 ---
 
 ## 1. Overview
 
-- Introduction and BRSN
+- Introduction
 - Review of "Home" page or README
 
 <br>
@@ -100,7 +98,7 @@ man <command_name>
     - eg. May need tools that work for version 2.15.1 and not 2.16
 - Open source nature of Linux and bioinformatics tools
 - High performance computers usually have Linux OS
-  - When connecting to HPC (eg. [Biocluster](https://redmine.biodiversity.agr.gc.ca/projects/biocluster/wiki/Biocluster_User_Guide)) the command line is your interface
+  - When connecting to HPC (e.g. [GPSC](https://www.gcpedia.gc.ca/wiki/GRDI-EcoBiomics/Bioinformatics/Training/Introduction_to_the_GPSC)) the command line is your interface
 
 <br>
 
@@ -140,7 +138,7 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 - GUI (pronounced gooey)
   - Graphical user interface
 - WSL (Windows Subsystem for Linux)
-  - A compatibility layer allowing Linux commands in Windows. Linux distributions are installed and can use most command line features. In AAFC only version 1 is approved at this time.
+  - A compatibility layer allowing Linux commands in Windows. Linux distributions are installed and can use most command line features.
 
 <br>
 
@@ -153,11 +151,10 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 ## 3.0 Instruction
 
 - In an Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
-- If you are in Ubuntu in WSL or connected to the Biocluster, you're already using CLI
+- If you are in Ubuntu in WSL or connected to the GPSC, you're already using CLI
 - Review window placement for the workshop
   - Teams or Markdown document split to one side
   - Ubuntu window
-  - other (slido)
 
 <br>
 
@@ -305,7 +302,7 @@ pwd -h
 #### Exercise 3.51
 
 - Try the commands
-- Use pwd to see where you are at any point, or look at the prompt
+- Use `pwd` to see where you are at any point, or look at the prompt
 
 ```bash
 cd /
@@ -408,5 +405,5 @@ cd lib # change to lib while in user directory
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/TuxFlat.svg/800px-TuxFlat.svg.png" alt = "Tux" width="150"/>
 
-- The document you are reading is written in a language called "Markdown", if you view the source in the main gitlab repo you will see what the unformatted version looks like
+- The document you are reading is written in a language called "Markdown", if you view the source in the main GitHub repo you will see what the unformatted version looks like
   - The click-to-expand sections are written using raw html
