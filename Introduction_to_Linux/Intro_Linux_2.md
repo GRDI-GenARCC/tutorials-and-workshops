@@ -57,10 +57,8 @@ whatis mkdir
 ## 2.0 Review
 
 - Review of part 1
-  - History of Linux and definitions
   - Command line options and arguments
   - `--help`, `man`, `pwd`, `cd`, `ls`, `clear`, and `exit`
-- Clarification - console vs shell
 
 ### 2.1 Review Exercises
 
