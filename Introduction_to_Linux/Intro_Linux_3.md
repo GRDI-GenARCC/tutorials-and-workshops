@@ -3,8 +3,6 @@
 - [Home page of the repository](../README.md)
 - [Introduction to Linux overview](/Introduction_to_Linux)
 
-[[_TOC_]]
-
 ---
 
 ## 1.0 Overview
@@ -64,7 +62,7 @@ whatis <command_name> # one line summary
 4. What does `&&` do between commands?
 5. What is the difference between `-v` and `--verbose` for `rm` or `mkdir`?
 6. What does the `*` character do?
-7. (Challenge) What will happen if you use `rm -Iv` on 3 or less target files? You can test this to verify
+7. (Challenge) What will happen if you use `rm -Iv` on 3 or fewer target files? You can test this to verify
 
 <details>
     <summary><b>Solutions</b></summary>
@@ -190,15 +188,15 @@ type type
 ```
 
 - `ll` is important for understanding more about files in our system
-  - By just entering `ll` it is the same as entering `ll .`, which is your current directory
-    - You can specify a single file to reduce the amount of information provided in the output. In your user directory you can try `ll .bashrc`
-- In the output there is a 10-character section comprising of certain letters or dashes (-) indicating file permissions
+  - Entering `ll` yields the same result as entering `ll .`, which is your current directory
+    - You can specify a single file to reduce the amount of information provided in the output. You can try `ll ~/.bashrc`
+- The output contains a 10-character section comprised of letters or dashes (-) indicating file permissions
   - The first digit is usually `l`, `d`, or `-` meaning link, directory, or file
   - `rwx` stand for read, write, execute respectively
     - The 3 instances of them mean `owner`, `group`, and `world`
   - The digit is the number of hard links
-  - Username of the files owner
-  - Group that owns the file
+  - Username of the entry's owner
+  - Group that owns the entry
   - Size in bytes
   - Date and time of last modification (timestamp modified in `touch`)
 
@@ -207,7 +205,7 @@ type type
 ### 3.4 `ln` and `file`
 
 - In bioinformatics files can be extremely large, a way to be more efficient is to use symbolic links (aka symlinks) so a file is not duplicated needlessly
-- The `ln` command can create links, as always let's look at the options using `--help`
+- The `ln` command can create links. As always let's look at the options using `--help`
   - For this command we only really need `-s`, it is generally preferable to use symbolic (aka soft) links
 - We will continue to use the `linux_workshop` workshop for this
 
@@ -237,7 +235,7 @@ ll
 
 - Another useful command that can help inform us about a file is `file`
   - let's use `file --help` to look at the information
-- Simply outputs information about the file and it's format
+- Simply outputs information about the file and its format
   - Also tells basic info for a symlink
 
 Try the command(s)

@@ -24,7 +24,6 @@
     - [Command Line Crash Course](https://www.youtube.com/watch?v=yz7nYlnXLfE) is a 35-minute video with the basics of the command line. 
     - [The Linux Commands Handbook](https://www.freecodecamp.org/news/the-linux-commands-handbook/) has a long list of useful commands with useful details about them.
   - Excellent and in-depth Linux Tutorial - [Ryan's Tutorials](https://ryanstutorials.net/linuxtutorial/)
-  - For those of you with access to the AAFC network, the [BRSN resource page](https://collab.agr.gc.ca/co/BRS-SRB/SitePages/Resource%20Overview.aspx#title-1175) is repository with links and information for many other resources
 
 <br>
 
@@ -98,7 +97,7 @@ man <command_name>
     - eg. May need tools that work for version 2.15.1 and not 2.16
 - Open source nature of Linux and bioinformatics tools
 - High performance computers usually have Linux OS
-  - When connecting to HPC (e.g. [GPSC](https://www.gcpedia.gc.ca/wiki/GRDI-EcoBiomics/Bioinformatics/Training/Introduction_to_the_GPSC)) the command line is your interface
+  - When connecting to HPC (e.g. GPSC), the command line is your interface
 
 <br>
 

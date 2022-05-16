@@ -3,8 +3,6 @@
 - [Home page of the repository](../README.md)
 - [Introduction to Linux overview](/Introduction_to_Linux)
 
-[[_TOC_]]
-
 ---
 
 ## 1.0 Overview
@@ -15,7 +13,7 @@
 
 ### 1.1 Prerequisite(s)
 
-- Completion of Intro to Linux parts 1,2 and 3 (or at least familiarity of the material)
+- Completion of Intro to Linux parts 1, 2 and 3 (or at least familiarity of the material)
 - `bash` command line (Ubuntu in WSL will be the default for all commands shown)
 
 ### 1.2 Objectives
@@ -224,11 +222,11 @@ wget -v [url address]
 - When learning to use this command it can be helpful to use the option `--spider`, which will not download anything, but check that the target exists
 
 ```bash
-wget -v --spider https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh
+wget -v --spider https://repo.anaconda.com/miniconda/Miniconda3-py39_4.11.0-Linux-x86_64.sh
 ```
 
 - This file is the installer for conda - a package and environment manager system that is very useful in bioinformatics
-  - There is now a user guide for conda [here](../Conda/README.md)
+  - There is now a user guide for conda [here](../../Conda/README.md)
 
 ### 3.5 Variables
 
