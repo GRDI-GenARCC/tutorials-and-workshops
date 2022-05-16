@@ -4,7 +4,6 @@
 - [WSL Resources Overview](./README.md)
 - [WSL/Ubuntu Installation Guide](./WSL_installation.md)
 
-[[_TOC_]]
 
 ## Some of the basics
   
@@ -62,11 +61,11 @@ sudo apt update; sudo apt upgrade # perform both commands with one line, watch f
 - "Admin mode" in Linux is called `sudo`, which means "super user do"
 - We need to use `sudo` to use the package manager
   - At least for the first usage of `sudo` in a given session, you must enter your password
-    - As noted in the [installation instructions](https://gccode.ssc-spc.gc.ca/bioinformatics_aafc/training_documentation/linux_resources/-/blob/dev/WSL_Workshop/WSL_installation.md) you do not need to use the same password as your Windows login. It can be simple as you are already behind a personal login and security is not as great a concern at that point. However if you cannot remember your password it will require a full reinstall of Ubuntu. Please remember or record it somewhere safe.
+    - As noted in the [installation instructions](./WSL_installation.md) you do not need to use the same password as your Windows login. It can be simple as you are already behind a personal login and security is not as great a concern at that point. However if you cannot remember your password it will require a full reinstall of Ubuntu. Please remember or record it somewhere safe.
     - If you need to change your password you can use the command `passwd`. You need to enter the old password, then 2 prompts are given to match the new password.
 - NOTE: Updates should be applied before new packages installed. Depending on the current state of your updates this may be required.
 
-- If you already have an up to date system here are a few small packages to try installing
+- If you already have an up-to-date system here are a few small packages to try installing
   - `tree` - gives a simple visual of file structure in the specified directory (defaults to pwd)
     - The output can be very long if a subdirectory contains a lot of files/dirs (do not use in `/`, or in conda)
     - Remember that 'ctrl+c' is the kill/interrupt to stop any command, like `tree` when listing too much information
@@ -160,4 +159,4 @@ ln -s /mnt/c/Users/USERNAME/
 - If VS Code is open from Windows, use the >< icon in the bottom-left to connect a remote session to WSL. This may require the WSL extension to be installed first. Extensions are accessed via the "blocks" icon on the left panel, or by using "ctrl+shift+x"
   - Search for and install the "Remote - WSL" extension
 - When a VS Code window is connected to VS Code you have access to the Ubuntu filesystem of the location you are working in. You can create and modify files in Ubuntu but using a graphical window.
-  - There are also great shortcuts for version control - see more material [here](https://gccode.ssc-spc.gc.ca/bioinformatics_aafc/training_documentation/git_resources)
+

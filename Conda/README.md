@@ -10,13 +10,12 @@
 
 ## Table of contents
 
-[[_TOC_]]
 
 ## Introduction to Conda
 
 This is a summary page for basic usage of Conda. For more details or more advanced commands, please refer to the [Conda user guide](https://conda.io/projects/conda/en/latest/user-guide/index.html)
 
-**Part of this document was taken from the [Biocluster documentation](https://redmine.biodiversity.agr.gc.ca/projects/biocluster/wiki/Installing_Conda)**
+**Part of this document was taken from the AAFC's Documentation on the Biocluster.**
 
 ### What is Conda
 
@@ -73,8 +72,7 @@ list of commands, here is a terminology table of the most common terms used with
 ## Acknowledgements 
 
 This tutorial was originally created by AAFC's Bioinformatics Research Support Network [(BRSN)](mailto:aafc.bioinfosupport.aac@agr.gc.ca) 
-in [their repository](https://gccode.ssc-spc.gc.ca/bioinformatics_aafc/training_documentation/linux_resources). It was 
-cloned and adapted for the purposes of GenARCC with the BRSN's permission.
+in their repository and was cloned and adapted for the purposes of GenARCC with the BRSN's permission.
 
 <br>
 
