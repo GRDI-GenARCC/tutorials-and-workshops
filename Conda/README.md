@@ -13,14 +13,13 @@
 
 ## Introduction to Conda
 
-This is a summary page for basic usage of Conda. For more details or more advanced commands, please refer to the [Conda user guide](https://conda.io/projects/conda/en/latest/user-guide/index.html)
-
-**Part of this document was taken from the AAFC's Documentation on the Biocluster.**
+This is a summary page for basic usage of Conda. For more details or more advanced commands, please refer to the 
+[Conda user guide](https://conda.io/projects/conda/en/latest/user-guide/index.html)
 
 ### What is Conda
 
-Conda is an open source package and environment manager. It provides an easy way for users to install packages in isolated 
-environments without worrying about dependencies and conflicting requirements.
+Conda is an open source package and environment manager. It provides an easy way for users to install packages in 
+isolated environments without worrying about dependencies and conflicting requirements.
 
 ### Why I need to use Conda
 
@@ -34,8 +33,8 @@ and/or other users' configurations
 ### How can I use Conda
 
 Conda can be installed on all platforms (Windows, macOS, Linux), but most bioinformatics and data analysis packages are 
-only available on Linux and macOS. **If you have a Windows computer we recommend using the Windows Subsystem for Linux (WSL). 
-See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more info.** 
+only available on Linux and macOS. **If you have a Windows computer we recommend using the Windows Subsystem for Linux 
+(WSL). See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more info.** 
 [The Conda installation guide page](/Conda/conda_installation_guide.md) focuses on the Linux installation of Miniconda,
 but its installation and the usage is almost identical for other platforms.
 
@@ -48,12 +47,20 @@ list of commands, here is a terminology table of the most common terms used with
 
 | Term | Definition |
 | --- | --- |
-| Conda package | An [archive](https://en.wikipedia.org/wiki/Archive_file) containing all of the executable files and configuration files necessary for a specific software tool or library, as well as metadata about the external dependencies of that software |
+| Conda package | An [archive](https://en.wikipedia.org/wiki/Archive_file) containing all of the executable files and 
+configuration files necessary for a specific software tool or library, as well as metadata about the external 
+dependencies of that software |
 | Conda Environment | A directory into which Conda packages can be installed |
-| Install | When a Conda package is installed, it is downloaded from Conda's online package repository, and unpacked into a given Conda environment |
-| Activate | When a Conda environment is activated, it means that Conda has modified the user's system environment in such a way that the software and libraries in the Conda environment are now accessible to the user |
-| Base Environment | The default Conda environment that is created when Conda is installed. It should initially only contain the Conda package and its dependencies. Installing packages directly into the base environment is not recommended |
-| Conda Channels | Different users who upload conda packages to the [Anaconda Cloud](https://anaconda.org/). Some of these channels are actually communities of users who collaborate on packaging software |
+| Install | When a Conda package is installed, it is downloaded from Conda's online package repository, and unpacked 
+into a given Conda environment |
+| Activate | When a Conda environment is activated, it means that Conda has modified the user's system environment in 
+such a way that the software and libraries in the Conda environment are now accessible to the user |
+| Base Environment | The default Conda environment that is created when Conda is installed. It should initially only 
+contain the Conda package and its dependencies. Installing packages directly into the base environment is not recommended |
+| Conda Channels | Location where packages are stored. Conda packages are downloaded from remote channels which are 
+URLs to directories containing conda packages. You can search for channels and packages at 
+[Anaconda Cloud](https://anaconda.org/). Some of these channels are managed by communities of users who collaborate on 
+packaging software |
 
 <br>
 

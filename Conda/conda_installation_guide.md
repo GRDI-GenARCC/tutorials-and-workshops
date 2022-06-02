@@ -6,13 +6,9 @@
 - [Conda get started](/Conda/conda_get_started.md) - Beginners tutorial for basic Conda commands
 - [Conda usage](/Conda/conda_usage.md) - List of useful Conda commands
 
-## Table of contents
+## Installation (Linux)
 
-[[_TOC_]]
-
-## Installation
-
-### 1. Download and run the install script
+### 1. Download and run the installation script
 
    Open a Linux terminal and enter the following command:
 
@@ -20,6 +16,10 @@
    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
    sh Miniconda3-latest-Linux-x86_64.sh
    ```
+
+   #### Note for GPSC users
+   Attempting to install Conda from a Centos-6 container will result in dependency errors. Make sure you install and run
+   Conda from a container running on Centos-7+ or Ubuntu-18.04+.
 
 ### 2. Installation procedure
 
