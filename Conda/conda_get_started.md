@@ -16,6 +16,12 @@ Now that conda is installed on your Linux terminal. Let's do a short demo of the
 
 #### Linux
 
+If it isn't already, enable the `conda` command (see [Conda installation guide](/Conda/conda_installation_guide.md) for 
+more details).
+    ```bash
+    source ~/miniconda3/etc/profile.d/conda.sh
+    ```
+
 activate Conda's base environment
    ```bash
    conda activate
@@ -27,6 +33,8 @@ activate Conda's base environment
 
 From the Start Menu, open the **Anaconda Prompt**. You will note that your shell prompt is already prepended with 
 "(base)", indicating that the base environment is already activated.
+
+<br>
 
 ### Create an environment
 
@@ -53,7 +61,7 @@ Let's install the cowpy package in the environment you just created.
 conda install -n my_first_env cowpy
 ```
 
-**You can specify the version of the package you want to install using `conda install -n my_first_env cowpy=1.1.5`**
+You can specify the version of the package you want to install using `conda install -n my_first_env cowpy=1.1.5`
 
 Now let's see if cowpy is installed in the miniconda repository and which version you installed.
 
@@ -108,6 +116,8 @@ python
 from cowpy import cow
 msg = cow.Moose().milk("Hello!")
 print(msg)
+# close python interpreter
+exit()
 ```
 
 <br>
