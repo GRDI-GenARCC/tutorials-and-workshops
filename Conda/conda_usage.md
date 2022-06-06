@@ -8,8 +8,6 @@
 
 ## Table of contents
 
-[[_TOC_]]
-
 ## List of useful Conda commands
 
 ### Manage Conda environment
