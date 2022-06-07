@@ -27,7 +27,7 @@
 
 <br>
 
-### 1.1 Prerequisite(s)
+### 1.1 Prerequisites
 
 - Ubuntu installed in WSL (Windows Subsystem for Linux)
   - An installation guide is available [here](/WSL_Workshop/WSL_installation.md) - current as of August 2021
