@@ -8,8 +8,6 @@
 - [Conda get started](/Conda/conda_get_started.md) - Beginners tutorial for basic Conda commands
 - [Conda usage](/Conda/conda_usage.md) - List of useful Conda commands
 
-## Table of contents
-
 
 ## Introduction to Conda
 
@@ -71,7 +69,7 @@ packaging software |
    the package manager becomes unable to resolve the dependencies which will creates problems with your environment. To avoid this:
   - Do not install all your packages in your base environment
   - Create one environment for each pipeline/projects
-- Use meaningful name for your environments
+- Use meaningful names for your environments
 - Add your environment file (`.yml`) to your Git project. Your environment will change while you are working on your pipeline or project.
 
 <br>
