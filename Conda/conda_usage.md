@@ -63,9 +63,9 @@ conda env remove -n my-env-name
 
 To search a package, you can search directly on [anaconda.org](https://anaconda.org/) and use the search bar to find 
 your package. The Anaconda search tool doesn't always find what you're looking for if you don't have the exact name of 
-the package. This is why **the best way to search for a package is to Google it**. 
-Simply Google `conda <your package name>` and the first result should be the page of the package on 
-[anaconda.org](https://anaconda.org/). You can also search for packages using the following command:
+the package. This is why **the best way to search for a package is to look it up in your search engine**. 
+Simply look up `conda <your package name>` in your search engine, and the first result should be the page of the package 
+on [anaconda.org](https://anaconda.org/). You can also search for packages using the following command:
 
 ```bash
 conda search package

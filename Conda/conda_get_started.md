@@ -20,7 +20,7 @@
 
 ### 1.2 Commands covered in this session
 
-- `conda activate`, `conda create`, `conda install`, `conda deactivate`
+- `conda activate`, `conda list`, `conda create`, `conda install`, `conda deactivate`
 - `conda env list`, `conda env export`, `conda env create`, `conda env remove`
 - Information about the listed commands can be found by using --help. E.g. `conda create --help`
 
@@ -69,7 +69,7 @@ list of commands, here is a terminology table of the most common terms used in c
 | --- | --- |
 | Conda package | An [archive](https://en.wikipedia.org/wiki/Archive_file) containing all of the executable files and configuration files necessary for a specific software tool or library, as well as metadata about the external dependencies of that software |
 | Conda Environment | A directory into which Conda packages can be installed |
-| Install | When a Conda package is installed, it is downloaded from Conda's online package repository, and unpacked into a given Conda environment |
+| Install | When a Conda package is installed, it is downloaded from [Anaconda's online package repository](https://anaconda.org/), and unpacked into a given Conda environment |
 | Activate | When a Conda environment is activated, it means that Conda has modified the user's system environment in such a way that the software and libraries in the Conda environment are now accessible to the user |
 | Base Environment | The default Conda environment that is created when Conda is installed. It should initially only contain the Conda package and its dependencies. Installing packages directly into the base environment is not recommended |
 | Conda Channels | Location where packages are stored. Conda packages are downloaded from remote channels which are URLs to directories containing conda packages. You can search for channels and packages at [Anaconda Cloud](https://anaconda.org/). Some of these channels are managed by communities of users who collaborate on packaging software |
@@ -97,9 +97,10 @@ list of commands, here is a terminology table of the most common terms used in c
 
 If it isn't already, enable the `conda` command (see [Conda installation guide](/Conda/conda_installation_guide.md) for 
 more details).
-    ```bash
-    source ~/miniconda3/etc/profile.d/conda.sh
-    ```
+
+```bash
+source ~/miniconda3/etc/profile.d/conda.sh
+```
 
 activate Conda's base environment
    ```bash
@@ -115,9 +116,21 @@ If you have opened the **Anaconda Prompt**, you will notice that your shell prom
 
 <br>
 
-### 3.2 Create an environment
+### 3.2 List packages in your current environment
 
-You can create your first environment with the command:
+To see all packages and their versions installed in your current environment, run the following:
+```bash
+conda list
+```
+
+### 3.3 Create an environment
+
+You can see what options are available for the `conda create` command:
+```bash
+conda create --help
+```
+
+Let's create our first environment with the command:
 
 ```bash
 conda create -n my_first_env
@@ -125,13 +138,13 @@ conda create -n my_first_env
 
 <br>
 
-### 3.3 Install packages
+### 3.4 Install packages
 
 To search a package, you can search directly on [anaconda.org](https://anaconda.org/) and use the search bar to find 
 your package. The Anaconda search tool doesn't always find what you're looking for if you don't have the exact name of 
-the package. This is why **the best way to search for a package is to Google it**. 
-Simply Google `conda <your package name>` and the first result should be the page of the package on 
-[anaconda.org](https://anaconda.org/).
+the package. This is why **the best way to search for a package is to use your search engine**. 
+Simply look up `conda <your package name>` in your search engine, and the first result should be the page of the package
+on [anaconda.org](https://anaconda.org/).
 
 Let's install the cowpy package in the environment you just created.
 
@@ -155,7 +168,7 @@ and you are currently in the `base` environment.
 
 <br>
 
-### 3.4 List environments
+### 3.5 List environments
 
 The name of the active environment is always displayed on the left side of your command prompt. 
 *e.g.* `(base) username@hostname:~$`. The name between the parentheses is the name of the active environment. To list 
@@ -167,7 +180,7 @@ conda env list
 
 <br>
 
-### 3.5 Activate an environment
+### 3.6 Activate an environment
 
 To use the cowpy package you installed you need to activate the `my_first_env` environment.
 
@@ -203,7 +216,7 @@ exit()
 
 <br>
 
-### 3.6 Clone an environment
+### 3.7 Clone an environment
 
 A good practice is to use meaningful environment names. We did a poor job naming our first environment (my_first_env). 
 Let's duplicate and rename this environment to fix this.
@@ -221,7 +234,7 @@ conda env list
 
 <br>
 
-### 3.7 Remove an environment
+### 3.8 Remove an environment
 
 Now that we created a clone of our first environment with a meaningful name, let's clean and remove our first environment.
 
@@ -240,7 +253,7 @@ conda env list
 
 <br>
 
-### 3.8 Export an environment
+### 3.9 Export an environment
 
 You can export a conda environment in order to allow others, or your future self, to easily recreate it. The best way 
 to export a conda environment is in a [YAML](https://en.wikipedia.org/wiki/YAML) file. You can create the `.yml` 
@@ -259,7 +272,7 @@ You can also modify your `.yml` file or create one from scratch. More details on
 
 <br>
 
-### 3.9 Import an environment
+### 3.10 Import an environment
 
 You can import an environment from a `.yml` file with the following command:
 
@@ -284,7 +297,7 @@ conda deactivate
 
 <br>
 
-### 3.10 Use a Conda environment in a script (Linux)
+### 3.11 Use a Conda environment in a script (Linux)
 
 To use a Conda environment from a shell script, you need to run the conda source script like you did in your *bashrc* 
 file (see [Installation step 3](conda_installation_guide.md#installation)). Then you will be able to activate the 
@@ -317,7 +330,7 @@ chmod u+x cow_says_hello.sh
 
 <br>
 
-### 3.11 Questions
+### 3.12 Questions
 
 <br>
 
