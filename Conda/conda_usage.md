@@ -87,6 +87,12 @@ Install a specific version of a package in your active environment
 conda install package=2.4.3
 ```
 
+Install a package from a specific channel
+
+```bash
+conda install -c channel package
+```
+
 Install a package in a specific environment
 
 ```bash

@@ -214,6 +214,13 @@ print(msg)
 exit()
 ```
 
+Now we'll install the trio package in our current environment. This time, we will specify which channel we want it to 
+be downloaded from:
+```bash
+conda install -c conda-forge trio
+conda list
+```
+
 <br>
 
 ### 3.7 Clone an environment
