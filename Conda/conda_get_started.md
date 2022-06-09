@@ -7,7 +7,6 @@
 - [Conda usage](/Conda/conda_usage.md) - List of useful Conda commands
 
 <br>
-
 ## 1. Overview
 
 ### 1.1 Prerequisites
@@ -15,6 +14,7 @@
 - Conda installed in a Linux terminal
   - An installation guide is available [here](/Conda/conda_installation_guide.md)
   - Installation on Windows is also possible, but some of the instructions in this tutorial may have to be adapted.
+- Conda-forge channel added to your conda configurations (see [Installation Guide](/Conda/conda_installation_guide.md#5-configure-conda) for details).
 
 <br>
 
@@ -272,23 +272,20 @@ with our cowpy_env environment:
 conda activate cowpy_env
 # create yml file with all packages dependencies and versions
 conda env export > cowpy_env.yml
+# view your newly created cowpy_env.yml file
+cat cowpy_env.yml
 ```
 
 You can also modify your `.yml` file or create one from scratch. More details on this in the 
-[conda user-guide](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually)
+[conda user-guide](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually).
 
 <br>
 
 ### 3.10 Import an environment
 
-You can import an environment from a `.yml` file with the following command:
-
-```bash
-# The name of your environment is defined in the yml first line
-conda env create --file my_env.yml
-```
-
-Let's create a new environment from our cowpy_env.yml, but we'll change the name of the environment:
+The name of your environment is defined in the first line of the .yml file. If you wish to use the same name, you can
+use `conda env create --file filename.yml`. We will create a new environment from our cowpy_env.yml, but we'll change 
+the name of the environment:
 
 ```bash
 conda env create -n new_cow_env --file cowpy_env.yml
@@ -322,7 +319,7 @@ source ~/miniconda3/etc/profile.d/conda.sh
 # Activate your environment
 conda activate new_cow_env
 
-cowpy "Hello from my Script!"
+cowpy "Hello from my script!"
 ```
 
 Change the permission of your script to make it executable and run it.
