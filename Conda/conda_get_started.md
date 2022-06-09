@@ -7,6 +7,7 @@
 - [Conda usage](/Conda/conda_usage.md) - List of useful Conda commands
 
 <br>
+
 ## 1. Overview
 
 ### 1.1 Prerequisites
@@ -53,8 +54,8 @@ and/or other users' configurations
 ### 2.3 Conda installation
 
 Conda can be installed on all platforms (Windows, macOS, Linux), but most bioinformatics and data analysis packages are 
-only available on Linux and macOS. **If you have a Windows computer we recommend using the Windows Subsystem for Linux 
-(WSL). See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more info.** 
+only available on Linux and macOS. If you have a Windows computer we recommend using the Windows Subsystem for Linux 
+(WSL). See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more info. 
 [The Conda installation guide page](/Conda/conda_installation_guide.md) focuses on the Linux installation of Miniconda,
 but its installation and the usage is very similar for other platforms.
 
