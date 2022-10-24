@@ -13,9 +13,8 @@
 <br>
 
 - The material is meant for those with little or no experience with Linux, but can be helpful for intermediate users as well
-  - These sessions are introductory, it takes time and practise to become proficient with Linux (as with any new technology skill)
+  - These sessions are introductory. It takes time and practise to become proficient with Linux (as with any new technology skill)
   - Patience for both instructors and learners will help everyone to achieve their best results
-  - Many users have great expertise in other areas of science, this is the beginning of a process to gain yet another area of expertise
 - This material is largely derived from the book [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts
   - **This is an excellent resource for further study!**
 - Here are some other resources for Linux and Bioinformatics related training
@@ -29,11 +28,10 @@
 
 ### 1.1 Prerequisites
 
-- Ubuntu installed in WSL (Windows Subsystem for Linux)
-  - An installation guide is available [here](/WSL_Workshop/WSL_installation.md) - current as of August 2021
-  - For many users, this will be the most simple and practical way to access Linux
-  - Ubuntu in WSL is a great environment for training, practice, and even some light data analysis. For anything above this you should use a full-fledged Linux workstation or the GPSC
-- Any `bash` command line will suffice, but the guide will focus on Ubuntu in WSL
+- Access to the GPSC is prefered, but any `bash` command line will suffice.
+  - If you do not have access to the GPSC or the Biocluster and are a Windows user, you may follow [this guide](/WSL_Workshop/WSL_installation.md) to install Ubuntu in Windows Subsystem for Linux (WSL). Note that WSL is permitted on AAFC workstations, but that may not be the case in other departments.
+  - [Replit](https://replit.com) also offers a browser-based `bash` command line. Note that some of the commands covered in this tutorial aren't available on this platform.
+
 
 <br>
 
@@ -41,7 +39,7 @@
 
 - Overall objective --> build a foundation of skills in Linux
 - Learn some background information about Linux
-- Define some key terms about Linux and the command line interface (CLI)
+- Define some key terms related to Linux and the command line interface (CLI)
 - Study and practice some basic command line functions
 
 <br>
@@ -96,7 +94,7 @@ man <command_name>
   - It is simple to setup environments with specific compilers, languages, tools, etc. Containers are a relatively new option for this
     - eg. May need tools that work for version 2.15.1 and not 2.16
 - Open source nature of Linux and bioinformatics tools
-- High performance computers usually have Linux OS
+- High performance computers (HPCs) usually have a Linux operating system (OS)
   - When connecting to HPC (e.g. GPSC), the command line is your interface
 
 <br>
@@ -105,10 +103,10 @@ man <command_name>
 
 NOTE: Some organizations use terms more specifically, these are the general definitions.
 
-- Command line interface
-  - Text session where the user enters commands with options and arguments. Output is displayed from the operating system (OS)
+- Command line interface (CLI)
+  - Text session where the user enters commands with options and arguments. Output is displayed from the OS
 - Shell
-  - Program that takes commands from the keyboard and interprets them for the operating system
+  - Program that takes commands from the keyboard and interprets them for the OS
   - `bash` acts the default shell for most Linux distributions
   - In Windows there is a language called PowerShell
   - Other shells are available such as: `zsh`, `fish`
@@ -121,7 +119,7 @@ NOTE: Some organizations use terms more specifically, these are the general defi
   - bash acts as your shell when using it in the command line
   - An enhanced version of the original sh (Bourne shell)
 - Ubuntu
-  - A popular Linux distribution (distro) based on Debian (another distro)
+  - A popular Linux distribution based on Debian (another distribution)
   - Widely used and considered to be very user-friendly
 - Terminal
   - The terminal gives access to the shell - e.g. The window or program that allows you to use bash or another shell
@@ -132,7 +130,7 @@ NOTE: Some organizations use terms more specifically, these are the general defi
   - In bash this has:
     - User
     - Name of the computer
-    - Current directory (folder)
+    - Current directory
     - Usually ends with $
 - GUI (pronounced gooey)
   - Graphical user interface
@@ -147,37 +145,32 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 
 ---
 
-## 3.0 Instruction
+## 3. Instructions
 
-- In an Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
-- If you are in Ubuntu in WSL or connected to the GPSC, you're already using CLI
-- Review window placement for the workshop
-  - Teams or Markdown document split to one side
-  - Ubuntu window
+### 3.0 Access the CLI (command line interface)
+
+- If you are connected to the GPSC, the Biocluster, or are in Ubuntu in WSL, you are already using the CLI
+- In an Ubuntu desktop environment, you can use the "Terminal" application for the CLI. Alternatively you can use `Ctrl-Alt-T`
 
 <br>
 
 ### 3.1 Basic Navigation
 
-- There are shortcuts to help navigate the CLI. These shortcuts range from simple to complex, but all make for a much greater shell experience.
-- **tab** - will autocomplete if you begin to write a command that is part of bash-completion, or a filename in a given directory
-- **up arrow** - will scroll to previous commands entered in the shell
-  - You can navigate back through these commands with the down arrow
-- **left/right arrows** - used to control cursor placement in the text
+There are shortcuts to help navigate the CLI. These shortcuts range from simple to complex, but all make for a much greater shell experience.
+- `tab` - will autocomplete if you begin to write a command that is part of bash-completion, or a filename in a given directory
+- `up arrow` - will scroll to previous commands entered in the shell
+  - You can navigate back through these commands with the `down arrow`
+- `>` `<` - used to control cursor placement in the text
 - **copy/paste** - this can depend on which terminal you are using, and the configurations
-  - Typically, paste is right-click
-  - In WSL/Ubuntu you can use ctrl+shift+c and ctrl+shift+v used for copy and paste respectively (hold ctrl, shift, then press the 'c' key. To paste hold ctrl, shift, then press 'v')
-    - Typically, this is enabled in your properties. Access this menu by right-clicking the 'title bar' of the terminal
-- **ctrl+c** - interrupt/kill the current process in the terminal
-  - :wink:
+  - Typically, paste is `right-click`
+  - On the GPSC can use `ctrl+shift+c` and `ctrl+shift+v` used for copy and paste respectively (hold `ctrl`, `shift`, then press the `c` key. To paste hold `ctrl`, `shift`, then press `v`)
+- `ctrl+c` - interrupt/kill the current process in the terminal
 
-- #### Exercise 3.11
+#### Exercise 3.1.1
 
   - Copy some text from outside your shell and paste it into the command line
   - This does not need to execute properly in Linux, in fact it's safer if it doesn't
   - Feel free to use text from this tutorial
-  - In Ubuntu/WSL you can configure options by right-clicking the top of the window and choosing "Properties"
-    - In properties, you can enable ctrl+shift+c/v for copy-paste
 
 - We will learn to use these navigation shortcuts throughout the tutorial
 
@@ -185,8 +178,8 @@ NOTE: Some organizations use terms more specifically, these are the general defi
 
 ### 3.2 `pwd`
 
-- **`pwd` - print name of current/working directory**
-  - This shows the current directory you are located in (aka "working in")
+**`pwd` - print name of current working directory**
+  - This shows the directory in which you are currently located (working)
   - It seems very simple but can be helpful for scripts that will use varying working directories while executing
 
 Try the commands
@@ -212,9 +205,9 @@ PWD
 
 ### 3.3 `ls`
 
-- **`ls` - list directory contents**
+**`ls` - list directory contents**
   - Shows the files and directories of a given location (defaults to `.`, your current directory, unless an argument is provided)
-  - Not restricted to your current directory, can specify a location to use `ls` without changing your `pwd`
+  - Not restricted to your current directory, can specify a location to use `ls` without changing your current working directory
   - The directory that is specified at the end of this command is a **command argument**
 
 Try the commands
@@ -228,11 +221,13 @@ ls /
 ls -a
 ls -A # may be set to "la" in your shell
 ls -a /home
+ls -al
 ```
 
-- `ls -a` uses a **command option** to see all contents, including hidden files and folders that start with a `.`
-  - In Ubuntu this is "aliased" to `la` (more on `alias` later)
-  - eg. Hidden files -> `.bash_history` in your home directory (your 'user' folder)
+- `ls -a` uses a **command option** to see all contents, including hidden files and directories that start with a `.`
+  - eg. Hidden files -> `.bash_history` in your home directory (your 'user' directory)
+  - In some systems this is *aliased* to `la` (more on `alias` later)
+  
 - `ls -a /home` combines an option, `-a`, with an argument, `/home`
 
 - **Discussion**
@@ -244,6 +239,7 @@ ls -a /home
       <ul>
         <li>These are not the only options, as all arguments have their usages</li>
         <li>-h for human readable (when viewing file sizes)</li>
+        <li>-l use long list format
         <li>-s to view the file size</li>
         <li>-S to sort by file size</li>
         <li>-t to sort by modification time</li>
@@ -255,7 +251,7 @@ ls -a /home
 
 ### 3.4 Command Line Options and Arguments
 
-- These are important for basic linux and especially in scientific tools
+- These are important for basic linux and in scientific tools
 - A good way to learn them is to use the `--help` argument before attempting to use a command
 
 ```bash
@@ -273,7 +269,7 @@ pwd -h
 
 ### 3.5 `cd`
 
-- **`cd` - change directory (aka folder)**
+- **`cd` - change directory**
 - `/` is used in directory structure (Windows is `\`)
   - The directory location `/` is **root**, there are no separate 'drives' like in Windows
 - `.` is your current dir (a single dot character)
@@ -320,7 +316,6 @@ cd lib # change to lib while in user directory
 - Note that using paths like `home` or `lib` only works if they are a subdirectory of your current directory, otherwise a full or absolute path must be used
 - Absolute path will include the full address to the location, whereas a relative path uses `.` and `..`
 - The package `tree` can be used to view the file structure
-  - For instructions on how to install packages using `apt` see [Using WSL](/WSL_Workshop/Using_WSL.md)
 - A useful command for viewing the absolute path of files is `realpath`
   - For more in-depth information, see the help text
   - Simple usage is to use `realpath DIRNAME/*` to see the abs path of all files in the given directory
@@ -329,37 +324,13 @@ cd lib # change to lib while in user directory
   - If you are in `/home` and wish to go to your user account, this can be achieved by using `cd USERNAME` (substituting your own account name)
   - The relative path to do the same thing is `cd ./USERNAME`
   - An absolute path includes all the directories from root
-    - For my directory to create this workshop I have a folder called `gitlab_gccode`, and within that is `linux_resources` (remember no spaces in files/folders!)
-    - The absolute path is `/home/mat/gitlab_gccode/linux_resources` whereas if I was already in my user directory, I could just use `gitlab_gccode/linux_resources` as a relative path
+    - In my home directory, for this workshop, I have a directory called `tutorials`, and within that is `linux_intro` (remember no spaces in files/directories!)
+    - The absolute path is `/home/meb000/tutorials/linux_intro` whereas if I was already in my user directory, I could just use `tutorials/linux_intro` as a relative path
 
 <br>
 
-### Challenge 3.6
 
-- Find a system file called "fstab" (**F**ile **S**ystem **TAB**le) using the commands from this session
-- Exploration only. DO NOT try to modify anything - just navigate directories and check for contents
-- Hint: it can be useful to list contents in 1 column (default is alphabetical descending sort)
-
-<details>
-  <summary>Solution</summary>
-    <ul>
-      <li>cd /etc/fstab</li>
-      <li>The directory is in root -> etc -> fstab </li>
-      <li>fstab can be configured to mount drives upon system startup, such as network drives </li>
-    </ul>
-</details>
-
-<br/>
-
-- **Discussion**
-  - Were you able to find the file? Why or why not?
-  - Relative vs absolute paths
-  - '~' refers to /home/USERNAME/
-  - To find username use `whoami`
-
-<br>
-
-### 3.7 `exit`
+### 3.6 `exit`
 
 - **`exit` - exit the shell**
 - Likely the most simple command you will use!
@@ -392,7 +363,7 @@ cd lib # change to lib while in user directory
         <ul>
             <li> 1. This can occur during a script, the working directory can vary depending on the files that are being altered </li>
             <li> 2. Using the command `ls -a`. Files relating your bash shell such as .bash_history, .bashrc, and .bash_logout are common </li>
-            <li> 3. The only way out of this loop is <b>Ctrl+c</b> </li>
+            <li> 3. The only way out of this loop is <b>Ctrl+c</b>. It may take a few moments before the loop actually stops after you press <b>Ctrl+c</b>. </li>
         </ul>
 </details>
 
