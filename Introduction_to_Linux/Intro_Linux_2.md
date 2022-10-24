@@ -14,13 +14,13 @@
 ### 1.1 Prerequisite(s)
 
 - Completion of Intro to Linux part 1 (or at least familiarity of the material)
-- `bash` command line (Ubuntu in WSL will be the default for all commands shown)
+- `bash` command line (Ubuntu interactive contaner on the GPSC will be the default for all commands shown)
 
 ### 1.2 Objectives
 
 - Overall objective --> build a foundation of skills to be confident in using bioinformatics tools in Linux
 - This session will focus on manipulating files and directories
-  - Other snippits will be included such as operators and line comments
+  - Other snippets will be included such as operators and line comments
 
 ### 1.3 Commands and topics covered in this session
 
@@ -58,7 +58,7 @@ whatis mkdir
 
 - Review of part 1
   - Command line options and arguments
-  - `--help`, `man`, `pwd`, `cd`, `ls`, `clear`, and `exit`
+  - `--help`, `man`, `pwd`, `cd`, `ls`, and `exit`
 
 ### 2.1 Review Exercises
 
@@ -67,7 +67,7 @@ whatis mkdir
   - Clicking the expansion below will reveal all the suggested solutions
 
 1. Change directory to your 'root' directory hint - "`/` is root"
-2. Now go to your user folder (there is more than one way to do this)
+2. Now go to your user directory (there is more than one way to do this)
 3. List the contents one item per line
 4. Now change directory to /home
 5. Which option for `ls` will reverse the sorting order?
@@ -101,16 +101,12 @@ whatis mkdir
 
 #### 3.11 A Note About Directory Structure
 
-- Previously `testdir` was used as a test directory
-  - `linux_workshop` will now be used, and the testfiles will attempt to relate to bioinformatics
-  - Examples will also try to emulate real world usage
-- In Ubuntu on WSL the user folder is blank upon account creation, in a full Ubuntu system you would have `Documents`, `Downloads`, `Photos`, etc.
 - As with filenames, it is important to have detailed names for directories
   - It also helps to structure things so autocomplete can be used easily
     - Use lower case
     - Different starting letters
       - e.g. Using p for `projects` and `personal_files` causes an extra step in navigation before using tab. Instead use `projects` and `my_files` to avoid this (if possible)
-    - Using dates (YEAR.MO, YEAR-MON-DAY, etc.) can be a great way to keep items structured. Although this may come at the cost of convenience with tools like autocomplete, the benefits exceed the drawbacks when you are further into a structure and do not access it as often
+    - Using dates (YEAR.MO, YEAR-MON-DAY, etc.) can be a great way to keep items structured. Although this may come at the cost of convenience with tools like autocomplete, the benefits can exceed the drawbacks when you are further into a structure and do not access it as often
 
 Try the commands
 
@@ -127,8 +123,8 @@ mkdir -v linux_workshop
 <details>
     <summary><b>Solution</b></summary>
         <ul>
-            <li>The option -v is for <b>verbose</b> (prints out what the command is doing)</li>  
-            <li>To create nested directories we need the option -p or --parents</li>
+            <li>The option <code>-v</code> is for <b>verbose</b> (prints out what the command is doing)</li>  
+            <li>To create nested directories we need the option <code>-p</code> or <code>--parents</code></li>
             <li>This will make parent directories as needed </li>
             <li>Sometimes using the full name of the command options gives clarity to what the option is doing</li>
         </ul>
@@ -150,8 +146,8 @@ mkdir -v scripts environments
     <summary><b>Solution</b></summary>
         <ul>
             <li>Nested directories vs. separate directories</li>
-            <li>In the man page/help text you can determine if a command has multiple 'targets' by looking for the elipsis ("...")</li>
-            <li>If you have access to the command `tree` you can see this in the directory structure</li>
+            <li>In the man page/help text you can determine if a command has multiple 'targets' by looking for the elipsis <code>...</code></li>
+            <li>If you have access to the `tree` command, you can see this in the directory structure</li>
         </ul>
 </details>
 
@@ -173,7 +169,7 @@ touch manifest.csv manifest.txt
 
 - Commands can be chained together in bash with `&&` (this is an operator)
   - This means the second command will only execute after the first command is successful (logical `AND`)
-    - Using a semi-colon will ensure the 2nd command will execute regardless of the first command ie. `cd; ls`
+    - Using a semi-colon `;` will ensure the 2nd command will execute regardless of the first command ie. `cd; ls`
 - File types must be assigned manually (`.txt`, `.fastq`, `.md`, etc.)
 
 #### Exercise 3.21
@@ -199,10 +195,9 @@ touch manifest.csv manifest.txt
 ### 3.3 `rm`
 
 - **`rm` - remove files or directories**
-- Use great caution when learning this command!
-- Linux gives users great freedom - one of the great aspects of this OS
-  - However this comes with the drawback that mistakes are not prevented, you can delete important files and the system may not stop you
-
+- Use this command with caution!
+- Linux gives users a lot of freedom - one of the great aspects of this OS
+  - However this comes with the drawback that the system may not stop your from deleting important files
 - Let's view some information with `rm --help`
 
 - **Question**
@@ -228,8 +223,6 @@ rm -iv raw_data
 - It is also used as a line comment in python and some other languages
   - There are line comments and block comments
   - Line comments will be ignored by interpreter after the \#
-  - Block comments will cause a whole section of code/commands to be ignored
-  - This is extremely important in scripting/programming
 
 - **Discussion**
   - Why didn't the last command work?
@@ -282,7 +275,7 @@ ls
 
 - The curly braces `{}` can be used to generate sequences
   - There are many creative ways to do this, look this up for more examples
-  - e.g. mkdir dir{1..16..2}{1..10} will create dirs with 1 to 16 counting by 2, combined with each number in sequence 1 to 10
+  - e.g. `mkdir dir{1..16..2}{1..10}` will create dirs with 1 to 16 counting by 2, combined with each number in sequence 1 to 10
 - This dir is getting a bit cluttered, let's remove all the files we just created
 - Be **careful** when using `*` in an `rm` command
 - You can confirm the files you plan to remove by first using `ls TARGET` to see the list of files, then use `rm` on the TARGET files
@@ -299,8 +292,8 @@ ls # also defaults to current dir, same as using ls .
 - The matching removes all files that begin with 'file'
   - The `*` will match 0 or more characters
 - Using the option `-I` prompts for the deletion of all files, instead of individually like with `-i`
-- This is a very basic form of regular expressions (RegEx), which are very difficult but useful tools to filter through files or anything related to strings or expressions
-- We will not cover regex in any of the tutorials, but you are welcome to look it up for yourself
+- This is a very basic form of regular expressions (regex), which are complex but useful tools to filter through files or anything related to strings or expressions
+- We will not cover regex in these tutorials
 
 <br>
 
@@ -321,14 +314,14 @@ ls # also defaults to current dir, same as using ls .
 - From **The Linux Command Line** by William Shotts (Chapter 8)
   - "In fact, one of the most cherished goals of the command line is laziness; doing the most work with the fewest number of keystrokes. Another goal is never having to lift our fingers from the keyboard and reach for the mouse."
 - These commands can be very efficient in using Linux once you know them well
-- The commands with Alt may not work in each environment
-  - **Ctrl-a** Move cursor to the beginning of the line.
-  - **Ctrl-e** Move cursor to the end of the line.
-  - **Ctrl-f** Move cursor forward one character; same as the right arrow key.
-  - **Ctrl-b** Move cursor backward one character; same as the left arrow key.
-  - **Alt-f** Move cursor forward one word.
-  - **Alt-b** Move cursor backward one word.
-  - **Ctrl-l** Clear the screen and move the cursor to the top-left corner. The clear command does the same thing.
+- Some commands may not work in each environment
+  - `Ctrl-a` Move cursor to the beginning of the line.
+  - `Ctrl-e` Move cursor to the end of the line.
+  - `Ctrl-f` Move cursor forward one character; same as the right arrow key.
+  - `Ctrl-b` Move cursor backward one character; same as the left arrow key.
+  - `Alt-f` Move cursor forward one word.
+  - `Alt-b` Move cursor backward one word.
+  - `Ctrl-l` Clear the screen and move the cursor to the top-left corner. The clear command does the same thing.
 
 <br>
 
@@ -340,8 +333,8 @@ ls # also defaults to current dir, same as using ls .
 <details>
     <summary><b>This will reveal all the answers, please go through as many as you can before looking</b></summary>
         <ul>
-            <li> 1. `mkdir dir{A..Z}` and `mkdir dir{A..Z}{z..a} </li>
-            <li> 2. `rm -rIv dir*` --> the I is for an interactive prompt, but now it only asks once for all the dirs together </li>
+            <li> 1. <code>mkdir dir{A..Z}</code> and <code>mkdir dir{A..Z}{z..a}</code> </li>
+            <li> 2. <code>rm -rIv dir*</code> --> the <code>I</code> is for an interactive prompt, but now it only asks once for all the dirs together </li>
         </ul>
 </details>
 

@@ -46,7 +46,7 @@
 
 ### 1.3 Commands covered in this session
 
-- `pwd`, `cd`, `ls`, `clear`, `--help`, `man`, and `exit`
+- `pwd`, `cd`, `ls`, `--help`, `man`, and `exit`
 - It is arguably more important to learn how to use commands than to learn the commands themselves
   - Learning how to learn - searching is a great skill
 - **Information about commands can usually be accessed within a terminal by using the following**
@@ -90,7 +90,7 @@ man <command_name>
 ### 2.2 Linux in Bioinformatics
 
 - Linux is the preferred way to use bioinformatics tools for many practical and historical reasons
-  - Sequence files are usually in .fasta, which is essentially a text file. Command line tools can interact very well with text files
+  - Sequence files are usually in `.fasta`, which is essentially a text file. Command line tools can interact very well with text files
   - It is simple to setup environments with specific compilers, languages, tools, etc. Containers are a relatively new option for this
     - eg. May need tools that work for version 2.15.1 and not 2.16
 - Open source nature of Linux and bioinformatics tools
@@ -197,7 +197,7 @@ PWD
       <ul>
         <li>Linux is case sensitive, only the exact command will work</li>
         <li>This also applies to filenames and directories</li>
-        <li>e.g. file1 and File1 are completely separate files in Linux (not in Windows)</li>
+        <li>e.g. <code>file1</code> and <code>File1</code> are completely separate files in Linux (not in Windows)</li>
       </ul>
 </details>
 
@@ -238,12 +238,12 @@ ls -al
     <summary>Solution</summary>
       <ul>
         <li>These are not the only options, as all arguments have their usages</li>
-        <li>-h for human readable (when viewing file sizes)</li>
-        <li>-l use long list format
-        <li>-s to view the file size</li>
-        <li>-S to sort by file size</li>
-        <li>-t to sort by modification time</li>
-        <li>-1 to view in one column, </li>
+        <li><code>-h</code> for human readable (when viewing file sizes)</li>
+        <li><code>-l</code> use long list format
+        <li><code>-s</code> to view the file size</li>
+        <li><code>-S</code> to sort by file size</li>
+        <li><code>-t</code> to sort by modification time</li>
+        <li><code>-1</code> to view in one column, </li>
       </ul>
 </details>
 
@@ -282,15 +282,15 @@ pwd -h
 <details>
     <summary>Solution</summary>
       <ul>
-        <li>cd --help</li>
+        <li><code>cd --help</code></li>
       </ul>
 </details>
 
 <br>
 
-- `/` is a critical directory in Linux systems, it is the **root** directory
-  - All other storage branches from this location, even other drives (in /mnt)
-  - If you are using WSL you will be able to use your Windows drives (c, d, etc.) in /mnt (for more on WSL-specific usage see the [WSL Workshop](/WSL_Workshop))
+- `/` is a critical directory in Linux systems, it is the `root` directory
+  - All other storage branches from this location, even other drives (in `/mnt`)
+  - If you are using WSL you will be able to use your Windows drives (c, d, etc.) in `/mnt` (for more on WSL-specific usage see the [WSL Workshop](/WSL_Workshop))
 
 <br>
 
@@ -362,8 +362,8 @@ cd lib # change to lib while in user directory
     <summary>This will reveal all the answers, please go through as many as you can before looking</summary>
         <ul>
             <li> 1. This can occur during a script, the working directory can vary depending on the files that are being altered </li>
-            <li> 2. Using the command `ls -a`. Files relating your bash shell such as .bash_history, .bashrc, and .bash_logout are common </li>
-            <li> 3. The only way out of this loop is <b>Ctrl+c</b>. It may take a few moments before the loop actually stops after you press <b>Ctrl+c</b>. </li>
+            <li> 2. Using the command <code>ls -a`</code>. Files relating your bash shell such as <code>.bash_history</code>, <code>.bashrc</code>, and <code>.bash_logout</code> are common </li>
+            <li> 3. The only way out of this loop is <code>Ctrl+c</code>. It may take a few moments before the loop actually stops after you pressthe command.<li>
         </ul>
 </details>
 
