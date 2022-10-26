@@ -14,12 +14,12 @@
 ### 1.1 Prerequisite(s)
 
 - Completion of Intro to Linux parts 1 and 2 (or at least familiarity of the material)
-- `bash` command line (Ubuntu in WSL will be the default for all commands shown)
+- `bash` command line (Ubuntu interactive container on the GPSC will be the default for all commands shown)
 
 ### 1.2 Objectives
 
 - Overall objective --> build a foundation of skills to be confident in using bioinformatics tools in Linux
-- This session will focus on some useful utilities in the command line and file permissions
+- This session will focus on some useful utilities in the command line and for file permissions
 
 ### 1.3 Commands and topics covered in this session
 
@@ -67,12 +67,12 @@ whatis <command_name> # one line summary
 <details>
     <summary><b>Solutions</b></summary>
       <ul>
-        <li>1. '-i` will prompt for each delete, -I will prompt for a group of > 3 files (or a folder)'</li>
+        <li>1. <code>-i</code> will prompt for each delete, <code>-I</code> will prompt for a group of > 3 files (or a directory)</li>
         <li>2. To create an empty file</li>
-        <li>3. Absolute path is the full path from root. Relative path is defined by the pwd (present working directory). An example would be if you are in /home/user/testdir. This is the absolute path, root --> home --> user --> testdir. The relative path from testdir to your user folder is simply ../ (`..` is up one level in the directory structure). Using <b>realpath</b> with dir/file(s) outputs the absolute path of the file(s) in that dir.</li>
+        <li>3. Absolute path is the full path from root. Relative path is defined by the pwd (present working directory). An example would be if you are in <code>/home/user/testdir</code>. This is the absolute path, root --> home --> user --> testdir. The relative path from testdir to your user directory is simply <code>../</code> (<code>..</code> is up one level in the directory structure). Using <code>realpath</code> with dir/file(s) outputs the absolute path of the file(s) in that dir.</li>
         <li>4. If the first command executes correctly, it will allow another command to execute in the same line </li>
         <li>5. There is no difference other than the appearance. They are the short and long form for the same options. There must be a space between long form options</li>
-        <li>6. `*` will match 0 or more characters.</li>
+        <li>6. <code>*</code> will match 0 or more characters.</li>
         <li>7. It will not prompt at all, the files will be removed.</li>
       </ul>
 </details>
@@ -114,7 +114,7 @@ rmdir -v emptydir/* emptydir # alternate way to do this, delete the subdirs, the
   - It essentially changes the absolute path for a file, whether it includes location or file name (the last part of the absolute path)
   - View the help text for the command with `mv --help`
   - Moving a file within the same directory will rename the file
-  - Moving file(s) to another dir will move the file(s)
+  - Moving file(s) to another directory will move the file(s)
   - We will work from the same `linux_workshop` directory as last time, if you do not have it use these first commands to create it
 
 Try the command(s)
@@ -122,7 +122,7 @@ Try the command(s)
 ```bash
 cd && ls
 mkdir -pv linux_workshop/2021microbiome && cd linux_workshop
-touch file0 microbiome/file1
+touch file0 2021microbiome/file1
 ```
 
 - Now we're ready to use `mv`
@@ -134,7 +134,7 @@ Try the commands
 ```bash
 pwd
 mv -iv file0 sequencefiles.fa # file0 is not descriptive at all, change to sequencefiles.fa (.fa is fasta file format - also .fasta)
-mv -iv sequencefiles.fa 2021microbiome/ # move the sequencefiles.fa into the subfolder
+mv -iv sequencefiles.fa 2021microbiome/ # move the sequencefiles.fa into the subdirectory
 ```
 
 - **Discussion**
@@ -143,10 +143,9 @@ mv -iv sequencefiles.fa 2021microbiome/ # move the sequencefiles.fa into the sub
 <details>
     <summary><b>Solution</b></summary>
       <ul>
-        <li>In the help text under `Usage:` you can see</li>
-        <li>mv [OPTION]... SOURCE... DIRECTORY</li>
-        <li>Which means you can have multiple sources into a single directory</li>
-        <li>Either using matching(*) to list multiple files with a single source, or listing them individually</li>
+        <li>In the help text under `Usage:` you can see<code>mv [OPTION]... SOURCE... DIRECTORY</code>
+        which means you can have multiple sources into a single directory.</li>
+        <li>Either use matching (<code>*</code>) to list multiple files with a single source, or list them individually</li>
       </ul>
 </details>
 
@@ -155,7 +154,7 @@ mv -iv sequencefiles.fa 2021microbiome/ # move the sequencefiles.fa into the sub
 Try the commands
 
 ```bash
-cd ~/linux_workshop # `~` is the shortcut for our user folder, so this path will work regardless of where we are
+cd ~/linux_workshop # `~` is the shortcut for our user directory, so this path will work regardless of where we are
 touch config.yaml manifest.csv readme.md
 ls
 mv config.yaml manifest.csv readme.md 2021microbiome/
@@ -166,8 +165,9 @@ cd 2021microbiome; ls # check new location for files
 
 ### 3.3 `ll`, `type`, and `alias`
 
-- The long listing format of `ls`, the same as `ls -alF`
+- `ll` The long listing format of `ls`, the same as `ls -alF` or `ls -l` depending on the system
 - `ll --help` lists the info for `ls`
+- Your system may not have `ll` aliased by default. This is the case on the GPSC.
 - `type` will determine if a command is an `alias` that has been set
   - **`type` - display information about command type**
   - **`alias` - define or display aliases**
@@ -178,6 +178,17 @@ cd 2021microbiome; ls # check new location for files
     - A good example is using `alias` to make a command safer - like `alias rm="rm -Iv"`
     - To set a permanent alias you can read more [here](https://www.tecmint.com/create-alias-in-linux/)
     - To remove an alias, use the command `unalias`
+  
+
+Check if `ll` is aliased on your system
+```bash
+ll
+```
+
+**If it is not already an alias**, create a temporary one
+```bash
+alias ll="ls -alF"
+```
 
 Try the command(s)
 
@@ -341,6 +352,7 @@ ll
 - Linux and other computer tech often have little easter eggs and jokes - programmers do not take things too seriously
   - sl (steam locomotive - 'trains' (ha) you not to mistype `ls`)
   - cowsay - like `echo` but with a cow using a speech bubble
+  - Note: these aren't available on the GPSC, but should work in a WSL or Ubuntu virtual machine environment. 
 
 ```bash
 _____________________________

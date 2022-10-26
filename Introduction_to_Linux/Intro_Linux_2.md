@@ -14,7 +14,7 @@
 ### 1.1 Prerequisite(s)
 
 - Completion of Intro to Linux part 1 (or at least familiarity of the material)
-- `bash` command line (Ubuntu interactive contaner on the GPSC will be the default for all commands shown)
+- `bash` command line (Ubuntu interactive container on the GPSC will be the default for all commands shown)
 
 ### 1.2 Objectives
 

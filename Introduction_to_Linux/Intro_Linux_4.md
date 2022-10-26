@@ -14,7 +14,7 @@
 ### 1.1 Prerequisite(s)
 
 - Completion of Intro to Linux parts 1, 2 and 3 (or at least familiarity of the material)
-- `bash` command line (Ubuntu in WSL will be the default for all commands shown)
+- `bash` command line (Ubuntu interactive container on the GPSC will be the default for all commands shown)
 
 ### 1.2 Objectives
 
@@ -115,8 +115,8 @@ e # Forward one line
 y # Backward one line
 f # Forward one window
 b # Backward one window
-/`pattern` # Search forward for matching line
-?`pattern` # Search backward for matching line
+/pattern # Search forward for matching line
+?pattern # Search backward for matching line
 q # Quit - this time from `less`
 ```
 
@@ -144,7 +144,7 @@ echo $((5*5))
 echo Five times five is $((5*5))
 echo {Z..A}
 echo $(ls -l)
-echo \ # you will need to type additional text and press enter/return again
+echo \      # you will need to type additional text and press enter/return again
 echo \\
 ```
 
