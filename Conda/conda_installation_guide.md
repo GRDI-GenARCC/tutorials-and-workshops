@@ -17,10 +17,6 @@
    sh Miniconda3-latest-Linux-x86_64.sh
    ```
 
-   #### Note for GPSC users
-   Attempting to install Conda from a Centos-6 container will result in dependency errors. Make sure you install and run
-   Conda from a container running on Centos-7+ or Ubuntu-18.04+.
-
 ### 2. Installation procedure
 
    You will be guided through a command line based installation wizard:
@@ -64,7 +60,7 @@
 ### 5. Configure Conda
 
    Conda comes mostly pre-configured out of the box, but there are some minor configuration tweaks we recommend for 
-   bioinformatics users. We recommend adding the conda-forge and bioconda channels to your configuration. These 
+   bioinformatics users. We recommend adding the **conda-forge** and **bioconda** channels to your configuration. These 
    channels are both run by free community initiatives, and are backed by a set of guidelines for the packagers that 
    ensure that the software packages are secure and usable. The conda-forge channel provides more general purpose 
    software tools and libraries, while the bioconda channel focuses on bioinformatics software. To add these channels, 
@@ -75,19 +71,7 @@
    conda config --add channels conda-forge
    ```
 
-You are now all set to start using Conda.
-
 <br>
-
-### Conda HTTP error
-
-Some GC users encountered the following error after the installation of Conda on WSL:  
-**CondaHTTPError: HTTP 000 CONNECTION FAILED**. If this happens to you, simply run the installation script a second 
-time with the `-u` argument to force a new installation.
-
-```bash
-sh Miniconda3-latest-Linux-x86_64.sh -u
-```
 
 ## Update Conda
 
@@ -96,6 +80,8 @@ Once you've installed Conda, you should update it to the latest version. You can
 ```bash
 conda update conda
 ```
+
+You are now all set to start using Conda.
 
 <br>
 

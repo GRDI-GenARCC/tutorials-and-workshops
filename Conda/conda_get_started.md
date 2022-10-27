@@ -83,12 +83,12 @@ list of commands, here is a terminology table of the most common terms used in c
 
 ## 3.0 Instruction
 
-- In an Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
 - If you are in Ubuntu in WSL or connected to the GPSC, you're already using CLI
+- In an Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
 - If you are in Windows, open the "Anaconda Prompt" application.
 - Review window placement for the workshop
   - Teams or Markdown document split to one side
-  - Ubuntu window
+  - Terminal window
 
 <br>
 
@@ -156,7 +156,7 @@ conda install -n my_first_env cowpy
 
 You can specify the version of the package you want to install using `conda install -n my_first_env cowpy=1.1.5`
 
-Now let's see if cowpy is installed in the miniconda repository and which version you installed.
+Now let's see if cowpy is installed in the miniconda repository.
 
 ```bash
 # Get the path to cowpy executable (Linux only)
