@@ -98,7 +98,6 @@ cd
 mkdir -pv emptydir/emptydirs{1..7}
 ls
 rmdir -pv emptydir # does not work because the subdirectories mean this dir is not truly "empty"
-mkdir -pv emptydir/emptydir{1..10}
 rmdir -v emptydir/* emptydir # alternate way to do this, delete the subdirs, then the main dir
 ```
 
@@ -158,7 +157,7 @@ cd ~/linux_workshop # `~` is the shortcut for our user directory, so this path w
 touch config.yaml manifest.csv readme.md
 ls
 mv config.yaml manifest.csv readme.md 2021microbiome/
-cd 2021microbiome; ls # check new location for files
+cd 2021microbiome/; ls # check new location for files
 ```
 
 - You can also use pattern matching to move multiple files matching a wildcard pattern with *
@@ -169,8 +168,6 @@ cd 2021microbiome; ls # check new location for files
 - `ll --help` lists the info for `ls`
 - Your system may not have `ll` aliased by default. This is the case on the GPSC.
 - `type` will determine if a command is an `alias` that has been set
-  - **`type` - display information about command type**
-  - **`alias` - define or display aliases**
 - `alias` can be used to shortcut commands to simpler or alternate commands
   - `alias --help` gives info and only one option
   - Use this by indicating `alias name_of_alias="command being aliased"`
