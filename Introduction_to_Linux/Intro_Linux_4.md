@@ -150,7 +150,6 @@ echo \\
 
 - **Discussion**
   - There are many other examples but we'll stop there and discuss these ones
-  - What is the difference in parentheses for some expressions?
   - What does the backslash (\\) do in this example?
 
 <br>
@@ -187,7 +186,8 @@ echo \\
 Try the commands
 
 ```bash
-# If you do not already have a `playgound`, make some files
+cd
+mkdir -pv linux_workshop/part4 && cd linux_workshop/part4
 touch files{0..6}.txt
 # Zip them into gzip format with
 gzip -v files*
