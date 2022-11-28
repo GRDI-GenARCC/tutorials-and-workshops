@@ -255,7 +255,19 @@ echo "I'm $me, $combined" # use 'up arrow' twice to access previous command inst
 
 ---
 
-## 4.0 Extras
+## 4.0 Next Steps
+
+- [LinuxCommand.org](https://linuxcommand.org/) is an excellent resource for continued learning of the bash command line
+- freecodecamp.org has great resources for many tech-related topics, including Linux and command line!
+  - [The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners](https://www.freecodecamp.org/news/learn-the-50-most-used-linux-terminal-commands/) is a 5-hour video (best to watch in pieces) that will cover much more than this tutorial. It is fairly recent and well curated for useful commands.
+Command Line Crash Course is a 35-minute video with the basics of the command line.
+- [Command Line Crash Course](https://www.youtube.com/watch?v=yz7nYlnXLfE) is a 35-minute video with the basics of the command line. 
+- [The Linux Commands Handbook](https://www.freecodecamp.org/news/the-linux-commands-handbook/) has a long list of useful commands with useful details about them.
+- Excellent and in-depth Linux Tutorial - [Ryan's Tutorials](https://ryanstutorials.net/linuxtutorial/)
+
+---
+
+## 5.0 Extras
 
 - This section will not be covered during the hour-long workshop session, they are completely optional
 - Answers can be obtained from the tutorial material or by using the bash commands
@@ -266,7 +278,7 @@ echo "I'm $me, $combined" # use 'up arrow' twice to access previous command inst
 
 <br>
 
-### 4.1 Challenge Questions
+### 5.1 Challenge Questions
 
 1. If you had three types files (let's assume there are 100s of digits after the name in each) -> Jim.txt, Jim.md, and James.txt -> How could you filter to choose only the Jim.txt files??
 
@@ -279,7 +291,7 @@ echo "I'm $me, $combined" # use 'up arrow' twice to access previous command inst
 
 <br>
 
-### 4.2 Fun Facts
+### 5.2 Fun Facts
 
 - Joke: Why are Linux users so introverted? - They never get out of their shell!
 - The name Linux comes from the first name of the "creator" of Linux, Linus Torvalds, combined with Unix
