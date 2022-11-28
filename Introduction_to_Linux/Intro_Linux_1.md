@@ -19,7 +19,7 @@
   - **This is an excellent resource for further study!**
 - Here are some other resources for Linux and Bioinformatics related training
   - freecodecamp.org has great resources for many tech-related topics, including Linux and command line!
-    - [The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners](The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners) is a 5-hour video (best to watch in pieces) that will cover much more than this tutorial. It is fairly recent and well curated for useful commands. 
+    - [The 50 Most Popular Linux & Terminal Commands - Full Course for Beginners](https://www.freecodecamp.org/news/learn-the-50-most-used-linux-terminal-commands/) is a 5-hour video (best to watch in pieces) that will cover much more than this tutorial. It is fairly recent and well curated for useful commands. 
     - [Command Line Crash Course](https://www.youtube.com/watch?v=yz7nYlnXLfE) is a 35-minute video with the basics of the command line. 
     - [The Linux Commands Handbook](https://www.freecodecamp.org/news/the-linux-commands-handbook/) has a long list of useful commands with useful details about them.
   - Excellent and in-depth Linux Tutorial - [Ryan's Tutorials](https://ryanstutorials.net/linuxtutorial/)
