@@ -189,7 +189,7 @@ To use the cowpy package you installed you need to activate the `my_first_env` e
 conda activate my_first_env
 ```
 
-Now that the environment is active we can verify again where the cowpy package.
+Now that the environment is active we can verify again where the cowpy package was installed.
 
 ```bash
 # Get the path to cowpy executable
