@@ -53,7 +53,7 @@ whatis <command_name> # one line summary
 ### 2.1 Review Exercises
 
 - Here is a self-directed exercise to review the commands from part 2
-  - Do as much as you can using the command names above, referring to `--help` if you're stuck
+  - Do as much as you can using the command names above, referring to `man` if you're stuck
   - Clicking the expansion below will reveal all the suggested solutions
 
 1. What is the difference between -i and -I in rm?
@@ -88,7 +88,7 @@ whatis <command_name> # one line summary
 - **`rmdir` - remove empty directories**
 - This command is not used often, but is a great review and companion to `rm`, which is used often
 - A simple version of `rm` for directories - checks if they are empty, if so then deletes
-- As always, worth looking at the help text `rmdir --help`
+- As always, worth looking at the man pages `man rmdir `
   - `-p` and `-v` are useful options once again
 
 Try the commands
@@ -111,7 +111,7 @@ rmdir -v emptydir/* emptydir # alternate way to do this, delete the subdirs, the
 - **`mv` - move and/or rename files**
   - This command can either move or rename a file, it all depends on how it is used
   - It essentially changes the absolute path for a file, whether it includes location or file name (the last part of the absolute path)
-  - View the help text for the command with `mv --help`
+  - View the information about the command with `man mv`
   - Moving a file within the same directory will rename the file
   - Moving file(s) to another directory will move the file(s)
   - We will work from the same `linux_workshop` directory as last time, if you do not have it use these first commands to create it
@@ -169,7 +169,7 @@ cd 2021microbiome/; ls # check new location for files
 - Your system may not have `ll` aliased by default. This is the case on the GPSC.
 - `type` will determine if a command is an `alias` that has been set
 - `alias` can be used to shortcut commands to simpler or alternate commands
-  - `alias --help` gives info and only one option
+  - `man alias` gives info and only one option
   - Use this by indicating `alias name_of_alias="command being aliased"`
   - Use **caution** if you want to alias any commands, these will only be temporary and must be set each time you login
     - A good example is using `alias` to make a command safer - like `alias rm="rm -Iv"`
@@ -213,7 +213,7 @@ type type
 ### 3.4 `ln` and `file`
 
 - In bioinformatics files can be extremely large, a way to be more efficient is to use symbolic links (aka symlinks) so a file is not duplicated needlessly
-- The `ln` command can create links. As always let's look at the options using `--help`
+- The `ln` command can create links. As always let's look at the options using `man ln`
   - For this command we only really need `-s`, it is generally preferable to use symbolic (aka soft) links
 - We will continue to use the `linux_workshop` workshop for this
 
@@ -242,7 +242,7 @@ ll
 <br>
 
 - Another useful command that can help inform us about a file is `file`
-  - let's use `file --help` to look at the information
+  - let's use `man file` to look at the information
 - Simply outputs information about the file and its format
   - Also tells basic info for a symlink
 
@@ -287,7 +287,7 @@ file scriptfile
 Try the command(s)
 
 ```bash
-chmod --help
+man chmod
 ll
 chmod -c u+x scriptfile
 ll

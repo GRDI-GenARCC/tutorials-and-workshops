@@ -62,8 +62,9 @@ man <command_name>
 ```bash
 <command_name> --help
 ```
+- not all commands have `--help` configured
 
-- We will use `--help` as the default for the workshop
+- We will use `man` as the default for the workshop
 - More documentation is available at [manual-pages](https://www.kernel.org/doc/man-pages/)
 
 <br>
@@ -252,14 +253,12 @@ ls -al
 ### 3.4 Command Line Options and Arguments
 
 - These are important for basic linux and in scientific tools
-- A good way to learn them is to use the `--help` argument before attempting to use a command
+- A good way to learn them is to view the `man` pages before attempting to use a command
 
 ```bash
-pwd --help
-pwd -h
+man pwd
 ```
 
-- `-h` is often a shortcut for `--help` but can also have a meaning as an argument, use caution and check the options before using a command
 - These options can enhance the usage of a command - displaying the changes, or asking for inputs, etc.
 - The command is what you want to do, the options/parameters are how you want to do it, and the arguments are the things you want to apply these to
 - Options are usually not required, but for some commands they are necessary
@@ -282,7 +281,7 @@ pwd -h
 <details>
     <summary>Solution</summary>
       <ul>
-        <li><code>cd --help</code></li>
+        <li><code>man cd</code></li>
       </ul>
 </details>
 

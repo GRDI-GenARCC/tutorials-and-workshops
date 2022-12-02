@@ -63,7 +63,7 @@ whatis mkdir
 ### 2.1 Review Exercises
 
 - Here is a self-directed exercise to review the commands from part 1
-  - Do as much as you can using the command names above, referring to `--help` if you're stuck
+  - Do as much as you can using the command names above, referring to `man` if you're stuck
   - Clicking the expansion below will reveal all the suggested solutions
 
 1. Change directory to your 'root' directory hint - "`/` is root"
@@ -96,7 +96,7 @@ whatis mkdir
 ### 3.1 `mkdir`
 
 - **`mkdir` - make directory**
-- View the help text using `mkdir --help`
+- View the manual using `man mkdir`
 - It is best to only use options if you understand the consequences
 
 #### 3.11 A Note About Directory Structure
@@ -198,7 +198,7 @@ touch manifest.csv manifest.txt
 - Use this command with caution!
 - Linux gives users a lot of freedom - one of the great aspects of this OS
   - However this comes with the drawback that the system may not stop your from deleting important files
-- Let's view some information with `rm --help`
+- Let's view some information with `man rm`
 
 - **Question**
   - which arguments should we use to be cautious when deleting files?

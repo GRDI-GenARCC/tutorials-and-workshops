@@ -55,7 +55,7 @@ whatis <command_name> # one line summary
 ### 2.1 Review Exercises
 
 - Here is a self-directed exercise to review the commands from part 3
-  - Do as much as you can using the command names above, referring to `--help` if you're stuck
+  - Do as much as you can using the command names above, referring to `man` if you're stuck
   - Clicking the expansion below will reveal all the suggested solutions
 
 1. What will `rmdir` do if you target a non-empty directory?
@@ -89,18 +89,7 @@ whatis <command_name> # one line summary
     - 'concatenate file(s) to the standard output'
   - `more` views a file one page/screen at a time
   - `less` is a play-on-words of "less is more", and is very similar to `more` but with improvments
-  - As always, let's look at `less --help`
-
-- **Question**
-  - This looks different from usual help text, why is this?
-
-<details>
-    <summary><b>Solution</b></summary>
-      <ul>
-        <li>The information is being displayed by the `less` command</li>
-        <li>Usually help text is displayed using `cat`</li>
-      </ul>
-</details>
+  - As always, let's look at `man less`
 
 </br>
 
@@ -128,7 +117,7 @@ q # Quit - this time from `less`
 
 - `echo` is used to display a line of text
 - This can be very simple, but in combination with other options and commands it is very versatile
-- As per usual, start with `echo --help`
+- Let's try `echo --help`
   - However, this doesn't work. Instead try `/bin/echo --help`
   - Alternatively, use `man echo`
   - There is really not much in terms of options, but we'll see some other ways to use it
@@ -158,7 +147,7 @@ echo \\
 
 - **`tar` - GNU 'tar' saves many files together into a single tape or disk archive, and can restore individual files from the archive**
   - common archiving utility
-- help text is very lengthy, here are some common examples (these are from the help text)
+- the manual is very lengthy, here are some common examples:
   
 ```bash
   tar -cf archive.tar foo bar  # Create archive.tar from files foo and bar.
@@ -177,7 +166,7 @@ echo \\
 
 - **`gzip` - Compress or uncompress FILEs**
   - Often used as part of tar, but still helpful to know as a separate command
-  - The help text is relatively small, but there are many useful options
+  - The manual is relatively short, but there are many useful options
     - Note `-k` for keep, as gzip will compress them remove the original
 - **`gunzip` - Uncompress FILEs**
   - Very similar options to `gzip`
@@ -272,7 +261,7 @@ Command Line Crash Course is a 35-minute video with the basics of the command li
 - This section will not be covered during the hour-long workshop session, they are completely optional
 - Answers can be obtained from the tutorial material or by using the bash commands
   - Some questions will invite you to research on the internet to give greater context or understanding
-- Now that you have a basic mastery of using the `--help` command, there is a package you can install that will highlight the most common or simple usage of many commands called `tldr` (too long, didn't read)
+- Now that you have a basic mastery of using the `man` command, there is a package you can install that will highlight the most common or simple usage of many commands called `tldr` (too long, didn't read)
   - Use `sudo apt install tldr` then simply use `tldr "command name"'
   - This package is another tool to learn commands along with `man`, `--help`, and `whatis`
 
