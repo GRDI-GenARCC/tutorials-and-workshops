@@ -83,12 +83,9 @@ list of commands, here is a terminology table of the most common terms used in c
 
 ## 3.0 Instruction
 
-- If you are in Ubuntu in WSL or connected to the GPSC, you're already using CLI
+- If you are connected to the GPSC or the Biocluster, you're already using CLI
 - In an Ubuntu desktop environment, you can use the "Terminal" application for the CLI (command line interface). Alternatively you can use **Ctrl-Alt-T**
 - If you are in Windows, open the "Anaconda Prompt" application.
-- Review window placement for the workshop
-  - Teams or Markdown document split to one side
-  - Terminal window
 
 <br>
 
@@ -215,11 +212,16 @@ print(msg)
 exit()
 ```
 
-Now we'll install the trio package in our current environment. This time, we will specify which channel we want it to 
+Now we'll install the tree package in our current environment. This time, we will specify which channel we want it to 
 be downloaded from:
 ```bash
-conda install -c conda-forge trio
+conda install -c conda-forge tree
 conda list
+```
+
+We can now use our new tree package to view the directory tree of the tutorials/conda directory on the GPSC, or any other directory you have access to:
+```bash
+tree /gpfs/fs7/grdi/genarcc/tutorials/conda
 ```
 
 <br>
@@ -231,7 +233,7 @@ Let's duplicate and rename this environment to fix this.
 
 ```bash
 # Clone the environment
-conda create -n cowpy_env --clone my_first_env
+conda create -n conda_tutorial_env --clone my_first_env
 ```
 
 You created a new environment, let's see the list of available Conda environments.
@@ -266,15 +268,15 @@ conda env list
 You can export a conda environment in order to allow others, or your future self, to easily recreate it. The best way 
 to export a conda environment is in a [YAML](https://en.wikipedia.org/wiki/YAML) file. You can create the `.yml` 
 file of your active environment. You can then include the file to a git repository, for instance.  Let's try this 
-with our cowpy_env environment:
+with our conda_tutorial_env environment:
 
 ```bash
 # activate the environment you want to export
-conda activate cowpy_env
+conda activate conda_tutorial_env
 # create yml file with all packages dependencies and versions
-conda env export > cowpy_env.yml
-# view your newly created cowpy_env.yml file
-cat cowpy_env.yml
+conda env export > conda_tutorial_env.yml
+# view your newly created conda_tutorial_env.yml file
+cat conda_tutorial_env.yml
 ```
 
 You can also modify your `.yml` file or create one from scratch. More details on this in the 
@@ -285,11 +287,11 @@ You can also modify your `.yml` file or create one from scratch. More details on
 ### 3.10 Import an environment
 
 The name of your environment is defined in the first line of the .yml file. If you wish to use the same name, you can
-use `conda env create --file filename.yml`. We will create a new environment from our cowpy_env.yml, but we'll change 
+use `conda env create --file filename.yml`. We will create a new environment from our conda_tutorial_env.yml, but we'll change 
 the name of the environment:
 
 ```bash
-conda env create -n new_cow_env --file cowpy_env.yml
+conda env create -n cowpy_env --file conda_tutorial_env.yml
 ```
 
 List the existing conda environments to see our newly created environment, then deactivate the current environment
@@ -304,7 +306,7 @@ conda deactivate
 
 ### 3.11 Use a Conda environment in a script (Linux)
 
-To use a Conda environment from a shell script, you need to run the conda source script like you did in your *bashrc* 
+To use a Conda environment from a shell script, you need to run the conda source script like you did in your *.bashrc* 
 file (see [Installation step 3](conda_installation_guide.md#installation)). Then you will be able to activate the 
 environment you want from your script.
 
@@ -318,7 +320,7 @@ lines and name your script `cow_says_hello.sh`.
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Activate your environment
-conda activate new_cow_env
+conda activate cowpy_env
 
 cowpy "Hello from my script!"
 ```
