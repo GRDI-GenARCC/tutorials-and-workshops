@@ -81,6 +81,8 @@ Once you've installed Conda, you should update it to the latest version. You can
 conda update conda
 ```
 
+If you run into an HTTP error here, try running `source ~/miniconda3/etc/profile.d/conda.sh -u` and try again.
+
 You are now all set to start using Conda.
 
 <br>
