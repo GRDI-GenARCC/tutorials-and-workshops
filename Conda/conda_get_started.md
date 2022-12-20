@@ -15,7 +15,7 @@
 - Conda installed in a Linux terminal
   - An installation guide is available [here](/Conda/conda_installation_guide.md)
   - Installation on Windows is also possible, but some of the instructions in this tutorial may have to be adapted.
-- Conda-forge channel added to your conda configurations (see [Installation Guide](/Conda/conda_installation_guide.md#5-configure-conda) for details).
+- Conda-forge channel added to your conda configurations (see [Configure Conda](/Conda/conda_installation_guide.md#5-configure-conda) in the Installation Guide for details).
 
 <br>
 
@@ -46,7 +46,7 @@ isolated environments without worrying about dependencies and conflicting requir
 control to users over their Conda installation.
 - You can quickly install any version of a software without worrying about dependency conflicts with other software 
 and/or other users' configurations
-- You can have multiple environments. *e.g.* One for each of your projects or pipelines.
+- You can have multiple environments - one for each of your projects or pipelines.
 - You can easily export and import Conda environments from other users to replicate an environment.
 
 <br>
@@ -55,7 +55,7 @@ and/or other users' configurations
 
 Conda can be installed on all platforms (Windows, macOS, Linux), but most bioinformatics and data analysis packages are 
 only available on Linux and macOS. If you have a Windows computer we recommend using the Windows Subsystem for Linux 
-(WSL). See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more info. 
+(WSL). See [WSL Installation Guide](/WSL_Workshop/WSL_installation.md) for more information.
 [The Conda installation guide page](/Conda/conda_installation_guide.md) focuses on the Linux installation of Miniconda,
 but its installation and the usage is very similar for other platforms.
 
@@ -141,7 +141,7 @@ conda create -n my_first_env
 To search a package, you can search directly on [anaconda.org](https://anaconda.org/) and use the search bar to find 
 your package. The Anaconda search tool doesn't always find what you're looking for if you don't have the exact name of 
 the package. This is why **the best way to search for a package is to use your search engine**. 
-Simply look up `conda <your package name>` in your search engine, and the first result should be the page of the package
+Simply look up `conda <your package name>` in your search engine, and you should find the page of the package
 on [anaconda.org](https://anaconda.org/).
 
 Let's install the cowpy package in the environment you just created.
@@ -193,7 +193,7 @@ Now that the environment is active we can verify again where the cowpy package w
 which cowpy
 ```
 
-Now let's make use of our cowpy package
+Let's make use of our cowpy package
 
 ```bash
 # directly from the bash terminal
@@ -229,7 +229,7 @@ tree /gpfs/fs7/grdi/genarcc/tutorials/conda
 ### 3.7 Clone an environment
 
 A good practice is to use meaningful environment names. We did a poor job naming our first environment (my_first_env). 
-Let's duplicate and rename this environment to fix this.
+Let's fix this by duplicating and renaming this environment.
 
 ```bash
 # Clone the environment
@@ -350,6 +350,7 @@ chmod u+x cow_says_hello.sh
   - Create one environment for each pipeline/projects
 - Use meaningful names for your environments
 - Add your environment file (`.yml`) to your Git project. Your environment will change while you are working on your pipeline or project.
+- This workshop was a basic introduction to Conda. Visit the [Conda User guide](https://conda.io/projects/conda/en/latest/user-guide/index.html) to learn more about using Conda.
 
 <br>
 
