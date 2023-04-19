@@ -25,7 +25,7 @@ From there, depending on the cluster setup, you may have to connect to an intera
 </br>
 
 ---
-# 2. Seeing Directories
+# 2. Viewing Directories
 
 Once you have logged in, you will be in your home directory. You can see the directories in your home directory using the `ls` command:
 ```bash
