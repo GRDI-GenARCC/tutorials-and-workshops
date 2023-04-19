@@ -1,4 +1,3 @@
----
 title: "GenARCC turorial - Acquiring and inspecting projected geospatial climate data."
 author: "Cameron M. Nugent"
 date: "2023-04-01"
@@ -19,7 +18,6 @@ For tutorial purposes, here is the definition of a data frame with a series of 5
 location_df = data.frame(location = c("TR", "LBB", "SLR", "KED", "SHA"), 
                          lat = c(49.6,  47.2, 47.2, 47.91, 47.7 ), 
                          lon = c(-57.8, -54.0, -53.4, -67.91 , -54.4))
-
 #look at the data frame:
 location_df
 ```
@@ -33,167 +31,75 @@ Today we will be showing how to acquire a very simple set of contemporary and pr
 #install.packages("geodata") #uncomment and install on first use.
 library(geodata)
 
-#install.packages("raster")
-library(raster)
-
-#install.packages("tidyverse")
 library(tidyverse)
 
+#install.packages("raster")
+library(raster)
+#install.packages("tidyverse")
 ```
 
+### Downloading environmental data
 
-Tony now adding stuff here...
-
+Using these R packages, we're going to download raster images of the variables we are interested in, and then extract their values using some pre-written R tools.
+Let's set some variables for locations. Here's where we want data to be saved to:
 ```{r}
-
 #where we want the data to be saved to, default is "~" which is not always preferable:
 data_path = "/Users/KESST/Desktop/GenARCC/Meeting1/tutorialdata"
-
-bioclim_data <- worldclim_global(var = "bio",
-                                 res = 10,
-                                 path = data_path)
-
-
-
 ```
 
-### Future climate model data
-
-So what are these different download options available to us?
-The open source data we are downloading and using here are derived from [WorldClim](https://www.worldclim.org/data/cmip6/cmip6climate.html).
-
-Note that these are not the most detailed or high resolution climate projection data available. Other data source options, that may better fit your study system or research question, can be explored. The benefits of these data are their open source nature, ease of acquisition, and intreprability; these traits make them an ideal starting point for preliminary genotype-environment association analyses. We are using these here today to provide a simple starting point to demonstrate the programming and acquisition motifs.
-
-
-These future data are CMIP6 (Coupled Model Intercomparison Project Phase 6) down scaled future climate projections for four different Representative Concentration Pathways (RCPs), which describe different 21st century pathways of greenhouse gas (GHG) emissions, other air pollution, and land use. 
-
-
-### Selecting query variables 
-
-#### The model
-
-We are going to limit our query to a single model in the list: CanESM5. This is the Canadian Earth System Model version 5 (CanESM5), a global climate model developed to simulate climate change and variability. The number of available models is far larger than this and a comprehensive list is included below. You can do a bit of research to determine if a different model is more appropriate to you given research question (this falls outside the scope of today's tutorial).
-
-```{r}
-
-#model - Climate model abbreviation. One of: 
-#all_model_options = c("ACCESS-CM2", "ACCESS-ESM1-5", "AWI-CM-1-1-MR", "BCC-CSM2-MR", "CanESM5", "CanESM5-CanOE", "CMCC-ESM2", "CNRM-CM6-1", "CNRM-CM6-1-HR", "CNRM-ESM2-1", "EC-Earth3-Veg", "EC-Earth3-Veg-LR", "FIO-ESM-2-0", "GFDL-ESM4", "GISS-E2-1-G", "GISS-E2-1-H", "HadGEM3-GC31-LL", "INM-CM4-8", "INM-CM5-0", "IPSL-CM6A-LR", "MIROC-ES2L", "MIROC6", "MPI-ESM1-2-HR", "MPI-ESM1-2-LR", "MRI-ESM2-0", "UKESM1-0-LL")
-
-#Canadian models we'll use today
-models = c( "CanESM5") 
-```
-
-#### Shared Socio-economic Pathway 
-
-We will limit ourselves to the two most extreme pathways for today's tutorial, but the full list of download options is included below.
-
-```{r}
-# ssp	-  A valid Shared Socio-economic Pathway code: "126", "245", "370" or "585".
-#all_ssps = c("126", "245", "370", "585")
-
-ssps = c("126", "585")
-```
-
-
-#### Time period
-
-We then can select which time frame we want the projections for, here using just the most extreme times available.
-
-```{r}
-# time =  A valid time period. One of "2021-2040", "2041-2060", or "2061-2080"
-#all_time_periods = c( "2021-2040", "2041-2060", "2061-2080")
-
-time_periods = c("2021-2040", "2061-2080")
-
-```
-
-#### Resolution
-
-Note the finer the resolution the bigger the download size, so we are using the coarsest projections for this examples
+Now we set resolution of the downloaded climate data. Note the finer the resolution the bigger the download size, so we are using the coarsest projections for this example.
 ```{r}
 # res = Valid resolutions are 10, 5, 2.5 (minutes of a degree)
 res = 10
 ```
 
+#### Climate data from WorldClim
 
-### Generate a list of all the combinations
+So what are these different download options available to us?
+The open source data we are downloading and using here are derived from [WorldClim](https://www.worldclim.org/data/bioclim.html). 
 
-With the target sub set of model parameters selected, we now want to set up a data frame containing all of the permutations of parameters. This will let us iterate over the dataframe and conduct all the downloads, without needed to write out new download code for each climate scenario.
-
-The code below produces a data frame with 4 rows, each containing a different combination of model, time, ssp, and res. We can iteratively download and save all of these climate model variants for future use. 
-```{r}
-
-print("make a grid of all the different data combos we wish to acquire")
-climate_model_and_scenarios = expand.grid(model = models, 
-                                            time_period = time_periods, 
-                                            ssp = ssps, 
-                                            res = res)
-
-climate_model_and_scenarios
-```
+Note that these are not the most detailed or high resolution climate data available. Other data source options, that may better fit your study system or research question, can be explored. The benefits of these data are their open source nature, ease of acquisition, and intreprability; these traits make them an ideal starting point for preliminary genotype-environment association and genomic vulnerability analyses analyses and have been used in a number of studies. We are using these here today to provide a simple starting point to demonstrate the programming and acquisition motifs.
 
 
+#### Worldclim data download
 
-### Downloading the data
-
-Here is a long form example of the download process. We specify where we want the data to be saved to and then pull out the first row of parameter combinations from the data frame. The function `cimp6_world()` is then used to download the data.
+We can download data for BioClim, which is a set of pre-calculated biologically relevant climate variables, using the following function from the geodata R package.
 
 ```{r}
-#where we want the data to be saved to, default is "~" which is not always preferable:
-data_path = "/Users/KESST/Desktop/GenARCC/Meeting1/tutorialdata"
-
-i = 1 #use the data in row 1
-
-model = climate_model_and_scenarios$model[[i]]
-ssp = climate_model_and_scenarios$ssp[[i]]
-time = climate_model_and_scenarios$time_period[[i]]
-res=climate_model_and_scenarios$res[[i]]
-
-cimp6_selected_model = cmip6_world(model, ssp, time, var="bioc", res=res, path=data_path)
-#loading at the data
-cimp6_selected_model
-```
-Note that after the first time the data are queried, they will be downloaded to the specified path. As long as the path to the downloaded model is specified, future calls to `cmip6_world` will load the data from disk as opposed to re downloading it.
-
-
-### Extracting values for our locations
-```{r}
-worldclim_bio <- worldclim_global(var = "bio", res=res, path=data_path)
+bioclim_data <- worldclim_global(var = "bio",
+                                 res = 10,
+                                 path = data_path)
 ```
 
-Now that we have downloaded a model we can use it to obtain climate data for each of our sampling locations. To do this we are going to use the following function that takes a downloaded climate object and our data frame of sampling locations as inputs and creates a new data frame with the climate variables added to columns along with the existing data for our locations.
+Note that on first use, this data will be downloaded to your specified path. Subsequent calls will not require a download so long as this file exists there.
+
+#### Extracting variables for each site
+
+Now that we have downloaded raster data we can use it to obtain climate data for each of our sampling locations. To do this we are going to use the following function that takes a downloaded climate object and our data frame of sampling locations as inputs and creates a new data frame with the climate variables added to columns along with the existing data for our locations.
 
 ```{r}
 #' Build a data frame of all WorldClim data from the passed raster object 
 #' for the selected locations in the data frame
 #' location_df is a data frame with the columns: sampling_locations, lat, lon
-#' climate_obj is a raster returned from:
-#' bioclim = recursive.getData(times=c("pres", "CC6050", "CC6070")) 
-#' climate_obj = bioclim[["pres"]] #present data here in example
+#' climate_obj is a raster geodata
 #' 
 #' Returns the input data frame with the additional bio columns added.
 build_bio_df = function(location_df, climate_obj, lat_col = "lat", lon_col = "lon"){
-  #ly = "bio1"
-  #ly = "wc2_1"
-  #can process all the layers at once
   pos_lon_lat = as.matrix(location_df[,c(lon_col, lat_col)])
-  layer_dat = extract(climate_obj, pos_lon_lat)
+  layer_dat = raster::extract(climate_obj, pos_lon_lat) #raster::extract avoids pkg conflicts
   out_df = cbind(location_df, as_tibble(layer_dat))
   return(out_df)
 }
-
 ```
 
 Calling that function, we can move from a raster file with the spatial environmental variables, to a data frame with the relevant values for our sampling locations.
-```{r}
-climate_projected_df = build_bio_df(location_df, cimp6_selected_model)
 
-climate_current_df = build_bio_df(location_df, climate_obj = worldclim_bio)
+
+```{r}
+climate_current_df = build_bio_df(location_df, climate_obj = bioclim_data)
 ```
 
-The function returns a data frame `climate_df` which has our five example location names, latitudes, and longitudes as well as 19 new columns with our extracted environmental data for the locations.
-
-Each downloaded climate model contains 19 variables describing the locations for the given model, climate scenario, and time period.
+The function returns a data frame `climate_current_df` which has our five example location names, latitudes, and longitudes as well as 19 new columns with our extracted BioClim environmental data for the locations.
 
 These variables are:
 ```
@@ -218,13 +124,79 @@ bio18 = Precipitation of Warmest Quarter
 bio19 = Precipitation of Coldest Quarter
 ```
 
+### Future climate model data
+
+For genomic-vulnerability analyses, we will also need projected climate variables for our sites. These future data are CMIP6 (Coupled Model Intercomparison Project Phase 6) down scaled future climate projections for four different Representative Concentration Pathways (RCPs), which describe different 21st century pathways of greenhouse gas (GHG) emissions, other air pollution, and land use. 
+
+#### The model
+
+We are going to limit our query to a single model in the list: CanESM5. This is the Canadian Earth System Model version 5 (CanESM5), a global climate model developed to simulate climate change and variability. The number of available models is far larger than this and a comprehensive list is included below. You can do a bit of research to determine if a different model is more appropriate to you given research question (this falls outside the scope of today's tutorial).
+
+```{r}
+#model - Climate model abbreviation. One of: 
+#all_model_options = c("ACCESS-CM2", "ACCESS-ESM1-5", "AWI-CM-1-1-MR", "BCC-CSM2-MR", "CanESM5", "CanESM5-CanOE", "CMCC-ESM2", "CNRM-CM6-1", "CNRM-CM6-1-HR", "CNRM-ESM2-1", "EC-Earth3-Veg", "EC-Earth3-Veg-LR", "FIO-ESM-2-0", "GFDL-ESM4", "GISS-E2-1-G", "GISS-E2-1-H", "HadGEM3-GC31-LL", "INM-CM4-8", "INM-CM5-0", "IPSL-CM6A-LR", "MIROC-ES2L", "MIROC6", "MPI-ESM1-2-HR", "MPI-ESM1-2-LR", "MRI-ESM2-0", "UKESM1-0-LL")
+#Canadian models we'll use today
+models = c( "CanESM5") 
+```
+
+#### Shared Socio-economic Pathway 
+
+We will limit ourselves to the two most extreme pathways for today's tutorial, but the full list of download options is included below.
+
+```{r}
+# ssp	-  A valid Shared Socio-economic Pathway code: "126", "245", "370" or "585".
+#all_ssps = c("126", "245", "370", "585")
+ssps = c("126", "585")
+```
+
+#### Time period
+
+We then can select which time frame we want the projections for, here using just the most extreme times available.
+
+```{r}
+# time =  A valid time period. One of "2021-2040", "2041-2060", or "2061-2080"
+#all_time_periods = c( "2021-2040", "2041-2060", "2061-2080")
+time_periods = c("2021-2040", "2061-2080")
+```
+
+### Generate a list of all the combinations
+
+With the target subset of model parameters selected, we now want to set up a data frame containing all of the permutations of parameters. This will let us iterate over the dataframe and conduct all the downloads, without needed to write out new download code for each climate scenario.
+
+The code below produces a data frame with 4 rows, each containing a different combination of model, time, ssp, and res. We can iteratively download and save all of these climate model variants for future use. 
+```{r}
+print("make a grid of all the different data combos we wish to acquire")
+climate_model_and_scenarios = expand.grid(model = models, 
+                                            time_period = time_periods, 
+                                            ssp = ssps, 
+                                            res = res)
+climate_model_and_scenarios
+```
+
+
+### Downloading the data
+
+Here is a long form example of the download process. We specify where we want the data to be saved to and then pull out the first row of parameter combinations from the data frame. The function `cimp6_world()` is then used to download the data.
+
+```{r}
+#where we want the data to be saved to, default is "~" which is not always preferable:
+
+i = 1 #use the data in row 1
+model = climate_model_and_scenarios$model[[i]]
+ssp = climate_model_and_scenarios$ssp[[i]]
+time = climate_model_and_scenarios$time_period[[i]]
+res=climate_model_and_scenarios$res[[i]]
+cimp6_selected_model = cmip6_world(model, ssp, time, var="bioc", res=res, path=data_path)
+#loading at the data
+cimp6_selected_model
+```
+Note that just as with the worldclim_world function, after the first time the data are queried, they will be downloaded to the specified path. As long as the path to the downloaded model is specified, future calls to `cmip6_world` will load the data from disk as opposed to re-downloading it.
 
 ### Combining the pieces
 We have seen the different environmental model options available, how to download the spatial data, and how to extract the values for our points.
 
-Here we put this together in an iterative fashion, looping over the data frame of model combinations and downloading all the variations. This lets us generate a series of matching files with different values for the different scenarios. Note we present this code here, but it is not executed in the live demo so as to avoid downloading a large number of scenarios (which can take time).
+Here we put this together in an iterative fashion, looping over the data frame of model combinations and downloading all the variations. This lets us generate a series of matching files with different values for the different scenarios. 
 ```{r, eval=FALSE}
-
 for(i in 1:nrow(climate_model_and_scenarios)){
   #pull the set of variables from the data frame
   model = climate_model_and_scenarios$model[[i]]
@@ -238,5 +210,4 @@ for(i in 1:nrow(climate_model_and_scenarios)){
   fname =  paste0(data_path, model,"_", ssp, "_", time,"_bioclim_values.tsv")
   write_tsv(climate_df, fname)
 }
-
 ```
