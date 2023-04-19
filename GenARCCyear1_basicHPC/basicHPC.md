@@ -23,6 +23,7 @@ From there, depending on the cluster setup, you may have to connect to an intera
 **Note:** `ssh` has been included with the Windows operating system since Windows 7. If your operating system is older than Windows 7, you will need to use a third-party tool such as `Putty`.
 
 </br>
+</br>
 
 ---
 # 2. Viewing Directories
@@ -33,6 +34,7 @@ ls
 ```
 This will show you a list of directories in your home directory. If you have not set created any folders or files in this directory yet, the `ls` command will return nothing.
 
+</br>
 </br>
 
 ---
@@ -65,6 +67,7 @@ To go back to your home directory (within the GPSC only):
 ```bash
 cd
 ```
+</br>
 
 ## 3.2 Autocomplete
 
@@ -73,6 +76,8 @@ You can `autocomplete` a path, folder, or file name by pressing the `tab` key af
 1. If there are no other targets with the same starting characters, it will `autocomplete` the target name.
 1. If there are multiple targets with the same order of typed characters, it will `autocomplete` up to the point where the target names differ. Then, type a couple more characters and press `tab` again to fill the rest.
 1. If the target name does not exist, was typed out incorrectly, or there are multiple targets with the same order of typed characters provided but with different names, pressing `tab` will return nothing and a chiming sound might play indicating the `autocomplete` action cannot be performed.
+
+</br>
 
 ## 3.3 Making Directories
 
@@ -90,6 +95,7 @@ mkdir example/location/new_folder_name
 
 Remember that you can enclose paths in single quotes if the path has spaces in it. However, it is best to create folders with underscores `_` instead of spaces as it makes autocompleting much more user-friendly.
 
+</br>
 
 ## 3.4 Removing Directories
 
@@ -105,6 +111,7 @@ rm -r path/to/folder
 - **This will not delete the entire path.** It will only delete the last folder in the path text (i.e. `folder` in `path/to/folder`). 
 - The `-r` means "recursive" and will look through all subfolders within the specified directory and delete those contents too
 
+</br>
 </br>
 
 ---
@@ -126,6 +133,7 @@ You can also append text to this file by changing the `>` to `>>`
 ```bash
 echo 'This is a test' >> data.txt
 ```
+</br>
 
 ## 4.2 Deleting Specific Files
 
@@ -133,6 +141,7 @@ To delete a file, you can use the `rm` (remove) command:
 ```bash
 rm myfile.txt
 ``` 
+</br>
 
 ## 4.3 Editing Files
 
@@ -155,6 +164,7 @@ ctrl+x
 - `ctrl+o` means hold down the `ctrl` key on the keyboard and press the `o` key (also on the keyboard)
 - `<enter>` means press the enter/return key on the keyboard.
 
+</br>
 
 ## 4.4 Downloading Files
 
@@ -162,6 +172,7 @@ To download files from the internet, you can use the `wget` command. For example
 ```bash
 wget https://example.com/example.zip
 ```
+</br>
 
 ## 4.5 Uploading Data
 
@@ -205,6 +216,7 @@ put -r .
 - The `-r` will look through all subfolders within the specified directory
 - the `.` refers the the current directory when no specific file name is provided. 
 
+</br>
 
 ## 4.6 Retrieving Data
 
@@ -215,6 +227,7 @@ At this point, the only thing that changes is the key word `put` which is replac
 get path_to_file
 ```
 
+</br>
 </br>
 
 ---
@@ -235,7 +248,7 @@ Once you have installed mamba, you can use it to install software packages via B
 ```bash
 mamba install -c bioconda samtools
 ```
-
+</br>
 </br>
 
 ---
