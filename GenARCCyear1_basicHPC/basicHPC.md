@@ -194,8 +194,8 @@ If you did not navigate to the folder with your data on your local machine befor
 ```bash
 lcd C:\location_of_data
 ```
-- `lcd` means **local change directory**, indicating to `sftp` that you want to change the current working directory of your local machine. 
-- Note that you cannot use `tab` to perform autocomplete when using `sftp`
+- `lcd` means **local change directory**, indicating to `sftp` that you want to change the current directory of your local machine. 
+- Note that you **cannot** use `tab` to perform autocomplete when using `sftp`
 
 Then navigate to where on the cluster you would like the data to be stored. For example, if you have a folder called `test_data`:
 ```bash
