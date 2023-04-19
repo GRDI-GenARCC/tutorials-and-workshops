@@ -9,8 +9,12 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+### Downloading environmental data
 
-### The sample sites
+In this tutorial we're going to download raster images of climatic variables we are interested in, and then extract their values for sites of interest using some pre-written R tools.
+
+
+#### The sample sites
 For tutorial purposes, here is the definition of a data frame with a series of 5 locations in Atlantic Canada. This will keep the size of the example data in the tutorial small, but this approach can be scaled to any number of terrestrial sampling locations (e.g. the `location_df` could be any number of rows in length). For your own work, these data could be loaded from any format (most likely a .csv file or similar). The only mandatory thing is the presence of columns with latitude and longitude values.
 
 ```{r}
@@ -23,9 +27,9 @@ location_df
 ```
 
 
-### The package
+#### The packages
 
-Today we will be showing how to acquire a very simple set of contemporary and projected climate variables for these locations from open source data sets. We will do this using the  package `geodata`, which we load below. This is an open source package that simplifies query and interaction with the open source CIMP6 worldclim climate data. We also load the R packages `tidyverse` and `raster` for data cleaning and manipulation purposes.
+Today we will be showing how to acquire a very simple set of contemporary and projected climate variables for these locations from open source data sets. We will do this using the  package `geodata`, which we load below. This is an open source package that simplifies query and interaction with the open source CIMP6 worldclim climate data. We also load the R packages `tidyverse` for data cleaning and manipulation, and and `raster` for working with raster images from WorldClim databases.
 
 ```{r}
 #install.packages("geodata") #uncomment and install on first use.
@@ -38,9 +42,7 @@ library(raster)
 #install.packages("tidyverse")
 ```
 
-### Downloading environmental data
 
-Using these R packages, we're going to download raster images of the variables we are interested in, and then extract their values using some pre-written R tools.
 Let's set some variables for locations. Here's where we want data to be saved to:
 ```{r}
 #where we want the data to be saved to, default is "~" which is not always preferable:
@@ -58,7 +60,7 @@ res = 10
 So what are these different download options available to us?
 The open source data we are downloading and using here are derived from [WorldClim](https://www.worldclim.org/data/bioclim.html). 
 
-Note that these are not the most detailed or high resolution climate data available. Other data source options, that may better fit your study system or research question, can be explored. The benefits of these data are their open source nature, ease of acquisition, and intreprability; these traits make them an ideal starting point for preliminary genotype-environment association and genomic vulnerability analyses analyses and have been used in a number of studies. We are using these here today to provide a simple starting point to demonstrate the programming and acquisition motifs.
+Note that these are not the most detailed or high resolution climate data available. Other data source options, that may better fit your study system or research question, can be explored. The benefits of these data are their open source nature, ease of acquisition, and intrepretability; these values make them an ideal starting point for preliminary genotype-environment association and genomic vulnerability analyses analyses and have been used in a number of studies. We are using these here today to provide a simple starting point to demonstrate the programming and acquisition motifs.
 
 
 #### Worldclim data download
@@ -159,7 +161,7 @@ We then can select which time frame we want the projections for, here using just
 time_periods = c("2021-2040", "2061-2080")
 ```
 
-### Generate a list of all the combinations
+#### Generate a list of all the combinations
 
 With the target subset of model parameters selected, we now want to set up a data frame containing all of the permutations of parameters. This will let us iterate over the dataframe and conduct all the downloads, without needed to write out new download code for each climate scenario.
 
@@ -174,7 +176,7 @@ climate_model_and_scenarios
 ```
 
 
-### Downloading the data
+#### Downloading the data
 
 Here is a long form example of the download process. We specify where we want the data to be saved to and then pull out the first row of parameter combinations from the data frame. The function `cimp6_world()` is then used to download the data.
 
@@ -192,7 +194,7 @@ cimp6_selected_model
 ```
 Note that just as with the worldclim_world function, after the first time the data are queried, they will be downloaded to the specified path. As long as the path to the downloaded model is specified, future calls to `cmip6_world` will load the data from disk as opposed to re-downloading it.
 
-### Combining the pieces
+#### Combining the pieces
 We have seen the different environmental model options available, how to download the spatial data, and how to extract the values for our points.
 
 Here we put this together in an iterative fashion, looping over the data frame of model combinations and downloading all the variations. This lets us generate a series of matching files with different values for the different scenarios. 
