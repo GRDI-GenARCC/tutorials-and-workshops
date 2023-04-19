@@ -1,14 +1,6 @@
 title: "GenARCC turorial - Acquiring and inspecting projected geospatial climate data."
 author: "Cameron M. Nugent"
-date: "2023-04-01"
-modification: "Tony Kess"
-date: "2023-04-18"
-output: rmarkdown::html_vignette #switch to pdf_document #if you want to make the pdf via knit #
-vignette: >
-  %\VignetteIndexEntry{geospatial climate data}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
+edited by: "Tony Kess"
 
 ### The sample sites
 For tutorial purposes, here is the definition of a data frame with a series of 5 locations in Atlantic Canada. This will keep the size of the example data in the tutorial small, but this approach can be scaled to any number of terrestrial sampling locations (e.g. the `location_df` could be any number of rows in length). For your own work, these data could be loaded from any format (most likely a .csv file or similar). The only mandatory thing is the presence of columns with latitude and longitude values.
