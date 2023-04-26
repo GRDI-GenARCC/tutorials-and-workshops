@@ -95,6 +95,10 @@ mkdir example/location/new_folder_name
 
 Remember that you can enclose paths in single quotes if the path has spaces in it. However, it is best to create folders with underscores `_` instead of spaces as it makes autocompleting much more user-friendly.
 
+Here we will make a directory for a reference genome:
+```
+mkdir genome
+```
 
 
 ## 3.4 Removing Directories
@@ -232,8 +236,8 @@ get path_to_file
 
 ---
 # 5. Using Mamba to Install Software via Bioconda
-
-This will need Anaconda or miniconda to perform. More information on installing miniconda can be found here https://github.com/GRDI-GenARCC/tutorials-and-workshops/blob/main/Conda/conda_installation_guide.md
+Mamba is a version of the package management tool conda
+More information on installing miniconda can be found here https://github.com/GRDI-GenARCC/tutorials-and-workshops/blob/main/Conda/conda_installation_guide.md
 
 Mamba is a package manager that allows you to install and manage software packages in an HPC system. To use mamba to install software via Bioconda, you need to first install mamba.
 
