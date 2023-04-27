@@ -209,8 +209,8 @@ scp username@address/location/File ./
 
 ---
 # 5. Using Mamba to Install Software via Bioconda
-(Mamba)[https://github.com/mamba-org/mamba] is a fast and parallel implementation of the package management tool (conda)[https://docs.conda.io/projects/conda/en/stable/#]
-More information on installing conda can be found here https://github.com/GRDI-GenARCC/tutorials-and-workshops/blob/main/Conda/conda_installation_guide.md
+[Mamba](https://github.com/mamba-org/mamba) is a fast and parallel implementation of the package management tool [conda](https://docs.conda.io/projects/conda/en/stable/#)
+More information on installing conda can be found [here](https://github.com/GRDI-GenARCC/tutorials-and-workshops/blob/main/Conda/conda_installation_guide.md)
 
 Mamba is a package manager that allows you to install and manage software packages in an HPC system. To use mamba to install software via Bioconda, you need to first install mamba.
 
