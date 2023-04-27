@@ -176,16 +176,18 @@ To download files from the internet, you can use the `wget` command. For example
 ```bash
 wget https://example.com/example.zip
 ```
+Another option here is [curl](https://developer.ibm.com/articles/what-is-curl-command/). We will use this command to download a reference genome in the genomes folder.
 
+```
 
 ## 4.5 Uploading Data
 
-To upload data to the cluster from your local windows machine, you can use `sftp`. To do so, open a fresh terminal session on your local windows system and perform the following commands:
+To upload data to the cluster from your local windows machine, you can use `scp`. To do so, open a fresh terminal session on your local windows system and perform the following commands:
 
 ```bash
-sftp username@address
+scp File username@address/location
 ```
-- Replace `username` with your cluster account name and `address` with the address of the cluster.
+- Replace `username` with your cluster account name, `address` with the address of the cluster, and `location` with a location within the HPC file system.
 
 You will see the following prompt appear. Enter the password associated with your cluster account. 
 
@@ -194,41 +196,13 @@ You will see the following prompt appear. Enter the password associated with you
 user@address password:
 ```
 
-If you did not navigate to the folder with your data on your local machine before running the `sftp` command, you can use the `lcd` command after starting the `sftp` session. 
-```bash
-lcd C:\location_of_data
-```
-- `lcd` means **local change directory**, indicating to `sftp` that you want to change the current directory of your local machine. 
-- Note that you **cannot** use `tab` to perform autocomplete when using `sftp`
-
-Then navigate to where on the cluster you would like the data to be stored. For example, if you have a folder called `test_data`:
-```bash
-cd test_data
-```
-- Here, `cd` is telling the `sftp` session to **change directories** to the location you specify on the cluster.
-
-To begin the file selection and transfer process:
-```bash
-put path_to_file
-```
-- `path_to_file` can just be the file name if the file exists at the same level as the current directory
-
-If you want to send to the cluster all files, folders, and the contents of all subfolders within your current local directory, you can simply type: 
-```bash
-put -r .
-```
-- The `-r` will look through all subfolders within the specified directory
-- the `.` refers the the current directory when no specific file name is provided. 
-
-
-
 ## 4.6 Retrieving Data
 
-To retrieve information from the cluster back onto your local machine, follow the same `sftp` login command and directory changing process as described in "Uploading Data". You will navigate to where the data is located on the cluster and to where on your local system you would like the data to be stored.
+To retrieve information from the cluster back onto your local machine, follow the same `scp` login command and directory changing process as described in "Uploading Data". You will specify where the data is located on the cluster and to where on your local system you would like the data to be stored.
 
-At this point, the only thing that changes is the key word `put` which is replaced with `get`:
+At this point, the only thing that changes is the order of commands:
 ```bash
-get path_to_file
+scp username@address/location/File ./
 ```
 
 
