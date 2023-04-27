@@ -20,7 +20,7 @@ username@address's password:
 ```
 From there, depending on the cluster setup, you may have to connect to an interactive container
 
-**Note:** `ssh` has been included with the Windows operating system since Windows 7. If your operating system is older than Windows 7, you will need to use a third-party tool such as `Putty`.
+**Note:** `ssh` has been included with the Windows operating system since Windows 7. If your operating system is older than Windows 7, you will need to use a third-party tool such as [Putty](https://www.putty.org/).
 
 
 </br>
