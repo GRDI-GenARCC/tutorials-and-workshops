@@ -168,8 +168,6 @@ ctrl+x
 - `ctrl+o` means hold down the `ctrl` key on the keyboard and press the `o` key (also on the keyboard)
 - `<enter>` means press the enter/return key on the keyboard.
 
-
-
 ## 4.4 Downloading Files
 
 To download files from the internet, you can use the `wget` command. For example, to download a file called `example.zip`, use the following command:
@@ -205,13 +203,12 @@ At this point, the only thing that changes is the order of commands:
 scp username@address/location/File ./
 ```
 
-
 </br>
 
 ---
 # 5. Using Mamba to Install Software via Bioconda
-Mamba is a version of the package management tool conda
-More information on installing miniconda can be found here https://github.com/GRDI-GenARCC/tutorials-and-workshops/blob/main/Conda/conda_installation_guide.md
+(Mamba)[https://github.com/mamba-org/mamba] is a fast and parallel implementation of the package management tool (conda)[https://docs.conda.io/projects/conda/en/stable/#]
+More information on installing conda can be found here https://github.com/GRDI-GenARCC/tutorials-and-workshops/blob/main/Conda/conda_installation_guide.md
 
 Mamba is a package manager that allows you to install and manage software packages in an HPC system. To use mamba to install software via Bioconda, you need to first install mamba.
 
@@ -221,10 +218,22 @@ You can install mamba using the following command:
 conda install mamba -c conda-forge
 ```
 
-Once you have installed mamba, you can use it to install software packages via Bioconda. For example, to install a package called `samtools`, use the following command:
+Alternatively, you can download from conda-forge directly:
 
 ```bash
-mamba install -c bioconda samtools
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
+```
+
+Now we activate and install:
+```bash
+chmod +x Mambaforge-Linux-x86_64.sh
+./Mambaforge-Linux-x86_64.sh
+```
+
+Once you have installed mamba, you can use it to create environments and install software packages via Bioconda (or any other conda channel). For example, to install a package called `samtools` in an environment called "align", use the following command:
+
+```bash
+mamba create -n align samtools -c bioconda 
 ```
 
 </br>
