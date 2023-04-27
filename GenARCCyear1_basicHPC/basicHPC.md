@@ -177,6 +177,8 @@ wget https://example.com/example.zip
 Another option here is [curl](https://developer.ibm.com/articles/what-is-curl-command/). We will use this command to download a reference genome in the genomes folder.
 
 ```
+curl -OJX GET "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_000233375.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCF_000233375.1.zip" -H "Accept: application/zip"
+```
 
 ## 4.5 Uploading Data
 
