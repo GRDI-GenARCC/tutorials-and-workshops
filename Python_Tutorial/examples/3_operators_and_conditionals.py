@@ -28,9 +28,9 @@ print("\n----- Logical -----")
 x = 5
 y = 10
 
-print(x > 0 and y < 20)     # Output: True
-print(x > 0 or y < 5)       # Output: True
-print(not(x > 0 and y < 5))  # Output: True
+print((x > 0) and (y < 20))     # Output: True
+print((x > 0) or (y < 5))       # Output: True
+print(not((x > 0) or (y < 5)))  # Output: False
 
 
 # if statements

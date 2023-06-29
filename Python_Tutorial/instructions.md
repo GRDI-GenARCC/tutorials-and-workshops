@@ -202,9 +202,9 @@ In this section, we will cover different types of operators and how to use them 
     x = 5
     y = 10
 
-    print(x > 0 and y < 20)     # Output: True
-    print(x > 0 or y < 5)       # Output: True
-    print(not(x > 0 and y < 5))  # Output: True
+    print((x > 0) and (y < 20))     # Output: True
+    print((x > 0) or (y < 5))       # Output: True
+    print(not((x > 0) or (y < 5)))  # Output: False
     ```
 
 
@@ -388,12 +388,12 @@ In this section, we will cover lists, tuples, dictionaries, sets, and slices.
     - You can also retrieve an element by indexing backwards through the list using a negative index value. This can be useful if you expect the list size to grow in the future but you always want the last element of the list
     ```Python
     elements = [1, "a", 3, "hello", 5]
-    print(elements[0])  # Output: 1
-    print(elements[3])  # Output: hello
+    print(elements[0])   # Output: 1
+    print(elements[3])   # Output: hello
     print(elements[-2])  # Output: hello
 
     elements[0] = 6
-    print(elements[0])  # Output: 6
+    print(elements[0])   # Output: 6
     ```
     
 
@@ -422,14 +422,14 @@ In this section, we will cover lists, tuples, dictionaries, sets, and slices.
         multi_d_list = [ [ [1,2], [3,4] ], [ [5,6], [7,8] ] ] 
 
         # It can also be written like this to make it easier to follow:
-        multi_d_list = [    # opens the first outer list (layer 1)
-            [   # 1 of the 2 lists within the outer-most list 
-                [1,2], [3,4]    # each of these 2 lists are considered the 3rd layer
-            ],    # closes first list in outer-most list, comma = something follows
-            [     # 2nd of 2 list within the outer-most list 
-                [5,6], [7,8]    # these 2 lists are the 3rd layer of the 2nd list
-            ]   # closes the 2nd list
-        ]    # this closes off the first square bracket of the outer-most list
+        multi_d_list = [            # opens the first outer list (layer 1)
+            [                       # 1 of the 2 lists within the outer-most list 
+                [1,2], [3,4]        # each of these 2 lists are considered the 3rd layer
+            ],                      # closes first list in outer list, comma = something follows
+            [                       # 2nd of 2 list within the outer-most list 
+                [5,6], [7,8]        # these 2 lists are the 3rd layer of the 2nd list
+            ]                       # closes the 2nd list
+        ]                           # closes off the first square bracket of outer list
 
         print(multi_d_list[1][1][0]) # output: 7
         ```
