@@ -26,10 +26,10 @@ Today we will be showing how to acquire a very simple set of contemporary and pr
 ```
 #install.packages("geodata") #uncomment and install on first use.
 library(geodata)
+#install.packages("tidyverse")
 library(tidyverse)
 #install.packages("raster")
 library(raster)
-#install.packages("tidyverse")
 ```
 
 

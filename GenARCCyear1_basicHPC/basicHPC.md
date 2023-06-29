@@ -20,7 +20,7 @@ username@address's password:
 ```
 From there, depending on the cluster setup, you may have to connect to an interactive container
 
-**Note:** `ssh` has been included with the Windows operating system since Windows 7. If your operating system is older than Windows 7, you will need to use a third-party tool such as `Putty`.
+**Note:** `ssh` has been included with the Windows operating system since Windows 7. If your operating system is older than Windows 7, you will need to use a third-party tool such as [Putty](https://www.putty.org/).
 
 
 </br>
@@ -95,6 +95,10 @@ mkdir example/location/new_folder_name
 
 Remember that you can enclose paths in single quotes if the path has spaces in it. However, it is best to create folders with underscores `_` instead of spaces as it makes autocompleting much more user-friendly.
 
+Here we will make a directory for a reference genome:
+```
+mkdir genome
+```
 
 
 ## 3.4 Removing Directories
@@ -164,24 +168,26 @@ ctrl+x
 - `ctrl+o` means hold down the `ctrl` key on the keyboard and press the `o` key (also on the keyboard)
 - `<enter>` means press the enter/return key on the keyboard.
 
-
-
 ## 4.4 Downloading Files
 
 To download files from the internet, you can use the `wget` command. For example, to download a file called `example.zip`, use the following command:
 ```bash
 wget https://example.com/example.zip
 ```
+Another option here is [curl](https://developer.ibm.com/articles/what-is-curl-command/). We will use this command to download a reference genome in the genomes folder.
 
+```
+curl -OJX GET "https://api.ncbi.nlm.nih.gov/datasets/v2alpha/genome/accession/GCF_000233375.1/download?include_annotation_type=GENOME_FASTA,GENOME_GFF,RNA_FASTA,CDS_FASTA,PROT_FASTA,SEQUENCE_REPORT&filename=GCF_000233375.1.zip" -H "Accept: application/zip"
+```
 
 ## 4.5 Uploading Data
 
-To upload data to the cluster from your local windows machine, you can use `sftp`. To do so, open a fresh terminal session on your local windows system and perform the following commands:
+To upload data to the cluster from your local windows machine, you can use `scp`. To do so, open a fresh terminal session on your local windows system and perform the following commands:
 
 ```bash
-sftp username@address
+scp File username@address/location
 ```
-- Replace `username` with your cluster account name and `address` with the address of the cluster.
+- Replace `username` with your cluster account name, `address` with the address of the cluster, and `location` with a location within the HPC file system.
 
 You will see the following prompt appear. Enter the password associated with your cluster account. 
 
@@ -190,50 +196,21 @@ You will see the following prompt appear. Enter the password associated with you
 user@address password:
 ```
 
-If you did not navigate to the folder with your data on your local machine before running the `sftp` command, you can use the `lcd` command after starting the `sftp` session. 
-```bash
-lcd C:\location_of_data
-```
-- `lcd` means **local change directory**, indicating to `sftp` that you want to change the current directory of your local machine. 
-- Note that you **cannot** use `tab` to perform autocomplete when using `sftp`
-
-Then navigate to where on the cluster you would like the data to be stored. For example, if you have a folder called `test_data`:
-```bash
-cd test_data
-```
-- Here, `cd` is telling the `sftp` session to **change directories** to the location you specify on the cluster.
-
-To begin the file selection and transfer process:
-```bash
-put path_to_file
-```
-- `path_to_file` can just be the file name if the file exists at the same level as the current directory
-
-If you want to send to the cluster all files, folders, and the contents of all subfolders within your current local directory, you can simply type: 
-```bash
-put -r .
-```
-- The `-r` will look through all subfolders within the specified directory
-- the `.` refers the the current directory when no specific file name is provided. 
-
-
-
 ## 4.6 Retrieving Data
 
-To retrieve information from the cluster back onto your local machine, follow the same `sftp` login command and directory changing process as described in "Uploading Data". You will navigate to where the data is located on the cluster and to where on your local system you would like the data to be stored.
+To retrieve information from the cluster back onto your local machine, follow the same `scp` login command and directory changing process as described in "Uploading Data". You will specify where the data is located on the cluster and to where on your local system you would like the data to be stored.
 
-At this point, the only thing that changes is the key word `put` which is replaced with `get`:
+At this point, the only thing that changes is the order of commands:
 ```bash
-get path_to_file
+scp username@address/location/File ./
 ```
-
 
 </br>
 
 ---
 # 5. Using Mamba to Install Software via Bioconda
-
-This will need Anaconda or miniconda to perform. More information on installing miniconda can be found here https://github.com/GRDI-GenARCC/tutorials-and-workshops/blob/main/Conda/conda_installation_guide.md
+[Mamba](https://github.com/mamba-org/mamba) is a fast and parallel implementation of the package management tool [conda](https://docs.conda.io/projects/conda/en/stable/#)
+More information on installing conda can be found [here](https://github.com/GRDI-GenARCC/tutorials-and-workshops/blob/main/Conda/conda_installation_guide.md)
 
 Mamba is a package manager that allows you to install and manage software packages in an HPC system. To use mamba to install software via Bioconda, you need to first install mamba.
 
@@ -243,10 +220,22 @@ You can install mamba using the following command:
 conda install mamba -c conda-forge
 ```
 
-Once you have installed mamba, you can use it to install software packages via Bioconda. For example, to install a package called `samtools`, use the following command:
+Alternatively, you can download from conda-forge directly:
 
 ```bash
-mamba install -c bioconda samtools
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh
+```
+
+Now we activate and install:
+```bash
+chmod +x Mambaforge-Linux-x86_64.sh
+./Mambaforge-Linux-x86_64.sh
+```
+
+Once you have installed mamba, you can use it to create environments and install software packages via Bioconda (or any other conda channel). For example, to install a package called `samtools` in an environment called "align", use the following command:
+
+```bash
+mamba create -n align samtools -c bioconda 
 ```
 
 </br>
