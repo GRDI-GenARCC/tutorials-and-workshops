@@ -1,9 +1,9 @@
-###File formats
+### File formats
 Conversion of molecular information to computer and human interpretable information has necessitated the development of file formats for this data. The current field standard – the fastq format, traces back to a file format developed for the purpose aligning protein and nucleic acid sequence data, the [fasta format](). The fasta format provided two pieces of information: sequence name, and sequence. The fastq format improves on this by providing additional information on the quality of the inferred read.  An overview and history of the file format can be found (here)[].  
 Because most short read data generated currently is via Illumina sequencing, most tools are primarily geared towards dealing with this format, reviewed (here)
 []. T
 
-###Sequence quality assessment
+### Sequence quality assessment
 his information allows us to do a few useful things: assess data quality, remove low quality data, and incorporate variation in data quality into models used for inferring genotypes and alleles. This rest of this note will focus on the first two.
 During the generation of sequencing data, especially via any high-throughput sequencing method, some errors will exist in some reads. These errors exist at the level of individual bases, stretches of bases, and entire sequences. They can be introduced through DNA degradation, mysterious metabolites, sequencing error via machine or chemistry problems, or library preparation. We can use the tool FastQC to assess and visualize these problems.
 
