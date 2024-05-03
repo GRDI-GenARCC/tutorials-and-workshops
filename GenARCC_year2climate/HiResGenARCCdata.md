@@ -146,3 +146,29 @@ WorldClim4$Pinus2.y <- Pinus2$Lat[c$nn.index]
 head(WorldClim4)
 summary(WorldClim4)
 ```
+Merge both the dataset named “final” which contains the climate data with the longitude and latitude of the WorldClim dataset with the dataset named “WorldClim4” that contains both longitude and latitude of WorldClim and of our data points
+```
+PinusWorldClim=merge(final, WorldClim4, by.x=c("Long", "Lat"), by.y=c("Long", "Lat"), all.x=TRUE)
+head(PinusWorldClim)
+summary(PinusWorldClim)
+names(PinusWorldClim)[names(PinusWorldClim)=="Pinus2.x"] <- "LongitudePoints"
+names(PinusWorldClim)[names(PinusWorldClim)=="Pinus2.y"] <- "LatitudePoints"
+head(PinusWorldClim)
+```
+Now we can  graph the WorldClim points to see how far they are from your data points
+```
+g=ggplot(PinusWorldClim, aes(Long, Lat))
+g=g+geom_point(size=4)
+g=g+geom_point(color="red",size=2, aes(x=LongitudePoints,y=LatitudePoints))
+g
+```
+![image](https://github.com/GRDI-GenARCC/tutorials-and-workshops/assets/33424749/ed3d71ba-a2e8-4603-9124-9788af1c5e7a)
+
+## To subset for specific years
+Start by selecting a climate data file that contains the bioclimate variables per year. Then repeat all the above steps and you will obtain a climate dataset that contains the bioclimate variables per year at all your geographic coordinates, you can name that file “allClimate”.
+Now, reload your file with the geographic coordinates and the specific years for which you need climate data.
+Merge both the file containing all the climate data for all years with the file that contains the specific years you want. You can name that file “SpecificYear”.
+```
+Final=merge(allClimate, SpecificYear, by.x=c(“Year”), by.y=c((“Year”))
+```
+
