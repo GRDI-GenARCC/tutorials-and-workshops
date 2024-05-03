@@ -25,3 +25,28 @@ Here is the list of the files:
 - `WorldClim_BioClim_CanadaWide.csv` = All years from the WorldClim organization.
 
 ## R Libraries
+
+You will need the following R libraries:
+
+```R
+# knn functions
+library(spatialEco)
+library(RANN)
+library(FNN)
+
+# Handle geographic coordinate
+library(rgdal)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(sf)
+library(sp)
+
+# Data handling and reshaping
+library(tidyr)
+library(reshape2)
+
+# Graph
+library(ggplot2)
+library(ggspatial)
+library(ggsn)
+library(ggthemes)
