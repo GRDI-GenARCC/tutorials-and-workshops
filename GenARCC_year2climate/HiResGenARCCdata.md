@@ -54,7 +54,7 @@ library(ggthemes)
 
 ## Example Using the WorldClim Climate Data
 
-1. Read the WorldClim climate data.
+Read the WorldClim climate data.
 
 ```R
 WorldClim=read.csv("WorldClim_Bio_avg.csv", header=TRUE)
@@ -72,6 +72,7 @@ g
 ![image](https://github.com/GRDI-GenARCC/tutorials-and-workshops/assets/33424749/4421fcf9-0f36-4102-b9cb-d652493065e7)
 
 You will need to load the data three times with different names.
+```
 WorldClim2=read.csv("WorldClim_Bio_avg.csv", header=TRUE)
 head(WorldClim2)
 summary(WorldClim2)
@@ -79,10 +80,14 @@ summary(WorldClim2)
 WorldClim3=read.csv("WorldClim_Bio_avg.csv", header=TRUE)
 head(WorldClim3)
 summary(WorldClim3)
+```
 Find the closest points from a dataframe (your GPS coordinates) that match the bioclimate variables in the WorldClim dataset.
-# Transform the coordinates from the WorldClim dataset into geographic coordinates system
+Transform the coordinates from the WorldClim dataset into geographic coordinates system
+```
 coordinates(WorldClim) <- ~ Long + Lat
-
-# Store the coordinates in the “WorldClimGeo” object.
+```
+Store the coordinates in the “WorldClimGeo” object.
+```
 WorldClimGeo =coordinates(WorldClim)
 head(WorldClimGeo)
+```
