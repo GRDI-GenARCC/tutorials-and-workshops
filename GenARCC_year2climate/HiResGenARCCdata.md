@@ -137,3 +137,14 @@ length(Pinus$IID)
 Pinus2=subset(Pinus, select=c(3,2))
 head(Pinus2)
 ```
+Use the function below  to obtain a dataframe with four columns (the latitude and longitude of WorldClim and the Latitude and Longitude of your points).
+```
+c<-FNN::get.knnx(Pinus2,WorldClim4,k=1)
+```
+Obtain the matching points, however, this lists which of your point is closest to every point in the worldclim dataset.
+```
+WorldClim4$Pinus2.x <- Pinus2$Lon[c$nn.index]
+WorldClim4$Pinus2.y <- Pinus2$Lat[c$nn.index]
+head(WorldClim4)
+summary(WorldClim4)
+```
