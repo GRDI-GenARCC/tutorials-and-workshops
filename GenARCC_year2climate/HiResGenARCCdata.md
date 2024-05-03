@@ -50,3 +50,19 @@ library(ggplot2)
 library(ggspatial)
 library(ggsn)
 library(ggthemes)
+```
+
+## Example Using the WorldClim Climate Data
+
+1. Read the WorldClim climate data.
+
+```R
+WorldClim=read.csv("WorldClim_Bio_avg.csv", header=TRUE)
+head(WorldClim)
+tail(WorldClim)
+summary(WorldClim)
+Plot the data if you want to see it.
+g=ggplot(WorldClim, aes(Long, Lat))
+g=g+geom_point(aes(color=bio1))
+g
+```
