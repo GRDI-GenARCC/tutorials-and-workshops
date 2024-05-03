@@ -91,3 +91,31 @@ Store the coordinates in the “WorldClimGeo” object.
 WorldClimGeo =coordinates(WorldClim)
 head(WorldClimGeo)
 ```
+Load your dataset containing the geographic locations you want to obtain climate.
+
+```
+Pinus=read.table("Mahony2020_pinus_Geo.tsv", header=TRUE)
+head(Pinus)
+length(Pinus$IID)
+```
+Transform the coordinates stored in your file into coordinates belonging to a geographic system, and store the coordinates in the “PinusGeo” object.
+
+```
+coordinates(Pinus) <- ~ Lon + Lat
+PinusGeo=coordinates(Pinus)
+head(PinusGeo)
+str(PinusGeo)
+```
+Now we use the knn function to find the coordinates of the climate dataframe that is the closest (now stored in the “WorldClimGeo” object) to your data points that are now stored as the object named “PinusGeo”.
+
+```
+d=spatialEco::knn(PinusGeo, WorldClimGeo, k=1, indexes=TRUE)
+head(d)
+```
+We need to relate the values of the idx column to the climate dataset. However, we removed the latitude and longitude from the climate dataset since we transformed the coordinates for using the knn function. This is why we loaded the climate dataset twice with two different names.
+Now we find the locations and climate data of the closest cells to our points based on the dataframe name d
+```
+final=merge(WorldClim2, d, by.x=c("X"), by.y=c("idx1"), all.y=TRUE)
+head(final)
+```
+
