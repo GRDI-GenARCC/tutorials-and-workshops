@@ -1,5 +1,3 @@
-Sure, here is your tutorial in Git Markdown language:
-
 # How to Retrieve Climate Data at Your Sites from the Climate Data Gathered on the GPSC for the GenARCC Project
 
 ## Steps to Access the Climate Data
