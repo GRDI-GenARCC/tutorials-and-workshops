@@ -125,7 +125,7 @@ mean(final$dist1))
 This dataset named “final” contains the geographic coordinates of the WorldClim climate dataset, not of your data points.
 Use the third climate dataset that was loaded in the beginning and subsample it to get the geographic coordinates with longitude in the first column and latitude in the second column.
 
-``
+```
 WorldClim4=subset(WorldClim3, select=c(3,4))
 head(WorldClim4)
 ```
