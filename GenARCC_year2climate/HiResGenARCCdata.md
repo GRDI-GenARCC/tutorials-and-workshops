@@ -69,5 +69,20 @@ g=ggplot(WorldClim, aes(Long, Lat))
 g=g+geom_point(aes(color=bio1))
 g
 ```
-![image](https://github.com/GRDI-GenARCC/tutorials-and-workshops/assets/33424749/a8d0942c-852d-47c8-a276-85ac56d77d78)
+![image](https://github.com/GRDI-GenARCC/tutorials-and-workshops/assets/33424749/4421fcf9-0f36-4102-b9cb-d652493065e7)
 
+You will need to load the data three times with different names.
+WorldClim2=read.csv("WorldClim_Bio_avg.csv", header=TRUE)
+head(WorldClim2)
+summary(WorldClim2)
+
+WorldClim3=read.csv("WorldClim_Bio_avg.csv", header=TRUE)
+head(WorldClim3)
+summary(WorldClim3)
+Find the closest points from a dataframe (your GPS coordinates) that match the bioclimate variables in the WorldClim dataset.
+# Transform the coordinates from the WorldClim dataset into geographic coordinates system
+coordinates(WorldClim) <- ~ Long + Lat
+
+# Store the coordinates in the “WorldClimGeo” object.
+WorldClimGeo =coordinates(WorldClim)
+head(WorldClimGeo)
