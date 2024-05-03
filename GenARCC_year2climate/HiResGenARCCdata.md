@@ -66,3 +66,5 @@ g=ggplot(WorldClim, aes(Long, Lat))
 g=g+geom_point(aes(color=bio1))
 g
 ```
+![image](https://github.com/GRDI-GenARCC/tutorials-and-workshops/assets/33424749/a8d0942c-852d-47c8-a276-85ac56d77d78)
+
