@@ -113,9 +113,27 @@ d=spatialEco::knn(PinusGeo, WorldClimGeo, k=1, indexes=TRUE)
 head(d)
 ```
 We need to relate the values of the idx column to the climate dataset. However, we removed the latitude and longitude from the climate dataset since we transformed the coordinates for using the knn function. This is why we loaded the climate dataset twice with two different names.
-Now we find the locations and climate data of the closest cells to our points based on the dataframe name d
+Now we find the locations and climate data of the closest cells to our points based on the dataframe, d.
 ```
 final=merge(WorldClim2, d, by.x=c("X"), by.y=c("idx1"), all.y=TRUE)
 head(final)
 ```
+It is possible to calculate the distance between the geographic coordinates from the climate data of WorldClim and your points with:
+```
+mean(final$dist1))
+```
+This dataset named “final” contains the geographic coordinates of the WorldClim climate dataset, not of your data points.
+Use the third climate dataset that was loaded in the beginning and subsample it to get the geographic coordinates with longitude in the first column and latitude in the second column.
 
+``
+WorldClim4=subset(WorldClim3, select=c(3,4))
+head(WorldClim4)
+```
+Reload your data points, and subset your dataframe to only keep the longitude and latitude in this order
+```
+Pinus=read.table("Mahony2020_pinus_Geo.tsv", header=TRUE)
+head(Pinus)
+length(Pinus$IID)
+Pinus2=subset(Pinus, select=c(3,2))
+head(Pinus2)
+```
